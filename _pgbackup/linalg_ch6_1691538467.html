@@ -1,0 +1,208 @@
+<!doctype html>
+<html class="no-js" lang="en" style="font-family: 'Aboreto', cursive;">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Dallas Scott | Exercises | Linear Algebra: Theory, Intuition, Code - Chapter 3</title>
+        <link href="../../../web%20site/css/theme.css" rel="stylesheet" type="text/css">
+        <link href="../../../web%20site/css/theme.css" rel="stylesheet" type="text/css">
+        <link href="../../../web%20site/css/theme.css" rel="stylesheet" type="text/css">
+        <link href="../../../web%20site/css/theme.css" rel="stylesheet" type="text/css">
+        <link href="../../../web%20site/css/theme.css" rel="stylesheet" type="text/css">
+        <link href="../../../web%20site/css/theme.css" rel="stylesheet" type="text/css">
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/foundation.css"/>
+        <link rel="stylesheet" href="style.css"/>
+        <script src="js/vendor/modernizr.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aboreto&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiri&display=swap">
+    </head>
+    <body style="font-family: 'Amiri', serif; text-indent: 0px;">
+        <nav class="top-bar" data-topbar="" data-pg-ia="" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;" data-pgc="header"> 
+            <ul class="title-area"> 
+                <li class="name"> 
+                    <h1><a href="#" style="font-family: 'Aboreto', cursive; font-size: 26px; line-height: 49px;">DMS</a></h1> 
+                </li>                 
+                <li class="toggle-topbar menu-icon">
+                    <a href="#">Menu</a>
+                </li>                 
+            </ul>             
+            <section class="top-bar-section"> 
+                <!-- Right Nav Section -->                 
+                <ul class="right"> 
+                    <li class="active"></li>                     
+                    <li class="has-dropdown"> 
+                        <ul class="dropdown"> 
+                            <li>
+                                <a href="#">First link in dropdown</a>
+                            </li>                             
+                        </ul>                         
+                    </li>                     
+                </ul>                 
+                <!-- Left Nav Section -->                 
+                <ul class="left"> 
+                    <li>
+                        <a href="index.html" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;">About</a>
+                    </li>                     
+                </ul>                 
+                <ul class="left"> 
+                    <li>
+                        <a href="projects.html" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;">Projects</a>
+                    </li>                     
+                </ul>
+                <ul class="left"> 
+                    <li>
+                        <a href="drawings.html" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;">Drawings</a>
+                    </li>                     
+                </ul>
+                <ul class="left"> 
+                    <li>
+                        <a href="writings.html" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;">Writings</a>
+                    </li>                     
+                </ul>
+                <ul class="left"> 
+                    <li>
+                        <a href="exercises.html" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;">Exercises</a>
+                    </li>                     
+                </ul>
+                <ul class="left"> 
+                    <li></li>                     
+                </ul>
+                <ul class="left"> 
+                    <li>
+                        <a href="leetcode.html" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;">Leetcode</a>
+                    </li>                     
+                </ul>
+                <ul class="left"> 
+                    <li></li>                     
+                </ul>
+                <ul class="left"> 
+                    <li><a href="contact.html" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;">Contact</a>
+                    </li>                     
+                </ul>
+            </section>             
+        </nav>
+        <h6 style="font-family: 'Aboreto', cursive; margin: 25px;">exercises - Linear Algebra:&nbsp; Theory, Intuition, Code</h6>
+        <hr style="border: none; border-top: 4px dashed #b7b7b7; margin-left:25px; margin-right: 25px;">
+        <main style="display:grid;grid-template-columns:1fr;grid-template-rows:100%;grid-template-areas:'chapters'; margin-left: 5%; margin-right: 5%;margin-top: 4%;">
+            <div>
+                <section class="section" id="ch3" style="height:100%;">
+                    <h2 style="font-family: 'Aboreto', cursive; font-size: 16px;">Chapter 6 - matrix multiplication</h2>
+                    <div style="display: flex; width: 95%; margin-left: 2%; margin-top: 4%; background-image: url('media/grid.png'); border: 2px dotted #dec0c0;">
+                        <ol style="margin-left:4%; margin-top:2%">
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px; vertical-align: top;">
+                                <div style="display: inline-block; vertical-align: top;"> 
+                                    <img src="media/linalg/6_1i.png" style="height: 15%; width: 40%;">
+                                    <img src="media/linalg/6_1ii.png" style="height: 15%; width: 55%; vertical-align: top;"><br>
+                                    <hr style="position: absolute; left: 0; right: 0; width: 95%; border-top: 2px dotted #b7b7b7; border-left-style: none; border-right-style: none; border-bottom-style: none;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/6_2ab.png" style="height: 15%; width: 65%;">
+                                    <br>
+                                    <img src="media/linalg/6_2c.png" style="height: 15%; width: 65%;"><br>
+                                    <br>
+                                    <img src="media/linalg/6_2de.png" style="height: 15%; width: 65%;">
+                                    <img src="media/linalg/6_2fg.png" style="height: 15%; width: 65%;">
+                                    <br> 
+                                    <img src="media/linalg/6_2h.png" style="height: 15%; width: 65%;">
+                                    <br>
+                                    <br>
+                                    <img src="media/linalg/6_2i.png" style="height: 15%; width: 65%;">
+                                    <br>
+                                    <br>
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_3.png" style="height: 15%; width: 60%;">
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_4.png" style="height: 15%; width: 55%;">
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_5.png" style="height: 15%; width: 55%;">
+                                    <br>
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_6.png" style="height: 15%; width: 35%;">
+                                    <br>
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_7a.png" style="height: 15%; width: 60%;">
+                                    <br>
+                                    <br>
+                                    <img src="media/linalg/5_7b.png" style="height: 15%; width: 60%;">
+                                    <br>
+                                    <br>
+                                    <img src="media/linalg/5_7c.png" style="height: 15%; width: 50%;">
+                                    <br>
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_8a.png" style="height: 15%; width: 55%;">
+                                    <br>
+                                    <br>
+                                    <img src="media/linalg/5_8b.png" style="height: 15%; width: 55%;">
+                                    <br>
+                                    <br>
+                                    <img src="media/linalg/5_8c.png" style="height: 15%; width: 60%;">
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_9a.png" style="height: 15%; width: 55%;">
+                                    <br>
+                                    <br>
+                                    <img src="media/linalg/5_9b.png" style="height: 15%; width: 55%;">
+                                    <br>
+                                    <br>
+                                    <img src="media/linalg/5_9c.png" style="height: 15%; width: 60%;">
+                                    <hr style="position: absolute; left: 0; right: 0; width:95%; border: none; border-top: 2px dotted #b7b7b7;">
+                                </div>
+                            </li>
+                            <li style="position: relative; padding-bottom: 5%; padding-left: 10px;">
+                                <div style="display: inline-block; vertical-align: top;">
+                                    <img src="media/linalg/5_10i.png" style="height: 15%; width: 60%;">
+                                    <img src="media/linalg/5_10ii.png" style="height: 15%; width: 55%;"> 
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div width="95%" height="50%" style="margin-left: 2%; margin-right: 3%; margin-top: 5%;">
+                        <h6 style="font-family: 'Amiri', serif;">Code Challenge 5.1</h6>
+                        <iframe src="https://nbviewer.org/github/s-dallas/s-dallas.github.io/blob/main/media/linalg/5_1.ipynb" style="width: 100%; height: 500px"></iframe>
+                        <br>
+                        <br>
+                        <h6 style="font-family: 'Amiri', serif;">Code Challenge 5.2</h6>
+                        <iframe src="https://nbviewer.org/github/s-dallas/s-dallas.github.io/blob/main/media/linalg/5-2.ipynb" style="width: 100%; height: 500px"></iframe>
+                        <br>
+                        <br>
+                        <h6 style="font-family: 'Amiri', serif;">Code Challenge 5.3</h6>
+                        <iframe src="https://nbviewer.org/github/s-dallas/s-dallas.github.io/blob/main/media/linalg/5-3.ipynb" style="width: 100%; height: 500px"></iframe>                         
+                    </div>
+                </section>
+            </div>
+        </main><br>
+        <br>
+        <footer style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 26px; margin: 0px 12px; padding-bottom: 0px; font-family: 'Aboreto', cursive;">&copy;2023 Dallas Scott<a href="contact.html" style="text-align: right;">Contact</a>
+        </footer>
+    </body>
+</html>

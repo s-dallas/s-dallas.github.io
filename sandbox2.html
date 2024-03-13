@@ -13,6 +13,7 @@
         <script src="js/vendor/modernizr.js"></script>         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aboreto&display=swap"> 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiri&display=swap"> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/css/bootstrap.min.css" rel="stylesheet">        
     </head>     
     <body style="font-family: 'Amiri', serif; text-indent: 0px; margin-left: -1px;"> 
         <nav class="top-bar" data-topbar="" data-pg-ia="" style="font-family: 'Aboreto', cursive; background-color: #6e6d5a;" data-pgc="header"> 
@@ -80,14 +81,26 @@
         <script>
       $(document).foundation();
     </script>         
-        <figure style="margin-left: 5%; margin-top: 4%;" align="center"> 
+        <div style="margin-left: 45px; padding: 10px; margin-bottom: 15px;"><h5 style="font-family: 'Aboreto', cursive;">Collision Detection</h5></div>
+        <div style="margin-left: 75px;">
+            <video controls>
+                <source src="media/balls.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>         
+        </div>   
+        <div style="margin-top: 20px; margin-left: 75px; width: 40%">This models continuous collision detection and hybrid collision response via iterative impulse application and the geometric method using impact zones to prevent tunneling during collisions.  Programmed in C++.  The above clip displays particle-particle, particle-edge, and particle-halfplane collisions with gravitational and spring forces.
+        </div><br>
+    <hr class="my-4">
+    <div style="margin-left: 45px; padding: 10px; margin-bottom: 15px;"><h5 style="font-family: 'Aboreto', cursive;">Gravitational and Spring Forces</h5></div>
+    <div style="margin-left: 75px;">
             <video controls>
                 <source src="media/space.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>            
-            <figcaption>Modeling gravitational and spring forces</figcaption>             
-        </figure>                 
-        <footer style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 26px; margin: 47px 12px 0px; padding-bottom: 0px; font-family: 'Aboreto', cursive;">&copy;2023 Dallas Scott<a href="contact.html" style="text-align: right;">Contact</a> 
+            </div>   
+            <div style="margin-top: 20px; margin-left: 75px; width: 40%">Modeling gravitational and spring forces</div>
+            <br><br>
+        <footer style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 26px; margin: 47px 12px 0px; padding-bottom: 0px; font-family: 'Aboreto', cursive;">&copy;2024 Dallas Scott<a href="contact.html" style="text-align: right;">Contact</a>             
         </footer>         
     </body>     
 </html>

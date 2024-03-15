@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bellefair&family=Quattrocento:wght@400;700&family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        a {
+            text-decoration: none !important;
+            color: #343a40 !important;
+            font-weight: 400;
+        }
+
+
+        p::after {
+            content: "";
+            display: block;
+            margin-bottom: 2em;
+        }
+
+        .grayed-column {
+            position: relative;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .taviraj-thin {
+            font-family: "Taviraj", serif;
+            font-weight: 100;
+            font-style: normal;
+            letter-spacing: 5px;
+        }
+
+
+
+        .bellefair-regular {
+            font-family: "Bellefair", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .taviraj-extralight {
+            font-family: "Taviraj", serif;
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        .taviraj-light {
+            font-family: "Taviraj", serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .taviraj-regular {
+            font-family: "Taviraj", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .taviraj-medium {
+            font-family: "Taviraj", serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .taviraj-semibold {
+            font-family: "Taviraj", serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .taviraj-bold {
+            font-family: "Taviraj", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .taviraj-extrabold {
+            font-family: "Taviraj", serif;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        .taviraj-black {
+            font-family: "Taviraj", serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        .taviraj-thin-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        .taviraj-extralight-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        .taviraj-light-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .taviraj-regular-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .taviraj-medium-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .taviraj-semibold-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .taviraj-bold-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .taviraj-extrabold-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        .taviraj-black-italic {
+            font-family: "Taviraj", serif;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        @media (max-width: 576px) {
+            .no-margin {
+                margin: 0 !important;
+            }
+        }
+
+        .quattrocento-regular {
+            font-family: "Quattrocento", serif;
+            font-weight: 400;
+            font-size: 35px;
+            font-style: normal;
+        }
+
+        .quattrocento-bold {
+            font-family: "Quattrocento", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+
+        .grayed-column:hover .overlay {
+            opacity: 1;
+        }
+
+        .col-height {
+            padding-top: 100%;
+            /* Set the height based on the width */
+            position: relative;
+        }
+
+        .heading {
+            letter-spacing: 15px;
+            font-size: 28px;
+        }
+
+
+
+        @media (max-width: 576px) {
+            p {
+                letter-spacing: 3px;
+                font-size: 18px;
+                line-height: 1.5;
+                text-align: justify;
+            }
+
+            .typewrite.typewrite-sm {
+                font-size: 20px;
+                text-align: left;
+            }
+
+            .bord.bord-sm {
+                border-top: 1px solid gray;
+                border-left: 1px solid gray;
+                border-right: 1px solid gray;
+                border-bottom: none;
+            }
+
+            .heading.heading-sm {
+                letter-spacing: 6px;
+                font-size: 32px;
+            }
+
+            .subheading.subheading-lg {
+                letter-spacing: 6px;
+                font-size: 25px;
+            }
+
+            .col-height.col-height-sm {
+                padding-top: 75%;
+                position: relative;
+            }
+        }
+
+        @media (min-width: 768px) {
+            p {
+                letter-spacing: 4px;
+                font-size: 19px;
+                line-height: 2;
+                text-align: justify;
+            }
+
+            .typewrite.typewrite-md {
+                font-size: 22px;
+                text-align: left;
+            }
+
+
+            .heading.heading-md {
+                letter-spacing: 15px;
+                font-size: 40px;
+            }
+
+            .subheading.subheading-md {
+                letter-spacing: 10px;
+                font-size: 30px;
+            }
+
+            .col-height.col-height-md {
+                padding-top: 33%;
+                position: relative;
+            }
+        }
+
+        .fade-in {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 4s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .navbar-link {
+            font-size: 25px;
+        }
+
+
+        .fade-in:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .fade-in:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .fade-in:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .fade-in:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .fade-in:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .fade-in:nth-child(7) {
+            animation-delay: 0.6s;
+        }
+
+        .fade-in:nth-child(8) {
+            animation-delay: 0.7s;
+        }
+
+        .fade-in:nth-child(9) {
+            animation-delay: 0.8s;
+        }
+
+        .fade-in:nth-child(10) {
+            animation-delay: 0.9s;
+        }
+
+        .fade-in:nth-child(11) {
+            animation-delay: 1.0s;
+        }
+
+        .fade-in:nth-child(12) {
+            animation-delay: 1.1s;
+        }
+
+        .fade-in:nth-child(12) {
+            animation-delay: 1.1s;
+        }
+
+        .subheading {
+            font-size: 40px;
+        }
+
+        .bord {
+            border: 1px solid gray;
+        }
+
+        @media (min-width: 900px) {
+            p {
+                letter-spacing: 5px;
+                font-size: 25px;
+                line-height: 2.5;
+                text-align: justify;
+            }
+
+            p::after {
+                content: "";
+                display: block;
+                margin-bottom: 2em;
+            }
+
+            .col-height.col-height-lg {
+                padding-top: 25%;
+                position: relative;
+            }
+
+            .typewrite.typewrite-lg {
+                font-size: 32px;
+                text-align: left;
+            }
+
+            .heading.heading-lg {
+                letter-spacing: 25px;
+                font-size: 52px;
+            }
+
+            .subheading.subheading-lg {
+                letter-spacing: 15px;
+                font-size: 40px;
+            }
+
+
+        }
+
+        .fixed-height-anim {
+            background-image: url('media/balls.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-draw {
+            background-image: url('media/draw.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-write {
+            background-image: url('media/writing.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-phot {
+            height: 25vw;
+            background-image: url('media/snow_columbia.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-rend {
+            height: 25vw;
+            background-image: url('media/render.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-artf {
+            height: 25vw;
+            background-image: url('media/artfold.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-leet {
+            height: 25vw;
+            background-image: url('media/leetcode.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-exer {
+            height: 25vw;
+            background-image: url('media/exercises.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .fixed-height-visual {
+            height: 25vw;
+            background-image: url('media/visual.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .typewrite {
+            font-size: 25px;
+        }
+
+        #typewriter {
+            margin: 0;
+
+            &:after {
+                content: "|";
+                animation: blink 500ms linear infinite alternate;
+            }
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            /* Use flex to center content */
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            /* Set initial opacity to 0 to hide the overlay */
+        }
+
+        .content {
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand taviraj-thin-italic heading" href="index.html">dS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="index.html">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="projects.html">Projects</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="writings.html">Writings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="drawings.html">Drawings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="sandbox.html">Renders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="sandbox2.html">Animation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="exercises.html">Exercises</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="leetcode.html">Leetcode</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bellefair-regular ml-5 navbar-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div
+                class="col-md-12 col-lg-11 col-11 ml-5 mr-5 mt-5 mb-2 taviraj-thin-italic heading heading-md heading-lg heading-sm pl-5 p-4 text-center">
+                <span class="fade-in">W</span>
+                <span class="fade-in">r</span>
+                <span class="fade-in">i</span>
+                <span class="fade-in">t</span>
+                <span class="fade-in">i</span>
+                <span class="fade-in">n</span>
+                <span class="fade-in">g</span>
+                <span class="fade-in">s</span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div
+                class="col-md-12 col-lg-11 col-11  ml-5 mr-5 mt-5 taviraj-light-italic taviraj-thin-italic subheading subheading-lg subheading-md subheading-sm pl-5 p-4 text-center">
+                Circle X: A Reasonable Excess</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-11 col-11  ml-5 mr-5 mb-5 taviraj-thin h4 text-center">
+                Dallas Scott</div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col bellefair-regular bg-light p-5 border text-justify">
+                <div class="clearfix">
+                    <img src="media/dante.png" class="col-md-5 w-100 rounded float-left mr-4" alt="Circle X">
+                    <p class="d-inline">There now came into view the indistinct shape of some grand structure, greater
+                        in extent than even
+                        the largest of mountains back in the realm of the living. As we descended, this monumental
+                        edifice
+                        began to take on the texture of a large beehive or wicker basket of some sort, and from it
+                        emanated
+                        a faint but steady drone which played more loudly upon our ears the nearer we approached. “After
+                        such frightful visions, what could this earthen heap portend?” I asked my guide. “What souls
+                        dwell
+                        within this great gray hollow? It is the hum of some great activity, but listen—it repeats
+                        itself.”</p>
+
+                    <p class="d-inline">At this, my guide turned to me and, grasping my cloak at both ends, did wrap it
+                        about my body. “Take
+                        care to cover yourself before we enter,” he instructed me. “The souls you shall see here are
+                        keen of
+                        vision. They see everything and nothing. If you are not mindful, they will entangle you in their
+                        proddings until your soul become the stuff of these great walls we now breach.” I did as he bade
+                        me,
+                        wrapping myself tightly, as though a pupa in its cocoon, which was quite befitting for this
+                        great
+                        nest we now encroached upon.</p>
+
+                    <p class="d-inline">So great was the extent of the interior that we walked for some time, many hours
+                        it did seem, before
+                        encountering any distinct feature of its structure. The buzz of activity was that of a great
+                        chorus,
+                        perfectly synchronized. It would proceed for some time in a sequence of pitches, stop briefly,
+                        and
+                        then play itself again in the selfsame sequence and for the same duration, which I counted out
+                        in my
+                        footsteps.</p>
+
+                    <p class="d-inline">After much time walking without encountering a single soul, I turned to my
+                        guide: “O great poet,
+                        what is this strange music we keep step to? Where are the souls to be found in these depths? I
+                        feel
+                        the presence of some force which guides us upon a fixed track, but none is to be seen.” At this,
+                        he
+                        motioned toward one of the walls which had now come into view. “See for yourself the ones who
+                        have
+                        built this great dome,” he said in reply.</p>
+
+                    <p class="d-inline">As I drew nearer to the wall, what I saw both astonished and frightened me. The
+                        wall, which I had
+                        thought to be made of some straw or other earthen fare, was in fact a great mass of individual
+                        receptacles, hexagonal in shape. Within each of these was a soul so misshapen, so unnatural that
+                        I
+                        could not at first recognize it as such. Each had a hunched form, knotted, roped, sprawled about
+                        in
+                        all directions but with a trajectory that was always parabolic and convex, always pointed
+                        downward.
+                        Fixed within this melted tangle of flesh were two large eyes, unblinking, alert, watchful,
+                        studious
+                        from the front, bandaged and bleeding from the back.</p>
+
+                    <p class="d-inline">From one side of the receptacle, the soul would gaze at some object, slowly
+                        extending two long
+                        fingers from its deformed mass, prodding and patching at the wall with great confidence and
+                        precision, before moving on to another part of the cell, where the strange ritual was repeated.
+                        Perhaps inspired by the tenor of those great white eyes, the hypnotic droning that echoed inside
+                        this capacious hive, I felt myself obliged to take a closer look. To my surprise, the walls of
+                        these
+                        receptacles were made of no actual substance that I could discern but rather a series of numbers
+                        and
+                        geometrical shapes of varying sizes and forms. What deception! From a great distance, what
+                        seemed a
+                        grand palace built by some ancient tribe was indeed millions upon millions of numerals and
+                        abstract
+                        symbols being manipulated by these watchful souls.</p>
+
+                    <p class="d-inline">I had begun to address one of them when my guide interrupted: “I do not think it
+                        will be fruitful to
+                        tarry in this place for very long. These are souls who in life devoted themselves to what we
+                        call
+                        the sciences. They prided themselves on their rationality and so regimented their lives in
+                        pursuit
+                        of perfect order and ultimate knowledge of the universe. Chemists, engineers, mathematicians,
+                        geometers, astronomers, biologists. They built great structures, discovered new instruments, saw
+                        what their fellows could not, and concerned themselves not with the people or affairs of their
+                        time.
+                        They scoffed at the notion of the spirit, demonstrating with their works what they took to be
+                        the
+                        perfect, rational, machine-like provenance of the world. For their hubris, the souls which they
+                        hid
+                        from their own eyes in life have been boiled down, rearranged, recalculated, and reconfigured
+                        much
+                        as the matter they manipulated in that other place, until they do take the form which you now
+                        see
+                        before you.”</p>
+
+                    <p class="d-inline">This I could not believe. All these great minds, studious and so careful in
+                        conduct while living,
+                        condemned to this perpetual mechanical toil. How could it be so? My guide led me on to a part of
+                        the
+                        nest where some of the larger receptacles were located. In one did I see what seemed a round
+                        sphere
+                        of wizened flesh, wiry white hair protruding from it in all directions. This ball would begin in
+                        a
+                        stationary position at the top of its cell and then fall in a pattern which I recognized from my
+                        books as a schoolboy to be due to the gravitational forces which govern the other place, before
+                        coming to an abrupt stop, exploding in a bright flash, and then reconstituting itself to begin
+                        its
+                        fall anew.</p>
+
+                    <p class="d-inline">“The one you see before you was known as Einstein while living, whose
+                        investigations of energy and
+                        blind urgings in its use for the construction of weapons led to the incineration of hundreds of
+                        thousands of innocent souls,” my guide explained. So confounded by this, so contrary to all I
+                        had
+                        been taught about this great man, that I began to look about me for some reassurance that those
+                        who
+                        made knowledge their sole pursuit in life could not possibly end up in such a place.</p>
+
+                    <p class="d-inline">As I tried to regain my bearings, the droning which had by this point so taken
+                        over our natural
+                        rhythms as to become unnoticed now shifted to a high-pitched tone. It was here that I realized
+                        this
+                        new mechanical cacophony was coming from one of the souls in a neighboring receptacle, who it
+                        seemed
+                        did wish to speak to me.</p>
+
+                    <p class="d-inline">So tangled up in letters and symbols was this soul, I could not make out where
+                        to address him, but
+                        as I made an effort to do so, my guide once more interjected. “This one which beeps at you, do
+                        not
+                        pay him any heed, lest you be torn between aughts and naughts. This was Turing, the father of
+                        the
+                        modern computer system, a man who paid more care to ones and zeros than to the salvation of his
+                        own
+                        soul. His great focus and precision in thought changed the way men see themselves, giving them a
+                        machine which would put all manner of vice and evil before their eyes, turning them inward into
+                        themselves and away from the regard of their fellows. His tinkering allowed rumor and hearsay to
+                        spread faster than he whom the Greeks call Hermes could run, creating great misery and sorrow
+                        for
+                        many. For this, he is now condemned here to forever tangle and untangle himself in a mass of the
+                        coded language which so preoccupied him and those who came after him in life.”</p>
+
+                    <p class="d-inline">O, what treachery was this. That great invention, the computer, that we had so
+                        believed to be the
+                        beginning of a new and great era—how could it be known the path you led to was here? Rather than
+                        to
+                        have my thoughts forever flipped in this fashion, I wished to leave this place, but my guide
+                        wished
+                        to show me one more of the wretched souls in this den of tedium.</p>
+
+                    <p class="d-inline">>As we made our way toward her receptacle, there was a sudden loud caw. At once,
+                        the southern wall of
+                        the hive was ripped away by the beak of a large crow, on whose head were a collection of souls,
+                        disheveled but lively, all completely nude, some dancing strange dances, others connected in
+                        frenzied coitus, some twitching about wounded limbs that were covered in leeches, others
+                        speaking in
+                        tongues with stakes of fire in their throats. Such was the energy of this collection of souls
+                        that
+                        the crow’s head began to sink in from the weight of all the activity. On the right wing of the
+                        crow
+                        were thousands of child souls, whose flesh was scorched and with tumorous growths in many
+                        places. On
+                        the left wing, some of the souls from the seventh circle who had taken their own lives, wailing
+                        recriminations against themselves.</p>
+
+                    <p class="d-inline">The sudden rupture into this ordered space of the giant bird and these foreign
+                        souls set me and my
+                        guide upon our backsides, from which recumbent positions we looked at the breach in the wall.
+                        All
+                        along the edges, and dangling from the tip of that great curvaceous beak, the souls of those
+                        studious men did not stir an ounce. They fixed the white of their eyes upon their repetitious
+                        tasks,
+                        bodies always bent in a downward curve, keeping the bandaged backsides to the commotion going on
+                        all
+                        about them. So strange was this juxtaposition, of the haphazard and routine, the living and
+                        dead, it
+                        did seem to me that we had left the dark place and entered into a strange land. My guide,
+                        however,
+                        accustomed to such fare, picked himself up and, brushing the dust from his robes, helped me to
+                        my
+                        feet, whence we proceeded through the breach, the drone of those learned souls following after
+                        us.</p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-6 p-4 taviraj-thin">
+                    <p>©2024 Dallas Scott</p>
+                </div>
+                <div class="col-md-6 col-6 p-4 taviraj-thin">
+                    <p class="text-right"><a href="contact.html">Contact</a></p>
+                </div>
+            </div>
+    </footer>
+    <!-- Your content here -->
+
+    <!-- Bootstrap JS and dependencies -->
+    <script>
+        function setupTypewriter(t) {
+            var HTML = t.innerHTML;
+
+            t.innerHTML = "";
+
+            var cursorPosition = 0,
+                tag = "",
+                writingTag = false,
+                tagOpen = false,
+                typeSpeed = 100,
+                tempTypeSpeed = 0;
+
+            var type = function () {
+
+                if (writingTag === true) {
+                    tag += HTML[cursorPosition];
+                }
+
+                if (HTML[cursorPosition] === "<") {
+                    tempTypeSpeed = 0;
+                    if (tagOpen) {
+                        tagOpen = false;
+                        writingTag = true;
+                    } else {
+                        tag = "";
+                        tagOpen = true;
+                        writingTag = true;
+                        tag += HTML[cursorPosition];
+                    }
+                }
+                if (!writingTag && tagOpen) {
+                    tag.innerHTML += HTML[cursorPosition];
+                }
+                if (!writingTag && !tagOpen) {
+                    if (HTML[cursorPosition] === " ") {
+                        tempTypeSpeed = 0;
+                    }
+                    else {
+                        tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+                    }
+                    t.innerHTML += HTML[cursorPosition];
+                }
+                if (writingTag === true && HTML[cursorPosition] === ">") {
+                    tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+                    writingTag = false;
+                    if (tagOpen) {
+                        var newSpan = document.createElement("span");
+                        t.appendChild(newSpan);
+                        newSpan.innerHTML = tag;
+                        tag = newSpan.firstChild;
+                    }
+                }
+
+                cursorPosition += 1;
+                if (cursorPosition < HTML.length) {
+                    setTimeout(type, tempTypeSpeed);
+                }
+
+            };
+
+
+
+            return {
+                type: type
+            };
+        }
+
+        var typewriters = document.querySelectorAll('#typewriter');
+
+
+        typewriters.forEach(function (typewriter) {
+            typewriter = setupTypewriter(typewriter);
+
+
+
+            typewriter.type();
+
+
+
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+.container-fluid {
+  border: 25px solid black;
+}
+
+.container {
+  border: 10px solid gray;
+  height: 80vh;
+  width: 80vw;
+}
+
+.sedan-regular {
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.paper-box {
+  background-color: #f5f5dc;
+  /* Cream color */
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  /* Drop shadow */
+  line-height: 1.5;
+}
+
+.white-paper-box {
+  background-color: #FFF;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+}
+
+.sedan-regular-italic {
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+p {
+  line-height: 2.5;
+  text-indent: 30px;
+}
+
+#topCircle,
+#bottomCircle {
+  left: 0;
+}
+
+#topCircle2,
+#bottomCircle2 {
+  left: -50px;
+  /* Adjust this value for the offset */
+}
+
+.trail {
+  position: absolute;
+  width: 40px;
+  /* Adjust the width of the trail */
+  height: 70px;
+  /* Adjust the height of the trail */
+  opacity: 0.5;
+  /* Trails start semi-transparent */
+  transition: opacity 1s;
+  /* Adjust the fade-out duration */
+}
+
+.bellefair-regular {
+  font-family: "Bellefair", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.box {
+  border: 3px dashed gray;
+  background-color: #f5f5f5;
+}
+
+.entry-box {
+  background-color: #05f5f5;
+  border: 1px solid black;
+  color: black;
+}
+
+.book-body {
+  background-color: #f5f5f5;
+  /* Light gray background */
+  font-family: 'Georgia', serif;
+  /* Classic serif font */
+  font-size: 22px;
+  /* Adjust the font size as needed */
+  line-height: 1.6;
+  /* Optimal line height for readability */
+  margin: 10%;
+  padding: 0;
+}
+
+
+
+.book-container2 {
+  display: flex;
+  justify-content: space-between;
+  /* Align items in two columns */
+  width: 80%;
+  /* Set a width for the content area */
+  margin: 0 auto;
+  /* Center the content horizontally */
+  background-color: #fff;
+  /* White background for content */
+  padding: 40px;
+  /* Add some padding for spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow */
+}
+
+.book-page {
+  font-size: 12px;
+  width: 48%;
+  /* Set width for each page */
+}
+
+.book-page-single {
+  width: 100%;
+  font-size: 14px;
+}
+
+.book-container-single {
+  width: 60%;
+  /* Set a width for the content area */
+  margin: 0 auto;
+  /* Center the content horizontally */
+  background-color: #fff;
+  /* White background for content */
+  padding: 40px;
+  /* Add some padding for spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow */
+}
+
+.book-container {
+  width: 70%;
+  /* Set a width for the content area */
+  margin: 0 auto;
+  /* Center the content horizontally */
+  background-color: #fff;
+  /* White background for content */
+  padding: 40px;
+  /* Add some padding for spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow */
+}
+
+.p-h1,
+.p-h2,
+.p-h3 {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  /* Serif font for headings */
+  margin-bottom: 20px;
+  /* Add spacing below headings */
+}
+
+.book-p {
+  text-indent: 25px;
+}
+
+.im-fell-english-sc-regular {
+  font-family: "IM Fell English SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bar {
+  width:70%;
+}
+
+.nav-box {
+  background-color:darkgray;
+  color:white;
+  border: 1px solid #000;
+  line-height: 1.5;
+}
+
+.addendum {
+  font-size: 20px;
+}
+
+.separator {
+  width: 70%;
+  height: 1px;
+  background-color: #333;
+  margin: 20px 0;
+}
+
+.charm-regular {
+  font-family: "Charm", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.charm-bold {
+  font-family: "Charm", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+.cormorant-garamond-light {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cormorant-garamond-regular {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.title-image {
+  width: 200px;
+}
+
+.title2-image {
+  width: 400px;
+}
+
+.title3-image {
+  width: 300px;
+}
+
+
+.title4-image {
+  width: 75px;
+}
+
+
+.entry-link {
+  text-decoration: none;
+  color:#333;
+}
+
+
+.entry-box {
+  background-color: darkgray;
+  color: #333; 
+  border: 1px solid #ccc; 
+}
+
+.active {
+  background-color: #fef1bb; 
+  color: #000; 
+  border: 2px dashed gray;
+}

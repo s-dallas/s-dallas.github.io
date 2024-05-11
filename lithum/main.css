@@ -106,7 +106,7 @@ p {
   display: flex;
   justify-content: space-between;
   /* Align items in two columns */
-  width: 80%;
+  width: 70%;
   /* Set a width for the content area */
   margin: 0 auto;
   /* Center the content horizontally */
@@ -130,7 +130,7 @@ p {
 }
 
 .book-container-single {
-  width: 60%;
+  width: 50%;
   /* Set a width for the content area */
   margin: 0 auto;
   /* Center the content horizontally */
@@ -143,7 +143,7 @@ p {
 }
 
 .book-container {
-  width: 70%;
+  width: 65%;
   /* Set a width for the content area */
   margin: 0 auto;
   /* Center the content horizontally */
@@ -175,12 +175,12 @@ p {
 }
 
 .bar {
-  width:70%;
+  width: 70%;
 }
 
 .nav-box {
-  background-color:darkgray;
-  color:white;
+  background-color: darkgray;
+  color: white;
   border: 1px solid #000;
   line-height: 1.5;
 }
@@ -207,6 +207,7 @@ p {
   font-weight: 700;
   font-style: normal;
 }
+
 .cormorant-garamond-light {
   font-family: "Cormorant Garamond", serif;
   font-weight: 300;
@@ -239,18 +240,18 @@ p {
 
 .entry-link {
   text-decoration: none;
-  color:#333;
+  color: #333;
 }
 
 
 .entry-box {
   background-color: darkgray;
-  color: #333; 
-  border: 1px solid #ccc; 
+  color: #333;
+  border: 1px solid #ccc;
 }
 
 .active {
-  background-color: #fef1bb; 
-  color: #000; 
+  background-color: #fef1bb;
+  color: #000;
   border: 2px dashed gray;
 }

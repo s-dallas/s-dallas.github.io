@@ -1,0 +1,222 @@
+.syne-mono-regular {
+    font-family: "Syne Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .major-mono-display-regular {
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .purple {
+    background-color: #24272b;
+    color: #fff;
+  }
+
+.blue {
+  background-color: #41EAD4;
+  color: #000;
+}
+
+  .gray {
+    background-color: #F4F5F5;
+    color: #000;
+}
+
+.vid {
+    object-fit: cover; /* Ensure the video fits within the specified dimensions */
+}
+
+.green {
+  background-color: #777B7E;
+  color: #FFF;
+}
+.white {
+  color: #fff;
+}
+hr {
+    background-color: #000;
+    height: 2px;
+}
+
+.hr2 {
+  background-color: lightgray;
+  height: 1px;
+}
+.end-stop {
+  display: inline-block;
+  width: 10px; 
+  height: 10px; 
+  background-color: black;
+}
+
+a {
+  text-decoration: none; 
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none; 
+  color: inherit;
+}
+
+.indent {
+    text-indent: 5%;
+}
+
+
+.windsong {
+  font-family: "WindSong", cursive;
+  font-weight: 600;
+  font-style: normal;
+}
+.cinzel {
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.im-fell-french-canon-regular {
+  font-family: "IM Fell French Canon", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.im-fell-french-canon-regular-italic {
+  font-family: "IM Fell French Canon", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.button-text {
+  font-size: 18px;
+}
+.menu-text {
+  font-size: 14px;
+}
+
+.marcellus-regular {
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.asul-regular {
+  font-family: "Asul", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 2em;
+}
+
+.asul-bold {
+  font-family: "Asul", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.goudy {
+  font-family: "Goudy Bookletter 1911", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+.label-container {
+  display: inline-block;
+  background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+  transform: rotate(-5deg);
+  color: white;
+  text-align: center;
+}
+
+p {
+  line-height: 2;
+  margin-bottom: 5%;
+}
+
+/* screen sizes */
+
+
+/* XS (phone) */
+
+@media (min-width: 576px) {
+  .heading {
+    font-size: 1rem; 
+  }
+  .subheading {
+    font-size: 0.7rem;
+  }
+  p {
+    font-size: 16px;
+  }
+  .small {
+    font-size: 12px;
+  }    
+  .icon {
+    height: 20px;
+  }
+}
+
+/*  MEDIUM / SMALL */
+
+@media (min-width: 769px) {
+  .heading {
+    font-size: 1.3rem;
+  }
+  .subheading {
+    font-size: 1rem;
+  }  
+  p {
+    font-size: 18px;
+  }
+  .small {
+    font-size: 13px;
+  }
+  .icon {
+    height: 20px;
+  }    
+}
+
+
+/*  LARGE */
+
+@media (min-width: 992px) {
+  .heading {
+    font-size: 1.6rem; 
+  }
+  .subheading {
+    font-size: 1.2rem;
+  }  
+  p {
+    font-size: 20px;
+  }
+  .small {
+    font-size: 15px;
+  }  
+  .icon {
+    height: 30px;
+  }  
+}
+
+
+/* XL ++ (latop/desktop) */
+
+@media (min-width: 1200px) {
+  .heading {
+    font-size: 2.3rem;  
+  }
+  .subheading {
+    font-size: 1.8rem;
+  }  
+  p {
+    font-size: 22px;
+  }
+  .small {
+    font-size: 16px;
+  }
+  .icon {
+    height: 35px;
+  }  
+}

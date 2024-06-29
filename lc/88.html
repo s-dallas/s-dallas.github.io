@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dallas Scott</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&display=swap"
+        rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">        
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+    <link href="../main.css" rel="stylesheet">
+</head>
+
+<body class="purple">
+    <div class="purple">
+
+        <div class="container-fluid">
+            <div class="mt-3 ml-2 row mb-4 text-center">
+                <div
+                    class="flex-column d-flex align-items-center justify-content-end major-mono-display-regular mr-4 heading label-container-dark">
+                    <a class="black" href="../">
+                        Dallas Scott</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="row small">
+                        <div class="col"><a href="../writings.html"><img src="../static/pen_dark.png" class="icon"></a>
+                            <br><a href="../writings.html">Writings</a>
+                        </div>
+                        <div class="col"><a href="../drawings.html"><img src="../static/art_dark.png" class="icon"></a>
+                            <br><a href="../drawings.html">Art</a>
+                        </div>
+                        <div class="col"><a href="../projects.html"><img src="../static/portfolio_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../projects.html">Projects</a>
+                        </div>
+                        <div class="col"><a href="../leetcode.html"><img src="../static/code_dark.png" class="icon"></a>
+                            <br><a href="../leetcode.html">Code</a>
+                        </div>
+                        <div class="col"><a href="../exercises.html"><img src="../static/binary_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../exercises.html">Exercises</a>
+                        </div>
+                        <div class="col"><a href="../sandbox2.html"><img src="../static/circle_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../sandbox2.html">Animation</a>
+                        </div>
+                        <div class="col"><a href="../sandbox.html"><img src="../static/cube_dark.png" class="icon"></a>
+                            <br><a href="../sandbox.html">Renders</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr2">
+            <input type="hidden" id="target-number" value="88">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 text-center">
+                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
+                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    </div>
+                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
+                </div>
+            </div>                   
+
+            <div class="row text-center">
+                <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 29, 2024</div>
+            </div>            
+            <div class="row text-center">
+                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>88. Merge Sorted Array</b></div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    <pre class="code white border">
+                    <code class="typewrite">
+<span class="token keyword">class</span> Solution(<span class="token keyword">object</span>):
+<span class="token keyword">def</span> merge(self, nums1, m, nums2, n):
+    <span class="token comment">"""
+    :type nums1: List[int]
+    :type m: int
+    :type nums2: List[int]
+    :type n: int
+    :rtype: None Do not return anything,
+            modify nums1 in-place instead.
+    """</span>
+    p = m
+    c = p
+    <span class="token keyword">for</span> num2 <span class="token keyword">in</span> nums2:
+        nums1[p] = num2
+        <span class="token keyword">while</span> (c > <span class="token number">0</span> <span class="token keyword">and</span> nums1[c] < nums1[c-<span class="token number">1</span>]):
+            nums1[c] = nums1[c-<span class="token number">1</span>]
+            nums1[c-<span class="token number">1</span>] = num2
+            c -= <span class="token number">1</span>
+        p += <span class="token number">1</span>
+        c = p                      
+                                </code>
+                                </pre>
+            <div class="mb-5 text-center"><img src="stats/88r.png" class="border" width="85%"></div>
+            <div class="text-center"><img src="stats/88m.png" class="border" width="85%"></div>                                
+                </div>
+                    <div class="col-6">
+                        <div class="border p-4 mb-3 inconsolata-400">
+                                <i><p>
+                                    You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in non-decreasing order, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>
+
+                                    <p>Merge <code>nums1</code> and <code>nums2</code> into a single array sorted in non-decreasing order.</p>
+                                    
+                                    <p>The final sorted array should not be returned by the function, but instead be stored inside the array <code>nums1</code>.
+                                         To accommodate this, <code>nums1</code> has a length of <code>m</code> + <code>n</code>, where the first <code>m</code> elements denote the elements that should be merged, and the last <code>n</code> elements are set to 0 and should be ignored. 
+                                        <code>nums2</code> has a length of <code>n</code>.</i>
+                        </div>
+
+                        <div class="p-4 green border">
+                            <p><b>My solution:</b> You will first want to iterate through all numbers to be merged in <b>nums2</b>. The idea is to take each
+                            of these, insert it at the first encountered zero in <b>nums1</b>, then continually swap with the left neighbor if the value 
+                            is less than the current value in that neighbor.</p>
+
+                            <p>Keep track both of where the next zero is in <b>nums1</b> as well as the current location of the merged value from <b>nums2</b>
+                                once it has been placed in its own zero. For this, I use variables <b>p</b> and <b>c</b>, respectively.</p>
+
+                            <p>The value of <b>c</b> decrements with each swap until the merged number finds its position (break if 0 to prevent an 
+                            index error when checking the left neighbor).  The value of <b>p</b> increments after each iteration of the while loop to move to the next zero in <b>nums1</b>,
+                            which will be filled with the next value in <b>nums2</b> to be merged.</p>
+
+                            <p>Once all values in <b>num1</b> have been accounted for in this way (outer for loop terminates), you are finished.  Make sure to
+                                reset the current neighbor index after each merge.</p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row purple">
+                        <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                            <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <script src="../main.js"></script>
+</body>
+
+</html>

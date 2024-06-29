@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dallas Scott</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&display=swap"
+        rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+    <link href="../main.css" rel="stylesheet">
+</head>
+
+<body class="purple">
+    <div class="purple">
+
+        <div class="container-fluid">
+            <div class="mt-3 ml-2 row mb-4 text-center">
+                <div
+                    class="flex-column d-flex align-items-center justify-content-end major-mono-display-regular mr-4 heading label-container-dark">
+                    <a class="black" href="../">
+                        Dallas Scott</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="row small">
+                        <div class="col"><a href="../writings.html"><img src="../static/pen_dark.png" class="icon"></a>
+                            <br><a href="../writings.html">Writings</a>
+                        </div>
+                        <div class="col"><a href="../drawings.html"><img src="../static/art_dark.png" class="icon"></a>
+                            <br><a href="../drawings.html">Art</a>
+                        </div>
+                        <div class="col"><a href="../projects.html"><img src="../static/portfolio_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../projects.html">Projects</a>
+                        </div>
+                        <div class="col"><a href="../lc/"><img src="../static/code_dark.png" class="icon"></a>
+                            <br><a href="../lc/">Code</a>
+                        </div>
+                        <div class="col"><a href="../exercises.html"><img src="../static/binary_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../exercises.html">Exercises</a>
+                        </div>
+                        <div class="col"><a href="../sandbox2.html"><img src="../static/circle_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../sandbox2.html">Animation</a>
+                        </div>
+                        <div class="col"><a href="../sandbox.html"><img src="../static/cube_dark.png" class="icon"></a>
+                            <br><a href="../sandbox.html">Renders</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr2">
+
+            <input type="hidden" id="target-number" value="1295">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 text-center">
+                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
+                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    </div>
+                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
+                </div>
+            </div>            
+
+            <div class="row text-center">
+                <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-5 mt-4 syne-mono-regular subheading"><b>1295. Find Numbers with Even Number of Digits</b></div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    <pre class="code white border">
+                    <code>
+<span class="keyword">class</span> Solution(<span class="keyword">object</span>):
+<span class="keyword">def</span> findNumbers(self, nums):
+    """
+    <span class="comment">:type nums: List[int]</span>
+    <span class="comment">:rtype: int</span>
+    """
+    <span class="variable">count</span> = <span class="number">0</span>
+    <span class="keyword">for</span> <span class="variable">d</span> <span class="keyword">in</span> <span class="variable">nums</span>:
+        <span class="variable">numD</span> = <span class="number">0</span>
+        <span class="variable">division</span> = <span class="variable">d</span>
+        <span class="keyword">while</span> (<span class="variable">division</span> > <span class="number">0</span>):
+            <span class="variable">division</span> = <span class="function">math.floor</span>(<span class="variable">division</span> / <span class="number">10</span>)
+            <span class="variable">numD</span> += <span class="number">1</span>
+        <span class="keyword">if</span> (<span class="variable">numD</span> % <span class="number">2</span> == <span class="number">0</span>):
+            <span class="variable">count</span> += <span class="number">1</span>
+    <span class="keyword">return</span> <span class="variable">count</span>
+                                </code>
+                                </pre>
+            <div class="mb-5 text-center"><img src="stats/1295r.png" class="border" width="85%"></div>
+            <div class="text-center"><img src="stats/1295m.png" class="border" width="85%"></div>                                
+                </div>
+                    <div class="col-6">
+                        <div class="border p-4 mb-3">
+                            <i>
+                                <p>Given an array <code>nums</code> of integers, return how many of them contain an even number of digits.</p>
+                            </i>
+                        </div>
+
+                        <div class="p-4 green border">
+                            <p><b>My solution:</b> This one combines modulus, division, and loops.  Iterate through each number in the list/array, continually divide it by 10 and round down (math.floor).  Each time, keep track of the digits.  When you reach 0, break out of the loop and test if it's an even number of digits using mod 2.  If so, increment the total count.  In the end, simply return the final count.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row purple">
+                        <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                            <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <script src="../main.js"></script>
+</body>
+
+</html>

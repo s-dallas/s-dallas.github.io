@@ -42,8 +42,8 @@
                     <div class="col"><a href="projects.html"><img src="static/portfolio.png" class="icon"></a>
                         <br><a href="projects.html">Projects</a>
                     </div>
-                    <div class="col"><a href="leetcode.html"><img src="static/code.png" class="icon"></a>
-                        <br><a href="leetcode.html">Code</a>
+                    <div class="col"><a href="/lc/"><img src="static/code.png" class="icon"></a>
+                        <br><a href="/lc/">Code</a>
                     </div>
                     <div class="col"><a href="exercises.html"><img src="static/binary.png" class="icon"></a>
                         <br><a href="exercises.html">Exercises</a>
@@ -59,6 +59,22 @@
             </div>
         </div>
         <hr class="solid">
+        <script>
+        function toggleMenu() {
+            const menuItems = document.querySelector('.menu-items');
+            menuItems.classList.toggle('open');
+          }
+        </script>
+        <div class="col-7 menu-bar pt-0 ml-3 pl-2 mb-3 small" onclick="toggleMenu()">
+            <div class="menu-bar-title asul-bold">- Latest Updates:&nbsp;&nbsp;&nbsp;&nbsp; <span class="asul-regular">06/29/2024 - Leetcode x5</span>
+            </div>
+            <div class="menu-items asul-regular bg-gradient">
+              <ul class="menu-list">
+                <li><a href="/lc/">06/29/2024 - Leetcode x5</a></li>
+              </ul>
+            </div>
+          </div>
+          
 
         <div class="flex-row d-flex justify-content-center ml-4">
             <div class="col-md-7 ml-3 mr-4 flex-column d-flex justify-content-start">

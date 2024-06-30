@@ -1,4 +1,214 @@
-My initial approach to this problem was to take every duplicate value in the array and shift it all the way rightward, leaving behind only the unique values in the front of the array.  This worked for 360/362 test cases, 
-but failed on the last two, which involve very large arrays with many duplicates, causing the algorithm to time out.  So while this algorithm does work for smaller arrays, it breaks down when we are dealing
-with arrays at scale.
+<!DOCTYPE html>
+<html>
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dallas Scott</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&display=swap"
+        rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+    <link href="../main.css" rel="stylesheet">
+</head>
+
+<body class="purple">
+    <div class="purple">
+
+        <div class="container-fluid">
+            <div class="mt-3 ml-2 row mb-4 text-center">
+                <div
+                    class="flex-column d-flex align-items-center justify-content-end major-mono-display-regular mr-4 heading label-container-dark">
+                    <a class="black" href="../">
+                        Dallas Scott</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="row small">
+                        <div class="col"><a href="../writings.html"><img src="../static/pen_dark.png" class="icon"></a>
+                            <br><a href="../writings.html">Writings</a>
+                        </div>
+                        <div class="col"><a href="../drawings.html"><img src="../static/art_dark.png" class="icon"></a>
+                            <br><a href="../drawings.html">Art</a>
+                        </div>
+                        <div class="col"><a href="../projects.html"><img src="../static/portfolio_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../projects.html">Projects</a>
+                        </div>
+                        <div class="col"><a href="../lc/"><img src="../static/code_dark.png" class="icon"></a>
+                            <br><a href="../lc/">Code</a>
+                        </div>
+                        <div class="col"><a href="../exercises.html"><img src="../static/binary_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../exercises.html">Exercises</a>
+                        </div>
+                        <div class="col"><a href="../sandbox2.html"><img src="../static/circle_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../sandbox2.html">Animation</a>
+                        </div>
+                        <div class="col"><a href="../sandbox.html"><img src="../static/cube_dark.png" class="icon"></a>
+                            <br><a href="../sandbox.html">Renders</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr2">
+            <input type="hidden" id="target-number" value="26">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 text-center">
+                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
+                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    </div>
+                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 30, 2024</div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>26. Remove Duplicates from Sorted
+                        Array</b></div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    <pre class="code white border">                       
+                    <code class="typewrite">
+<span class="keyword">class</span> Solution<span class="operator">(</span><span class="keyword">object</span><span class="operator">):</span>
+    <span class="keyword">def</span> removeDuplicates<span class="operator">(</span>self, nums<span class="operator">):</span>
+        <span class="string">"""</span>
+        <span class="string">:type nums: List[int]</span>
+        <span class="string">:rtype: int</span>
+        <span class="string">"""</span>
+        
+        seen <span class="operator">=</span> <span class="number">[]</span>
+        p1_index <span class="operator">=</span> <span class="number">0</span>
+        dupFound <span class="operator">=</span> <span class="keyword">False</span>
+        
+        seen.append(nums[<span class="number">0</span>])
+        
+        i <span class="operator">=</span> <span class="number">1</span>
+        <span class="comment"># iterate through array</span>
+        <span class="keyword">while</span> <span class="operator">(</span>i <span class="operator">&lt;</span> <span class="keyword">len</span>(nums)<span class="operator">):</span>                
+            <span class="comment"># skip over duplicates</span>
+            <span class="keyword">while</span> <span class="operator">(</span>nums[i] <span class="keyword">in</span> seen<span class="operator">):</span>
+                dupFound <span class="operator">=</span> <span class="keyword">True</span>
+                i <span class="operator">+=</span> <span class="number">1</span>
+                <span class="keyword">if</span> <span class="operator">(</span>i <span class="operator">&gt;=</span> <span class="keyword">len</span>(nums)<span class="operator">):</span>
+                    <span class="keyword">break</span>
+            <span class="keyword">if</span> <span class="operator">(</span>i <span class="operator">&gt;=</span> <span class="keyword">len</span>(nums)<span class="operator">):</span>
+                <span class="keyword">break</span>
+            <span class="keyword">if</span> <span class="operator">(</span>dupFound<span class="operator">):</span>
+                <span class="comment"># move p1 forward</span>
+                p1_index <span class="operator">+=</span> <span class="number">1</span>
+                <span class="comment"># swap unique with duplicate</span>
+                temp <span class="operator">=</span> nums[p1_index]
+                nums[p1_index] <span class="operator">=</span> nums[i]
+                nums[i] <span class="operator">=</span> temp
+                <span class="keyword">if</span> <span class="operator">(</span>nums[p1_index] <span class="keyword">not</span> <span class="keyword">in</span> seen<span class="operator">):</span>
+                    seen.append(nums[p1_index])
+            <span class="keyword">else</span><span class="operator">:</span> <span class="comment"># no dupes, move both pointers forward</span>
+                seen.append(nums[i])
+                i <span class="operator">+=</span> <span class="number">1</span>
+                p1_index <span class="operator">+=</span> <span class="number">1</span>
+            dupFound <span class="operator">=</span> <span class="keyword">False</span>  <span class="comment"># reset dupe marker</span>
+        <span class="keyword">return</span> <span class="keyword">len</span>(seen)
+                    
+                                </code>
+                                </pre>
+                    <div class="mb-5 text-center"><img src="stats/26r.png" class="border" width="85%"></div>
+                    <div class="text-center"><img src="stats/26m.png" class="border" width="85%"></div>
+                </div>
+                <div class="col-6">
+                    <div class="border p-4 mb-3 inconsolata-400">
+                        <i>
+                            <p>
+                                Given an integer array <code>nums</code> sorted in non-decreasing order, remove the
+                                duplicates in-place such that each unique element appears only once. The relative order
+                                of the elements should be kept the same. Then return the number of unique elements in
+                                <code>nums</code>.</p>
+
+                            <p>Consider the number of unique elements of <code>nums</code> to be <code>k</code>, to get
+                                accepted, you need to do the following things:</p>
+
+                            <ul>
+                                <li>
+                                    <p>Change the array <code>nums</code> such that the first <code>k</code> elements of
+                                        <code>nums</code> contain the unique elements in the order they were present in
+                                        <code>nums</code> initially. The remaining elements of <code>nums</code> are not
+                                        important as well as the size of <code>nums</code>.</p>
+                                </li>
+                                <li>
+                                    <p>Return <code>k</code>.</p>
+                                </li>
+                            </ul>
+                        </i>
+                    </div>
+
+                    <div class="p-4 green border marcellus-regular">
+                        <p><b>My solution:</b> My initial approach to this problem was to take every duplicate value in the array and shift it all the way rightward,
+                            leaving behind only the unique values in the front of the array. This worked for 360/362 test cases,
+                            but failed on the last two, which involve very large arrays with many duplicates, causing the algorithm to time out. So
+                            while such an algorithm does work for smaller arrays, it breaks down when we are dealing
+                            with arrays at scale.</p>
+
+                        <p>So, how to solve this for all array sizes?  The hints are fairly useful, namely skipping over
+                            duplicates rather than shifting them about.  What I ended up doing was keeping a list of values
+                            that have already been seen, and adding each unique element in <b>nums</b> to this list when
+                            encountered.</p>
+
+                        <p>The iterations, as in <a href="27.html">problem 27</a>, involve maintaining multiple pointers.
+                        Start by creating two pointers - one to keep track of the last position near the beginning of 
+                        the array - this will be where you swap unique values to.  The second pointer is the one that
+                        iterates through the array from front to back.</p>
+
+                        <p>Whenever you encounter a duplicate (found in the <b>seen</b> array), simply continue iterating
+                        past it with your second pointer until a unique value is reached.  Then, increment your first
+                        pointer by 1 and swap the values of the two pointers.  This has the effect of swapping 
+                        out duplicates for new, unique values found later in the array.</p>
+
+                        <p>Keep iterating until the end of the array, moving the second pointer past duplicates, incrementing
+                            the first pointer when a unique value is found, and swapping.  If there are no duplicates found 
+                            in one interation, simply increment both pointers by 1 and continue with the above process. I used
+                            a boolean variable to determine when duplicates were present and when they weren't, resetting
+                            this after each iteration.
+                        </p>
+
+                        <p>Since you will need to return a count of the number of unique elements, you can simply look to
+                            your <b>seen</b> array, since this will contain all unique values seen at least once.  Make sure you
+                            don't add duplicates to this array while iterating.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <div class="row purple">
+                    <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                        <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="../main.js"></script>
+</body>
+
+</html>

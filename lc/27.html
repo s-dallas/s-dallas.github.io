@@ -90,31 +90,31 @@
                     <pre class="code white border">
                     <code class="typewrite">
 <span class="keyword">class</span> Solution<span class="operator">(</span><span class="keyword">object</span><span class="operator">):</span>
-<span class="function">def</span> removeElement<span class="operator">(</span>self, nums, val<span class="operator">):</span>
-    <span class="comment">"""
-    :type nums: List[int]
-    :type val: int
-    :rtype: int
-    """</span>
-    i = <span class="number">len</span><span class="operator">(</span>nums<span class="operator">)</span> - <span class="number">1</span>
-    <span class="keyword">while</span> <span class="operator">(</span>i >= <span class="number">0</span><span class="operator">):</span>
-        <span class="keyword">if</span> <span class="operator">(</span>nums<span class="operator">[</span>i<span class="operator">]</span> != val<span class="operator">):</span>
-            i -= <span class="number">1</span>
-            <span class="keyword">continue</span>
-        <span class="keyword">else</span><span class="operator">:</span>
-            j = i
-            k = i + <span class="number">1</span>
-            <span class="keyword">while</span> <span class="operator">(</span>k <= <span class="number">len</span><span class="operator">(</span>nums<span class="operator">)</span> - <span class="number">1</span> <span class="keyword">and</span> nums<span class="operator">[</span>k<span class="operator">]</span> != val<span class="operator">):</span>
-                nums<span class="operator">[</span>j<span class="operator">]</span> = nums<span class="operator">[</span>k<span class="operator">]</span>
-                nums<span class="operator">[</span>k<span class="operator">]</span> = val
-                j += <span class="number">1</span>
-                k += <span class="number">1</span>
-            i -= <span class="number">1</span>
-    count = <span class="number">0</span>
-    <span class="keyword">for</span> n <span class="keyword">in</span> nums<span class="operator">:</span>
-        <span class="keyword">if</span> <span class="operator">(</span>n != val<span class="operator">):</span>
-            count += <span class="number">1</span>
-    <span class="keyword">return</span> count
+    <span class="function">def</span> removeElement<span class="operator">(</span>self, nums, val<span class="operator">):</span>
+        <span class="comment">"""
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """</span>
+        i = <span class="number">len</span><span class="operator">(</span>nums<span class="operator">)</span> - <span class="number">1</span>
+        <span class="keyword">while</span> <span class="operator">(</span>i >= <span class="number">0</span><span class="operator">):</span>
+            <span class="keyword">if</span> <span class="operator">(</span>nums<span class="operator">[</span>i<span class="operator">]</span> != val<span class="operator">):</span>
+                i -= <span class="number">1</span>
+                <span class="keyword">continue</span>
+            <span class="keyword">else</span><span class="operator">:</span>
+                j = i
+                k = i + <span class="number">1</span>
+                <span class="keyword">while</span> <span class="operator">(</span>k <= <span class="number">len</span><span class="operator">(</span>nums<span class="operator">)</span> - <span class="number">1</span> <span class="keyword">and</span> nums<span class="operator">[</span>k<span class="operator">]</span> != val<span class="operator">):</span>
+                    nums<span class="operator">[</span>j<span class="operator">]</span> = nums<span class="operator">[</span>k<span class="operator">]</span>
+                    nums<span class="operator">[</span>k<span class="operator">]</span> = val
+                    j += <span class="number">1</span>
+                    k += <span class="number">1</span>
+                i -= <span class="number">1</span>
+        count = <span class="number">0</span>
+        <span class="keyword">for</span> n <span class="keyword">in</span> nums<span class="operator">:</span>
+            <span class="keyword">if</span> <span class="operator">(</span>n != val<span class="operator">):</span>
+                count += <span class="number">1</span>
+        <span class="keyword">return</span> count
                     
                                 </code>
                                 </pre>
@@ -132,7 +132,7 @@
                                     Return <code>k</code>.</p></i>
                         </div>
 
-                        <div class="p-4 green border">
+                        <div class="p-4 green border  marcellus-regular">
                             <p><b>My solution:</b> This problem can be trivially easy by simply using the built-in pop() or remove() methods in Python.  However, this is not what I believe was intended
                             with the problem, so my solution does not use these.</p>
 

@@ -90,25 +90,25 @@
                     <pre class="code white border">
                     <code class="typewrite">
 <span class="token keyword">class</span> Solution(<span class="token keyword">object</span>):
-<span class="token keyword">def</span> merge(self, nums1, m, nums2, n):
-    <span class="token comment">"""
-    :type nums1: List[int]
-    :type m: int
-    :type nums2: List[int]
-    :type n: int
-    :rtype: None Do not return anything,
-            modify nums1 in-place instead.
-    """</span>
-    p = m
-    c = p
-    <span class="token keyword">for</span> num2 <span class="token keyword">in</span> nums2:
-        nums1[p] = num2
-        <span class="token keyword">while</span> (c > <span class="token number">0</span> <span class="token keyword">and</span> nums1[c] < nums1[c-<span class="token number">1</span>]):
-            nums1[c] = nums1[c-<span class="token number">1</span>]
-            nums1[c-<span class="token number">1</span>] = num2
-            c -= <span class="token number">1</span>
-        p += <span class="token number">1</span>
-        c = p                      
+    <span class="token keyword">def</span> merge(self, nums1, m, nums2, n):
+        <span class="token comment">"""
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: None Do not return anything,
+                modify nums1 in-place instead.
+        """</span>
+        p = m
+        c = p
+        <span class="token keyword">for</span> num2 <span class="token keyword">in</span> nums2:
+            nums1[p] = num2
+            <span class="token keyword">while</span> (c > <span class="token number">0</span> <span class="token keyword">and</span> nums1[c] < nums1[c-<span class="token number">1</span>]):
+                nums1[c] = nums1[c-<span class="token number">1</span>]
+                nums1[c-<span class="token number">1</span>] = num2
+                c -= <span class="token number">1</span>
+            p += <span class="token number">1</span>
+            c = p                      
                                 </code>
                                 </pre>
             <div class="mb-5 text-center"><img src="stats/88r.png" class="border" width="85%"></div>
@@ -126,7 +126,7 @@
                                         <code>nums2</code> has a length of <code>n</code>.</i>
                         </div>
 
-                        <div class="p-4 green border">
+                        <div class="p-4 green border marcellus-regular">
                             <p><b>My solution:</b> You will first want to iterate through all numbers to be merged in <b>nums2</b>. The idea is to take each
                             of these, insert it at the first encountered zero in <b>nums1</b>, then continually swap with the left neighbor if the value 
                             is less than the current value in that neighbor.</p>

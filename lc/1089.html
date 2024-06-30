@@ -91,23 +91,23 @@
                     <pre class="code white border">
                     <code class="typewrite">
 <span class="token keyword">class</span> Solution(<span class="token keyword">object</span>):
-<span class="token keyword">def</span> duplicateZeros(self, arr):
-    <span class="token comment">"""
-    :type arr: List[int]
-    :rtype: None Do not return anything, 
-            modify arr in-place instead.
-    """</span>
-    i = <span class="token number">0</span>
-    <span class="token keyword">while</span> (i < <span class="token function">len</span>(arr)):
-        <span class="token keyword">if</span> (arr[i] != <span class="token number">0</span>):
-            i += <span class="token number">1</span>
-            <span class="token keyword">continue</span>
-        <span class="token keyword">else</span>:
-            j = <span class="token function">len</span>(arr) - <span class="token number">1</span>
-            <span class="token keyword">while</span> (j > i):
-                arr[j] = arr[j-<span class="token number">1</span>]
-                j -= <span class="token number">1</span>
-            i += <span class="token number">2</span>
+    <span class="token keyword">def</span> duplicateZeros(self, arr):
+        <span class="token comment">"""
+        :type arr: List[int]
+        :rtype: None Do not return anything, 
+                modify arr in-place instead.
+        """</span>
+        i = <span class="token number">0</span>
+        <span class="token keyword">while</span> (i < <span class="token function">len</span>(arr)):
+            <span class="token keyword">if</span> (arr[i] != <span class="token number">0</span>):
+                i += <span class="token number">1</span>
+                <span class="token keyword">continue</span>
+            <span class="token keyword">else</span>:
+                j = <span class="token function">len</span>(arr) - <span class="token number">1</span>
+                <span class="token keyword">while</span> (j > i):
+                    arr[j] = arr[j-<span class="token number">1</span>]
+                    j -= <span class="token number">1</span>
+                i += <span class="token number">2</span>
                                         </code>
                                 </pre>
             <div class="mb-5 text-center"><img src="stats/1089r.png" width="85%"></div>
@@ -120,7 +120,7 @@
                                     <p><i><b>Note</b> that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</i></p>
                         </div>
 
-                        <div class="p-4 green border">
+                        <div class="p-4 green border marcellus-regular">
                             <p><b>My solution:</b> I've employed two while loops, one nested within the other. The outer loop iterates through <b>arr</b> from left to right
                                 while the inner loop iterates from the end of <b>arr</b> to the location where a zero is encounter in the first loop.</p>
 

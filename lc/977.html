@@ -90,73 +90,73 @@
                     <pre class="code white border">
                     <code class="typewrite">
 class Solution(object):
-<span class="keyword">def</span> <span class="function">sortedSquares</span>(self, nums):
-    """
-    <span class="comment">:type nums: List[int]</span>
-    <span class="comment">:rtype: List[int]</span>
-    """
+    <span class="keyword">def</span> <span class="function">sortedSquares</span>(self, nums):
+        """
+        <span class="comment">:type nums: List[int]</span>
+        <span class="comment">:rtype: List[int]</span>
+        """
 
-    squares = []
+        squares = []
 
-    <span class="keyword">if</span> (<span class="operator">(</span>len(nums) == <span class="number">1</span><span class="operator">)</span>:
-        squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
-    <span class="keyword">elif</span> (<span class="operator">(</span>len(nums) == <span class="number">2</span><span class="operator">)</span>:
-        <span class="keyword">if</span> (<span class="operator">(</span>nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>]) <span class="operator">&lt;</span> (nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>]<span class="operator">)</span>:
+        <span class="keyword">if</span> (<span class="operator">(</span>len(nums) == <span class="number">1</span><span class="operator">)</span>:
             squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
-            squares.append(nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>])                
-        <span class="keyword">else</span>:
-            squares.append(nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>])
-            squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
-    <span class="keyword">elif</span> (<span class="operator">(</span>nums[<span class="operator">-</span><span class="number">1</span><span class="operator">]</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
-        i = len(nums)<span class="operator">-</span><span class="number">1</span>
-        <span class="keyword">while</span> (<span class="operator">(</span>i <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
-            squares.append(nums[i]<span class="operator">*</span>nums[i])
-            i <span class="operator">-=</span> <span class="number">1</span>
-    <span class="keyword">elif</span> (<span class="operator">(</span>nums[<span class="number">0</span>]<span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
-        i = <span class="number">0</span>
-        <span class="keyword">while</span> (<span class="operator">(</span>i <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-            squares.append(nums[i]<span class="operator">*</span>nums[i])
-            i <span class="operator">+=</span> <span class="number">1</span>
-        
-    <span class="keyword">else</span>:
-
-        i  = len(nums)<span class="operator">/</span><span class="number">2</span>
-        <span class="keyword">if</span> (<span class="operator">(</span>nums[i] <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
-            <span class="keyword">while</span> (<span class="operator">(</span>nums[i] <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
-                <span class="keyword">if</span> (<span class="operator">(</span>i <span class="operator">!=</span> len(nums)<span class="operator">-</span><span class="number">1</span><span class="operator">)</span>:
-                    i <span class="operator">+=</span> <span class="number">1</span>
-        <span class="keyword">else</span>:
-            <span class="keyword">while</span> (<span class="operator">(</span>nums[i] <span class="operator">&gt;</span> <span class="number">0</span><span class="operator">)</span>:
-                <span class="keyword">if</span> (<span class="operator">(</span>i <span class="operator">!=</span> <span class="number">0</span><span class="operator">)</span>:
-                    i <span class="operator">-=</span> <span class="number">1</span>
-            i<span class="operator">+=</span><span class="number">1</span>
-
-        left = i<span class="operator">-</span><span class="number">1</span>
-        right = i
-    
-        <span class="keyword">while</span> (<span class="operator">(</span>left <span class="operator">&gt;</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">or</span> right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-
-            <span class="comment">/* no more left, fill right */</span>
-            <span class="keyword">if</span> (<span class="operator">(</span>left <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">and</span> right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-                <span class="keyword">while</span> (<span class="operator">(</span>right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-                    squares.append(nums[right]<span class="operator">*</span>nums[right])
-                    right <span class="operator">+=</span> <span class="number">1</span>
+        <span class="keyword">elif</span> (<span class="operator">(</span>len(nums) == <span class="number">2</span><span class="operator">)</span>:
+            <span class="keyword">if</span> (<span class="operator">(</span>nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>]) <span class="operator">&lt;</span> (nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>]<span class="operator">)</span>:
+                squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
+                squares.append(nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>])                
+            <span class="keyword">else</span>:
+                squares.append(nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>])
+                squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
+        <span class="keyword">elif</span> (<span class="operator">(</span>nums[<span class="operator">-</span><span class="number">1</span><span class="operator">]</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
+            i = len(nums)<span class="operator">-</span><span class="number">1</span>
+            <span class="keyword">while</span> (<span class="operator">(</span>i <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
+                squares.append(nums[i]<span class="operator">*</span>nums[i])
+                i <span class="operator">-=</span> <span class="number">1</span>
+        <span class="keyword">elif</span> (<span class="operator">(</span>nums[<span class="number">0</span>]<span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
+            i = <span class="number">0</span>
+            <span class="keyword">while</span> (<span class="operator">(</span>i <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
+                squares.append(nums[i]<span class="operator">*</span>nums[i])
+                i <span class="operator">+=</span> <span class="number">1</span>
             
-            <span class="comment">/* no more right, fill left */</span>
-            <span class="keyword">elif</span> (<span class="operator">(</span>right <span class="operator">&gt;=</span> len(nums) <span class="operator">and</span> left <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
-                <span class="keyword">while</span> (<span class="operator">(</span>left <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
+        <span class="keyword">else</span>:
+
+            i  = len(nums)<span class="operator">/</span><span class="number">2</span>
+            <span class="keyword">if</span> (<span class="operator">(</span>nums[i] <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
+                <span class="keyword">while</span> (<span class="operator">(</span>nums[i] <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
+                    <span class="keyword">if</span> (<span class="operator">(</span>i <span class="operator">!=</span> len(nums)<span class="operator">-</span><span class="number">1</span><span class="operator">)</span>:
+                        i <span class="operator">+=</span> <span class="number">1</span>
+            <span class="keyword">else</span>:
+                <span class="keyword">while</span> (<span class="operator">(</span>nums[i] <span class="operator">&gt;</span> <span class="number">0</span><span class="operator">)</span>:
+                    <span class="keyword">if</span> (<span class="operator">(</span>i <span class="operator">!=</span> <span class="number">0</span><span class="operator">)</span>:
+                        i <span class="operator">-=</span> <span class="number">1</span>
+                i<span class="operator">+=</span><span class="number">1</span>
+
+            left = i<span class="operator">-</span><span class="number">1</span>
+            right = i
+        
+            <span class="keyword">while</span> (<span class="operator">(</span>left <span class="operator">&gt;</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">or</span> right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
+
+                <span class="comment">/* no more left, fill right */</span>
+                <span class="keyword">if</span> (<span class="operator">(</span>left <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">and</span> right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
+                    <span class="keyword">while</span> (<span class="operator">(</span>right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
+                        squares.append(nums[right]<span class="operator">*</span>nums[right])
+                        right <span class="operator">+=</span> <span class="number">1</span>
+                
+                <span class="comment">/* no more right, fill left */</span>
+                <span class="keyword">elif</span> (<span class="operator">(</span>right <span class="operator">&gt;=</span> len(nums) <span class="operator">and</span> left <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
+                    <span class="keyword">while</span> (<span class="operator">(</span>left <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
+                        squares.append(nums[left]<span class="operator">*</span>nums[left])
+                        left <span class="operator">-=</span> <span class="number">1</span>
+
+            
+                <span class="keyword">elif</span> (<span class="operator">(</span>nums[left]<span class="operator">*</span>nums[left] <span class="operator">&lt;=</span> nums[right]<span class="operator">*</span>nums[right]<span class="operator">)</span>:
                     squares.append(nums[left]<span class="operator">*</span>nums[left])
                     left <span class="operator">-=</span> <span class="number">1</span>
+                <span class="keyword">else</span>:
+                    squares.append(nums[right]<span class="operator">*</span>nums[right])
+                    right <span class="operator">+=</span> <span class="number">1</span>
 
-        
-            <span class="keyword">elif</span> (<span class="operator">(</span>nums[left]<span class="operator">*</span>nums[left] <span class="operator">&lt;=</span> nums[right]<span class="operator">*</span>nums[right]<span class="operator">)</span>:
-                squares.append(nums[left]<span class="operator">*</span>nums[left])
-                left <span class="operator">-=</span> <span class="number">1</span>
-            <span class="keyword">else</span>:
-                squares.append(nums[right]<span class="operator">*</span>nums[right])
-                right <span class="operator">+=</span> <span class="number">1</span>
-
-    <span class="keyword">return</span> squares                        
+        <span class="keyword">return</span> squares                        
                                 </code>
                                 </pre>
             <div class="mb-5 text-center"><img src="stats/977r.png" class="border" width="85%"></div>
@@ -167,7 +167,7 @@ class Solution(object):
                                 <p><i>Given an integer array <code>nums</code> sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.</i>
                         </div>
 
-                        <div class="p-4 green border">
+                        <div class="p-4 green border marcellus-regular">
                             <p><b>My solution:</b> Since you know the given array is sorted, the negative squares from <b>nums</b> will be in reverse order and the
                             positive squares will be in the same order.</p>
 

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollSpeed = 50;
     let scrollInterval;
     let maxSpeed = 3000;
-    let completed = [977,1431,1295,1089,88];
+    let completed = [977,1431,1295,1089,88,27];
     let numExercises = 2300;
 
     for (let i = 1; i <= numExercises; i++) {

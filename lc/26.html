@@ -1,0 +1,4 @@
+My initial approach to this problem was to take every duplicate value in the array and shift it all the way rightward, leaving behind only the unique values in the front of the array.  This worked for 360/362 test cases, 
+but failed on the last two, which involve very large arrays with many duplicates, causing the algorithm to time out.  So while this algorithm does work for smaller arrays, it breaks down when we are dealing
+with arrays at scale.
+

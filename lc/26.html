@@ -66,15 +66,15 @@
             </div>
             <hr class="hr2">
             <input type="hidden" id="target-number" value="26">
-
             <div class="row d-flex justify-content-center">
                 <div class="col-10 text-center">
-                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
-                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="../static/arrow.png" alt="Left" id="goLeft" class="p-0 m-0 custom-button left">
+                        <div class="m-0 d-flex align-items-center scroll-container" id="scroll-container"></div>
+                        <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
                     </div>
-                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
                 </div>
-            </div>
+            </div>       
 
             <div class="row text-center">
                 <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
@@ -86,50 +86,17 @@
                 <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>26. Remove Duplicates from Sorted
                         Array</b></div>
             </div>
+
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
-                    <pre class="code white border">                       
-                    <code class="typewrite">
-<span class="keyword">class</span> Solution<span class="operator">(</span><span class="keyword">object</span><span class="operator">):</span>
-    <span class="keyword">def</span> removeDuplicates<span class="operator">(</span>self, nums<span class="operator">):</span>
-        <span class="string">"""</span>
-        <span class="string">:type nums: List[int]</span>
-        <span class="string">:rtype: int</span>
-        <span class="string">"""</span>
-        
-        seen <span class="operator">=</span> <span class="number">[]</span>
-        p1_index <span class="operator">=</span> <span class="number">0</span>
-        dupFound <span class="operator">=</span> <span class="keyword">False</span>
-        
-        seen.append(nums[<span class="number">0</span>])
-        
-        i <span class="operator">=</span> <span class="number">1</span>
-        <span class="comment"># iterate through array</span>
-        <span class="keyword">while</span> <span class="operator">(</span>i <span class="operator">&lt;</span> <span class="keyword">len</span>(nums)<span class="operator">):</span>                
-            <span class="comment"># skip over duplicates</span>
-            <span class="keyword">while</span> <span class="operator">(</span>nums[i] <span class="keyword">in</span> seen<span class="operator">):</span>
-                dupFound <span class="operator">=</span> <span class="keyword">True</span>
-                i <span class="operator">+=</span> <span class="number">1</span>
-                <span class="keyword">if</span> <span class="operator">(</span>i <span class="operator">&gt;=</span> <span class="keyword">len</span>(nums)<span class="operator">):</span>
-                    <span class="keyword">break</span>
-            <span class="keyword">if</span> <span class="operator">(</span>i <span class="operator">&gt;=</span> <span class="keyword">len</span>(nums)<span class="operator">):</span>
-                <span class="keyword">break</span>
-            <span class="keyword">if</span> <span class="operator">(</span>dupFound<span class="operator">):</span>
-                <span class="comment"># move p1 forward</span>
-                p1_index <span class="operator">+=</span> <span class="number">1</span>
-                <span class="comment"># swap unique with duplicate</span>
-                temp <span class="operator">=</span> nums[p1_index]
-                nums[p1_index] <span class="operator">=</span> nums[i]
-                nums[i] <span class="operator">=</span> temp
-                <span class="keyword">if</span> <span class="operator">(</span>nums[p1_index] <span class="keyword">not</span> <span class="keyword">in</span> seen<span class="operator">):</span>
-                    seen.append(nums[p1_index])
-            <span class="keyword">else</span><span class="operator">:</span> <span class="comment"># no dupes, move both pointers forward</span>
-                seen.append(nums[i])
-                i <span class="operator">+=</span> <span class="number">1</span>
-                p1_index <span class="operator">+=</span> <span class="number">1</span>
-            dupFound <span class="operator">=</span> <span class="keyword">False</span>  <span class="comment"># reset dupe marker</span>
-        <span class="keyword">return</span> <span class="keyword">len</span>(seen)
-                    
+                    <pre class="d-flex pt-0  code black border">
+                        <code class="typewriter " id="typing-text" >
+                            <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
+                                <img src="../static/locked2.png" height="85%" width="85%" alt="Solution Locked">
+                                <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
+                            </div>
+
+                        <span id="cursor"></span>                    
                                 </code>
                                 </pre>
                     <div class="mb-5 text-center"><img src="stats/26r.png" class="border" width="85%"></div>
@@ -142,7 +109,8 @@
                                 Given an integer array <code>nums</code> sorted in non-decreasing order, remove the
                                 duplicates in-place such that each unique element appears only once. The relative order
                                 of the elements should be kept the same. Then return the number of unique elements in
-                                <code>nums</code>.</p>
+                                <code>nums</code>.
+                            </p>
 
                             <p>Consider the number of unique elements of <code>nums</code> to be <code>k</code>, to get
                                 accepted, you need to do the following things:</p>
@@ -152,7 +120,8 @@
                                     <p>Change the array <code>nums</code> such that the first <code>k</code> elements of
                                         <code>nums</code> contain the unique elements in the order they were present in
                                         <code>nums</code> initially. The remaining elements of <code>nums</code> are not
-                                        important as well as the size of <code>nums</code>.</p>
+                                        important as well as the size of <code>nums</code>.
+                                    </p>
                                 </li>
                                 <li>
                                     <p>Return <code>k</code>.</p>
@@ -162,36 +131,49 @@
                     </div>
 
                     <div class="p-4 green border marcellus-regular">
-                        <p><b>My solution:</b> My initial approach to this problem was to take every duplicate value in the array and shift it all the way rightward,
-                            leaving behind only the unique values in the front of the array. This worked for 360/362 test cases,
-                            but failed on the last two, which involve very large arrays with many duplicates, causing the algorithm to time out. So
+                        <p><b>My solution:</b> My initial approach to this problem was to take every duplicate value in
+                            the array and shift it all the way rightward,
+                            leaving behind only the unique values in the front of the array. This worked for 360/362
+                            test cases,
+                            but failed on the last two, which involve very large arrays with many duplicates, causing
+                            the algorithm to time out. So
                             while such an algorithm does work for smaller arrays, it breaks down when we are dealing
                             with arrays at scale.</p>
 
-                        <p>So, how to solve this for all array sizes?  The hints are fairly useful, namely skipping over
-                            duplicates rather than shifting them about.  What I ended up doing was keeping a list of values
+                        <p>So, how to solve this for all array sizes? The hints are fairly useful, namely skipping over
+                            duplicates rather than shifting them about. What I ended up doing was keeping a list of
+                            values
                             that have already been seen, and adding each unique element in <b>nums</b> to this list when
                             encountered.</p>
 
-                        <p>The iterations, as in <a href="27.html">problem 27</a>, involve maintaining multiple pointers.
-                        Start by creating two pointers - one to keep track of the last position near the beginning of 
-                        the array - this will be where you swap unique values to.  The second pointer is the one that
-                        iterates through the array from front to back.</p>
+                        <p>The iterations, as in <a href="27.html">problem 27</a>, involve maintaining multiple
+                            pointers.
+                            Start by creating two pointers - one to keep track of the last position near the beginning
+                            of
+                            the array - this will be where you swap unique values to. The second pointer is the one that
+                            iterates through the array from front to back.</p>
 
-                        <p>Whenever you encounter a duplicate (found in the <b>seen</b> array), simply continue iterating
-                        past it with your second pointer until a unique value is reached.  Then, increment your first
-                        pointer by 1 and swap the values of the two pointers.  This has the effect of swapping 
-                        out duplicates for new, unique values found later in the array.</p>
+                        <p>Whenever you encounter a duplicate (found in the <b>seen</b> array), simply continue
+                            iterating
+                            past it with your second pointer until a unique value is reached. Then, increment your first
+                            pointer by 1 and swap the values of the two pointers. This has the effect of swapping
+                            out duplicates for new, unique values found later in the array.</p>
 
-                        <p>Keep iterating until the end of the array, moving the second pointer past duplicates, incrementing
-                            the first pointer when a unique value is found, and swapping.  If there are no duplicates found 
-                            in one interation, simply increment both pointers by 1 and continue with the above process. I used
-                            a boolean variable to determine when duplicates were present and when they weren't, resetting
+                        <p>Keep iterating until the end of the array, moving the second pointer past duplicates,
+                            incrementing
+                            the first pointer when a unique value is found, and swapping. If there are no duplicates
+                            found
+                            in one interation, simply increment both pointers by 1 and continue with the above process.
+                            I used
+                            a boolean variable to determine when duplicates were present and when they weren't,
+                            resetting
                             this after each iteration.
                         </p>
 
-                        <p>Since you will need to return a count of the number of unique elements, you can simply look to
-                            your <b>seen</b> array, since this will contain all unique values seen at least once.  Make sure you
+                        <p>Since you will need to return a count of the number of unique elements, you can simply look
+                            to
+                            your <b>seen</b> array, since this will contain all unique values seen at least once. Make
+                            sure you
                             don't add duplicates to this array while iterating.
                         </p>
 
@@ -207,8 +189,7 @@
                 </div>
 
             </div>
-        </div>
-        <script src="../main.js"></script>
+            <script src="../main.js"></script>
 </body>
 
 </html>

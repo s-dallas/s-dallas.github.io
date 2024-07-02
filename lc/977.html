@@ -69,12 +69,13 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-10 text-center">
-                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
-                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="../static/arrow.png" alt="Left" id="goLeft" class="p-0 m-0 custom-button left">
+                        <div class="m-0 d-flex align-items-center scroll-container" id="scroll-container"></div>
+                        <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
                     </div>
-                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
                 </div>
-            </div>                   
+            </div>                     
 
             <div class="row text-center">
                 <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
@@ -87,76 +88,14 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
-                    <pre class="code white border">
-                    <code class="typewrite">
-class Solution(object):
-    <span class="keyword">def</span> <span class="function">sortedSquares</span>(self, nums):
-        """
-        <span class="comment">:type nums: List[int]</span>
-        <span class="comment">:rtype: List[int]</span>
-        """
-
-        squares = []
-
-        <span class="keyword">if</span> (<span class="operator">(</span>len(nums) == <span class="number">1</span><span class="operator">)</span>:
-            squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
-        <span class="keyword">elif</span> (<span class="operator">(</span>len(nums) == <span class="number">2</span><span class="operator">)</span>:
-            <span class="keyword">if</span> (<span class="operator">(</span>nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>]) <span class="operator">&lt;</span> (nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>]<span class="operator">)</span>:
-                squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
-                squares.append(nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>])                
-            <span class="keyword">else</span>:
-                squares.append(nums[<span class="number">1</span>]<span class="operator">*</span>nums[<span class="number">1</span>])
-                squares.append(nums[<span class="number">0</span>]<span class="operator">*</span>nums[<span class="number">0</span>])
-        <span class="keyword">elif</span> (<span class="operator">(</span>nums[<span class="operator">-</span><span class="number">1</span><span class="operator">]</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
-            i = len(nums)<span class="operator">-</span><span class="number">1</span>
-            <span class="keyword">while</span> (<span class="operator">(</span>i <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
-                squares.append(nums[i]<span class="operator">*</span>nums[i])
-                i <span class="operator">-=</span> <span class="number">1</span>
-        <span class="keyword">elif</span> (<span class="operator">(</span>nums[<span class="number">0</span>]<span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
-            i = <span class="number">0</span>
-            <span class="keyword">while</span> (<span class="operator">(</span>i <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-                squares.append(nums[i]<span class="operator">*</span>nums[i])
-                i <span class="operator">+=</span> <span class="number">1</span>
-            
-        <span class="keyword">else</span>:
-
-            i  = len(nums)<span class="operator">/</span><span class="number">2</span>
-            <span class="keyword">if</span> (<span class="operator">(</span>nums[i] <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
-                <span class="keyword">while</span> (<span class="operator">(</span>nums[i] <span class="operator">&lt;</span> <span class="number">0</span><span class="operator">)</span>:
-                    <span class="keyword">if</span> (<span class="operator">(</span>i <span class="operator">!=</span> len(nums)<span class="operator">-</span><span class="number">1</span><span class="operator">)</span>:
-                        i <span class="operator">+=</span> <span class="number">1</span>
-            <span class="keyword">else</span>:
-                <span class="keyword">while</span> (<span class="operator">(</span>nums[i] <span class="operator">&gt;</span> <span class="number">0</span><span class="operator">)</span>:
-                    <span class="keyword">if</span> (<span class="operator">(</span>i <span class="operator">!=</span> <span class="number">0</span><span class="operator">)</span>:
-                        i <span class="operator">-=</span> <span class="number">1</span>
-                i<span class="operator">+=</span><span class="number">1</span>
-
-            left = i<span class="operator">-</span><span class="number">1</span>
-            right = i
-        
-            <span class="keyword">while</span> (<span class="operator">(</span>left <span class="operator">&gt;</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">or</span> right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-
-                <span class="comment">/* no more left, fill right */</span>
-                <span class="keyword">if</span> (<span class="operator">(</span>left <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">and</span> right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-                    <span class="keyword">while</span> (<span class="operator">(</span>right <span class="operator">&lt;</span> len(nums)<span class="operator">)</span>:
-                        squares.append(nums[right]<span class="operator">*</span>nums[right])
-                        right <span class="operator">+=</span> <span class="number">1</span>
-                
-                <span class="comment">/* no more right, fill left */</span>
-                <span class="keyword">elif</span> (<span class="operator">(</span>right <span class="operator">&gt;=</span> len(nums) <span class="operator">and</span> left <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
-                    <span class="keyword">while</span> (<span class="operator">(</span>left <span class="operator">&gt;=</span> <span class="number">0</span><span class="operator">)</span>:
-                        squares.append(nums[left]<span class="operator">*</span>nums[left])
-                        left <span class="operator">-=</span> <span class="number">1</span>
-
-            
-                <span class="keyword">elif</span> (<span class="operator">(</span>nums[left]<span class="operator">*</span>nums[left] <span class="operator">&lt;=</span> nums[right]<span class="operator">*</span>nums[right]<span class="operator">)</span>:
-                    squares.append(nums[left]<span class="operator">*</span>nums[left])
-                    left <span class="operator">-=</span> <span class="number">1</span>
-                <span class="keyword">else</span>:
-                    squares.append(nums[right]<span class="operator">*</span>nums[right])
-                    right <span class="operator">+=</span> <span class="number">1</span>
-
-        <span class="keyword">return</span> squares                        
+                    <pre class="d-flex pt-0  code black border">
+                        <code class="typewriter" id="typing-text" >
+                                <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
+                                    <img src="../static/locked2.png" height="85%" width="85%" alt="Solution Locked">
+                                    <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
+                                </div>
+    
+                            <span id="cursor"></span>                   
                                 </code>
                                 </pre>
             <div class="mb-5 text-center"><img src="stats/977r.png" class="border" width="85%"></div>

@@ -68,68 +68,68 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-10 text-center">
-                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
-                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="../static/arrow.png" alt="Left" id="goLeft" class="p-0 m-0 custom-button left">
+                        <div class="m-0 d-flex align-items-center scroll-container" id="scroll-container"></div>
+                        <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
                     </div>
-                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
                 </div>
-            </div>            
+            </div>
 
             <div class="row text-center">
                 <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
             </div>
             <div class="row text-center">
-                <div class="col-12 mb-5 mt-4 syne-mono-regular subheading"><b>1295. Find Numbers with Even Number of Digits</b></div>
+                <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 26, 2024</div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>1295. Find Numbers with Even Number of
+                        Digits</b></div>
             </div>
 
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
-                    <pre class="code white border">
-                    <code>
-<span class="keyword">class</span> Solution(<span class="keyword">object</span>):
-    <span class="keyword">def</span> findNumbers(self, nums):
-        """
-        <span class="comment">:type nums: List[int]</span>
-        <span class="comment">:rtype: int</span>
-        """
-        <span class="variable">count</span> = <span class="number">0</span>
-        <span class="keyword">for</span> <span class="variable">d</span> <span class="keyword">in</span> <span class="variable">nums</span>:
-            <span class="variable">numD</span> = <span class="number">0</span>
-            <span class="variable">division</span> = <span class="variable">d</span>
-            <span class="keyword">while</span> (<span class="variable">division</span> > <span class="number">0</span>):
-                <span class="variable">division</span> = <span class="function">math.floor</span>(<span class="variable">division</span> / <span class="number">10</span>)
-                <span class="variable">numD</span> += <span class="number">1</span>
-            <span class="keyword">if</span> (<span class="variable">numD</span> % <span class="number">2</span> == <span class="number">0</span>):
-                <span class="variable">count</span> += <span class="number">1</span>
-        <span class="keyword">return</span> <span class="variable">count</span>
+                    <pre class="d-flex pt-0  code black border">
+                        <code class="typewriter" id="typing-text" >
+                                <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
+                                    <img src="../static/locked2.png" height="85%" width="85%" alt="Solution Locked">
+                                    <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
+                                </div>
+    
+                            <span id="cursor"></span>
                                 </code>
                                 </pre>
-            <div class="mb-5 text-center"><img src="stats/1295r.png" class="border" width="85%"></div>
-            <div class="text-center"><img src="stats/1295m.png" class="border" width="85%"></div>                                
+                    <div class="mb-5 text-center"><img src="stats/1295r.png" class="border" width="85%"></div>
+                    <div class="text-center"><img src="stats/1295m.png" class="border" width="85%"></div>
                 </div>
-                    <div class="col-6">
-                        <div class="border p-4 mb-3">
-                            <i>
-                                <p>Given an array <code>nums</code> of integers, return how many of them contain an even number of digits.</p>
-                            </i>
-                        </div>
-
-                        <div class="p-4 green border marcellus-regular">
-                            <p><b>My solution:</b> This one combines modulus, division, and loops.  Iterate through each number in the list/array, continually divide it by 10 and round down (math.floor).  Each time, keep track of the digits.  When you reach 0, break out of the loop and test if it's an even number of digits using mod 2.  If so, increment the total count.  In the end, simply return the final count.</p>
-                        </div>
+                <div class="col-6">
+                    <div class="border p-4 mb-3">
+                        <i>
+                            <p>Given an array <code>nums</code> of integers, return how many of them contain an even
+                                number of digits.</p>
+                        </i>
                     </div>
 
-
-                    <div class="row purple">
-                        <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
-                            <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
-                            </p>
-                        </div>
+                    <div class="p-4 green border marcellus-regular">
+                        <p><b>My solution:</b> This one combines modulus, division, and loops. Iterate through each
+                            number in the list/array, continually divide it by 10 and round down (math.floor). Each
+                            time, keep track of the digits. When you reach 0, break out of the loop and test if it's an
+                            even number of digits using mod 2. If so, increment the total count. In the end, simply
+                            return the final count.</p>
                     </div>
-
                 </div>
+
+
+                <div class="row purple">
+                    <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                        <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                        </p>
+                    </div>
+                </div>
+
             </div>
-            <script src="../main.js"></script>
+        </div>
+        <script src="../main.js"></script>
 </body>
 
 </html>

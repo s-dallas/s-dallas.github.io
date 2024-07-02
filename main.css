@@ -24,22 +24,34 @@
 }
 
 .scroll-container {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  border: 1px dashed rgba(204,204,204,0.3);
-  padding: 10px;
-  width: 80%;
-  font-size:14px;
-  min-height: 90px;
-  align-items: center;
-  margin: auto;
-  position: relative;
-  -webkit-overflow-scrolling: smooth; 
-  scrollbar-width: thin;
-  scrollbar-color: white transparent;
-
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    border: 1px dashed rgba(204, 204, 204, 0.3);
+    padding: 10px;
+    padding-left: 20px;
+    width: 80%; /* Ensure the container takes up a specific width */
+    font-size: 14px;
+    min-height: 90px;
+    position: relative;
+    -webkit-overflow-scrolling: smooth; 
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
 }
+
+#cursor {
+  display: inline-block; /* Ensure cursor is inline with the text */
+  font-size: inherit; /* Match font size of typed text */
+  color: rgb(211, 207, 207)
+  animation: blink-animation 1s infinite;
+}
+
+@keyframes blink-animation {
+  0% { opacity: 0.8; }
+  50% { opacity: 0; }
+  100% { opacity: 0.8; }
+}
+
 
 .scroll-container::-webkit-scrollbar {
   width: 4px; 
@@ -98,6 +110,14 @@
   background-color: rgb(169, 170, 169);
 }
 
+.custom-button {
+  cursor: pointer;
+  border: none;
+  padding: 40px;
+  width: 5%;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
+}
 
 
 .check {
@@ -133,6 +153,7 @@
   padding: 10px;
   width: 5px;
   height: 5px;
+  box-sizing: border-box;
   border-radius: 50%;
   opacity: 0.1;  
   border: 1px solid #ccc;
@@ -150,6 +171,7 @@
   height: 15px;
   border-radius: 50%;
   background-color: white;
+  opacity: 0.5;
   position: relative;
   border: 2px solid green;
   color: #fff;
@@ -157,9 +179,27 @@
   user-select: none;
 }
 
+.scroll-item-curr {
+  display: inline-block;
+  margin-right: 35px;
+  padding: 15px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 1;
+  position: relative;
+  border: 2px solid green;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+}
+
 .scroll-button {
-  display: none;
+  display: block;
   position: absolute;
+  background-image: "../static/arrow.png";
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -170,7 +210,7 @@
 }
 
 .scroll-button.left {
-  left: 7.5%;
+  left: 15.5%;
 }
 
 .scroll-button.right {
@@ -272,7 +312,51 @@ a:hover {
   font-weight: 700;
   font-style: normal;
 }
+.image-container {
+  position: relative; 
+  top: 12%;
+  opacity: 1;
+  /*display: inline-block; */ 
+  transition: opacity 0.7s ease;
+}
 
+.fade-out {
+  opacity: 0;
+}
+.transparent-button {
+  position: absolute;
+  left: 30%;
+  top: -10%;
+  transform: translate(-20%, -20%); 
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  color: white; 
+  cursor: pointer; 
+  z-index: 1; 
+}
+
+@keyframes flicker {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.transparent-button span {
+  animation: flicker 1s infinite; 
+  display: inline-block;
+}
+
+.transparent-button:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background on hover */
+}
 .goudy {
   font-family: "Goudy Bookletter 1911", serif;
   font-weight: 400;
@@ -281,6 +365,9 @@ a:hover {
 
 .code {
   padding: 20px;
+  min-height: 500px;
+  background-color: #000;
+  color: #fff;
   border-radius: 10px;
   overflow: auto;
 }

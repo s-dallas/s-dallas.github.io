@@ -69,13 +69,13 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-10 text-center">
-                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
-                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="../static/arrow.png" alt="Left" id="goLeft" class="p-0 m-0 custom-button left">
+                        <div class="m-0 d-flex align-items-center scroll-container" id="scroll-container"></div>
+                        <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
                     </div>
-                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
                 </div>
-            </div>            
-         
+            </div>       
 
             <div class="row text-center">
                 <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
@@ -88,26 +88,14 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
-                    <pre class="code white border">
-                    <code class="typewrite">
-<span class="token keyword">class</span> Solution(<span class="token keyword">object</span>):
-    <span class="token keyword">def</span> duplicateZeros(self, arr):
-        <span class="token comment">"""
-        :type arr: List[int]
-        :rtype: None Do not return anything, 
-                modify arr in-place instead.
-        """</span>
-        i = <span class="token number">0</span>
-        <span class="token keyword">while</span> (i < <span class="token function">len</span>(arr)):
-            <span class="token keyword">if</span> (arr[i] != <span class="token number">0</span>):
-                i += <span class="token number">1</span>
-                <span class="token keyword">continue</span>
-            <span class="token keyword">else</span>:
-                j = <span class="token function">len</span>(arr) - <span class="token number">1</span>
-                <span class="token keyword">while</span> (j > i):
-                    arr[j] = arr[j-<span class="token number">1</span>]
-                    j -= <span class="token number">1</span>
-                i += <span class="token number">2</span>
+                    <pre class="d-flex pt-0  code black border">
+                        <code class="typewriter" id="typing-text" >
+                                <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
+                                    <img src="../static/lock.png" height="85%" width="85%" alt="Solution Locked">
+                                    <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
+                                </div>
+    
+                            <span id="cursor"></span>
                                         </code>
                                 </pre>
             <div class="mb-5 text-center"><img src="stats/1089r.png" width="85%"></div>

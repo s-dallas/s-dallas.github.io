@@ -15,8 +15,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">        
+    <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <hr class="hr2">
-            <input type="hidden" id="target-number" value="1431">
+            <input type="hidden" id="target-number" value="941">
 
             <div class="row d-flex justify-content-center">
                 <div class="col-10 text-center">
@@ -75,70 +75,89 @@
                         <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
                     </div>
                 </div>
-            </div>              
-      
+            </div>       
 
             <div class="row text-center">
                 <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
             </div>
-            <div class="row text-center">
-                <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 27, 2024</div>
-            </div>            
-            <div class="row text-center">
-                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>1431. Kids With the Greatest Number of
-                        Candies</b></div>
-            </div>
 
+            <!-------   DATE/HEADER  ------------>
+
+            <div class="row text-center">
+                <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 30, 2024</div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>941. Valid Mountain Array</b></div>
+            </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
                     <pre class="d-flex pt-0  code black border">
                         <code class="typewriter" id="typing-text" >
-                                <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
-                                    <img src="../static/locked2.png" height="85%" width="85%" alt="Solution Locked">
-                                    <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
-                                </div>
-    
-                            <span id="cursor"></span>                    
+                            <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
+                                <img src="../static/locked2.png" height="85%" width="85%" alt="Solution Locked">
+                                <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
+                            </div>
+
+                        <span id="cursor"></span>
 
                                 </code>
                                 </pre>
-            <div class="mb-5 text-center"><img src="stats/1431r.png" width="85%"></div>
-            <div class="text-center"><img src="stats/1431m.png" width="85%"></div>                                
+            <!-------   IMAGES  ------------>                                
+                    <div class="mb-5 text-center"><img src="stats/941r.png" class="border" width="85%"></div>
+                    <div class="text-center"><img src="stats/941m.png" class="border" width="85%"></div>
                 </div>
-                    <div class="col-6">
-                        <div class="border p-4 mb-3 inconsolata-400">
-                                <i><p>There are <code>n</code> kids with candies. You are given an integer array
-                                    <code>candies</code>, where each <code>candies[i]</code> represents the number of
-                                    candies the <code>i<sup>th</sup></code> kid has, and an integer
-                                    <code>extraCandies</code>, denoting the number of extra candies that you have.
-                                </p>
+                <div class="col-6">
+                    <div class="border p-4 mb-3 inconsolata-400">
 
-                                <p>Return a boolean array result of length <code>n</code>, where <code>result[i]</code>
-                                    is true if, after giving the <code>i<sup>th</sup></code> kid all the <code>extraCandies</code>,
-                                    they will have the greatest number of candies among all the kids, or false
-                                    otherwise.</p></i>
-                                </div>
+                        
+            <!-------   PROMPT  ------------>
 
-                        <div class="p-4 green border marcellus-regular">
-                            <p><b>My solution:</b> The goal here is to iterate through the original counts of candies to
-                                find the maximum. In the process, one may add the extraCandies to each kid's total and
-                                create a second array/list of these updated values. Finally, iterate through the new
-                                list (original count + extra candies) and compare each to the maximum. Create a third
-                                and final list to store the boolean values and if the count+extra list values are
-                                greater than or equal to the max stored in step 1, that value will be True in the final
-                                list, False otherwise.</p>
-                        </div>
+
+                        <i>
+                            <p>
+                                Given an array of integers <code>arr</code>, return true if and only if it is a valid mountain array.</p>
+
+                                <p>>Recall that <code>arr</code> is a mountain array if and only if:</p>
+
+                                <ul>
+                                <li><p><code>arr</code>.length >= 3</p></li></ul>
+                                <p>- There exists some <code>i</code> with 0 < <code>i</code> < <code>arr</code>.length - 1 such that:</p></li>
+                                <ul>
+                                <li><p><code>arr</code>[0] &lt; <code>arr</code>[1] &lt; ... &lt; <code>arr</code>[<code>i</code> - 1] &lt; <code>arr</code>[<code>i</code>] </p></li>
+                                <li><p><code>arr</code>[i] > <code>arr</code>[<code>i</code> + 1] > ... > <code>arr</code>[<code>arr</code>.length - 1]</p></li>
+                            </ul>
+                        </i>
                     </div>
 
+            <!-------   SOLUTION EXPLANATION  ------------>
 
-                    <div class="row purple">
-                        <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
-                            <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
-                            </p>
-                        </div>
+                    <div class="p-4 green border marcellus-regular">
+                        <p><b>My solution:</b> You will want to split this problem into two parts.  First, you will need to check the increasing portion.
+                        Iterate through the array, checking whether each subsequent element is larger than the previous.  If so, keep iterating.  Once that
+                        is no longer the case, break out of the loop.</p>
+                        
+                        <p>There are 4 cases at this point:  You have reached the end of the array, which means
+                        the array consisted of increasing terms only, none decreasing, so you can immediately return False.  Case 2 is that you moved laterally
+                        at the end of the loop - that is, there were duplicate adjacent values.  This is not strictly increasing, so you can return False.  Case 3
+                        is that you didn't move anywhere, meaning the array does not begin with increasing terms, which again leads to a False outcome.  Lastly,
+                        you are somewhere in the array after a series of increasing values.</Thead></p>
+
+                        <p>In this last case, you must then check the decreasing part of the mountain.  This is essentially the same as as the first iteration,
+                            only now you are checking whether each subsequent term is smaller than the previous.  At the end of this loop, there is only one
+                            suitable outcome, namely that you are just past the end of the array.  Check the index to make sure this is the case, and return True
+                            if so, false otherwise.  If you aren't at the end, it means the array incnreases again at some point, so it's not a mountain. 
+                        </p>
                     </div>
-
                 </div>
+
+
+                <div class="row purple">
+                    <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                        <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                        </p>
+                    </div>
+                </div>
+
             </div>
             <script src="../main.js"></script>
 </body>

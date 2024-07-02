@@ -15,8 +15,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">        
+    <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
@@ -69,92 +69,94 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-10 text-center">
-                    <button class="scroll-button green btn heading m-0 p-0 pb-1 pl-2 pr-2 left">&lt;</button>
-                    <div class="scroll-container justify-content-center" id="scroll-container">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="../static/arrow.png" alt="Left" id="goLeft" class="p-0 m-0 custom-button left">
+                        <div class="m-0 d-flex align-items-center scroll-container" id="scroll-container"></div>
+                        <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
                     </div>
-                    <button class="scroll-button btn green heading m-0 p-0 pl-2 pr-2 pb-1 right">&gt;</button>
                 </div>
-            </div>                   
+            </div>
 
             <div class="row text-center">
                 <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
             </div>
             <div class="row text-center">
                 <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 29, 2024</div>
-            </div>            
+            </div>
             <div class="row text-center">
                 <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>88. Merge Sorted Array</b></div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
-                    <pre class="code white border">
-                    <code class="typewrite">
-<span class="token keyword">class</span> Solution(<span class="token keyword">object</span>):
-    <span class="token keyword">def</span> merge(self, nums1, m, nums2, n):
-        <span class="token comment">"""
-        :type nums1: List[int]
-        :type m: int
-        :type nums2: List[int]
-        :type n: int
-        :rtype: None Do not return anything,
-                modify nums1 in-place instead.
-        """</span>
-        p = m
-        c = p
-        <span class="token keyword">for</span> num2 <span class="token keyword">in</span> nums2:
-            nums1[p] = num2
-            <span class="token keyword">while</span> (c > <span class="token number">0</span> <span class="token keyword">and</span> nums1[c] < nums1[c-<span class="token number">1</span>]):
-                nums1[c] = nums1[c-<span class="token number">1</span>]
-                nums1[c-<span class="token number">1</span>] = num2
-                c -= <span class="token number">1</span>
-            p += <span class="token number">1</span>
-            c = p                      
+                    <pre class="d-flex pt-0  code black border">
+                    <code class="typewriter" id="typing-text" >
+                            <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
+                                <img src="../static/locked2.png" height="85%" width="85%" alt="Solution Locked">
+                                <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
+                            </div>
+
+                        <span id="cursor"></span>
                                 </code>
                                 </pre>
-            <div class="mb-5 text-center"><img src="stats/88r.png" class="border" width="85%"></div>
-            <div class="text-center"><img src="stats/88m.png" class="border" width="85%"></div>                                
+                    <div class="mb-5 text-center"><img src="stats/88r.png" class="border" width="85%"></div>
+                    <div class="text-center"><img src="stats/88m.png" class="border" width="85%"></div>
                 </div>
-                    <div class="col-6">
-                        <div class="border p-4 mb-3 inconsolata-400">
-                                <i><p>
-                                    You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in non-decreasing order, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>
+                <div class="col-6">
+                    <div class="border p-4 mb-3 inconsolata-400">
+                        <i>
+                            <p>
+                                You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in
+                                non-decreasing order, and two integers <code>m</code> and <code>n</code>, representing
+                                the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>
 
-                                    <p>Merge <code>nums1</code> and <code>nums2</code> into a single array sorted in non-decreasing order.</p>
-                                    
-                                    <p>The final sorted array should not be returned by the function, but instead be stored inside the array <code>nums1</code>.
-                                         To accommodate this, <code>nums1</code> has a length of <code>m</code> + <code>n</code>, where the first <code>m</code> elements denote the elements that should be merged, and the last <code>n</code> elements are set to 0 and should be ignored. 
-                                        <code>nums2</code> has a length of <code>n</code>.</i>
-                        </div>
+                            <p>Merge <code>nums1</code> and <code>nums2</code> into a single array sorted in
+                                non-decreasing order.</p>
 
-                        <div class="p-4 green border marcellus-regular">
-                            <p><b>My solution:</b> You will first want to iterate through all numbers to be merged in <b>nums2</b>. The idea is to take each
-                            of these, insert it at the first encountered zero in <b>nums1</b>, then continually swap with the left neighbor if the value 
+                            <p>The final sorted array should not be returned by the function, but instead be stored
+                                inside the array <code>nums1</code>.
+                                To accommodate this, <code>nums1</code> has a length of <code>m</code> + <code>n</code>,
+                                where the first <code>m</code> elements denote the elements that should be merged, and
+                                the last <code>n</code> elements are set to 0 and should be ignored.
+                                <code>nums2</code> has a length of <code>n</code>.
+                        </i>
+                    </div>
+
+                    <div class="p-4 green border marcellus-regular">
+                        <p><b>My solution:</b> You will first want to iterate through all numbers to be merged in
+                            <b>nums2</b>. The idea is to take each
+                            of these, insert it at the first encountered zero in <b>nums1</b>, then continually swap
+                            with the left neighbor if the value
                             is less than the current value in that neighbor.</p>
 
-                            <p>Keep track both of where the next zero is in <b>nums1</b> as well as the current location of the merged value from <b>nums2</b>
-                                once it has been placed in its own zero. For this, I use variables <b>p</b> and <b>c</b>, respectively.</p>
+                        <p>Keep track both of where the next zero is in <b>nums1</b> as well as the current location of
+                            the merged value from <b>nums2</b>
+                            once it has been placed in its own zero. For this, I use variables <b>p</b> and <b>c</b>,
+                            respectively.</p>
 
-                            <p>The value of <b>c</b> decrements with each swap until the merged number finds its position (break if 0 to prevent an 
-                            index error when checking the left neighbor).  The value of <b>p</b> increments after each iteration of the while loop to move to the next zero in <b>nums1</b>,
+                        <p>The value of <b>c</b> decrements with each swap until the merged number finds its position
+                            (break if 0 to prevent an
+                            index error when checking the left neighbor). The value of <b>p</b> increments after each
+                            iteration of the while loop to move to the next zero in <b>nums1</b>,
                             which will be filled with the next value in <b>nums2</b> to be merged.</p>
 
-                            <p>Once all values in <b>num1</b> have been accounted for in this way (outer for loop terminates), you are finished.  Make sure to
-                                reset the current neighbor index after each merge.</p>
+                        <p>Once all values in <b>num1</b> have been accounted for in this way (outer for loop
+                            terminates), you are finished. Make sure to
+                            reset the current neighbor index after each merge.</p>
 
-                        </div>
                     </div>
-
-
-                    <div class="row purple">
-                        <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
-                            <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
+
+
+                <div class="row purple">
+                    <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                        <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                        </p>
+                    </div>
+                </div>
+
             </div>
-            <script src="../main.js"></script>
+        </div>
+        <script src="../main.js"></script>
 </body>
 
 </html>

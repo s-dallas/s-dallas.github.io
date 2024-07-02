@@ -15,8 +15,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">        
+    <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
@@ -65,8 +65,8 @@
                 </div>
             </div>
             <hr class="hr2">
-            <input type="hidden" id="target-number" value="1431">
-
+            <input type="hidden" id="target-number" value="1346">
+            
             <div class="row d-flex justify-content-center">
                 <div class="col-10 text-center">
                     <div class="d-flex align-items-center justify-content-center">
@@ -75,20 +75,20 @@
                         <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
                     </div>
                 </div>
-            </div>              
-      
+            </div>       
 
             <div class="row text-center">
                 <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
             </div>
-            <div class="row text-center">
-                <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 27, 2024</div>
-            </div>            
-            <div class="row text-center">
-                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>1431. Kids With the Greatest Number of
-                        Candies</b></div>
-            </div>
 
+            <!-------   DATE/HEADER  ------------>
+
+            <div class="row text-center">
+                <div class="col-12 mb-0 mt-1 syne-mono-regular small">June 30, 2024</div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>1346. Check If N and Its Double Exist</b></div>
+            </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-6">
                     <pre class="d-flex pt-0  code black border">
@@ -98,47 +98,52 @@
                                     <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
                                 </div>
     
-                            <span id="cursor"></span>                    
-
+                            <span id="cursor"></span>
                                 </code>
                                 </pre>
-            <div class="mb-5 text-center"><img src="stats/1431r.png" width="85%"></div>
-            <div class="text-center"><img src="stats/1431m.png" width="85%"></div>                                
+            <!-------   IMAGES  ------------>                                
+                    <div class="mb-5 text-center"><img src="stats/1346r.png" class="border" width="85%"></div>
+                    <div class="text-center"><img src="stats/1346m.png" class="border" width="85%"></div>
                 </div>
-                    <div class="col-6">
-                        <div class="border p-4 mb-3 inconsolata-400">
-                                <i><p>There are <code>n</code> kids with candies. You are given an integer array
-                                    <code>candies</code>, where each <code>candies[i]</code> represents the number of
-                                    candies the <code>i<sup>th</sup></code> kid has, and an integer
-                                    <code>extraCandies</code>, denoting the number of extra candies that you have.
-                                </p>
+                <div class="col-6">
+                    <div class="border p-4 mb-3 inconsolata-400">
 
-                                <p>Return a boolean array result of length <code>n</code>, where <code>result[i]</code>
-                                    is true if, after giving the <code>i<sup>th</sup></code> kid all the <code>extraCandies</code>,
-                                    they will have the greatest number of candies among all the kids, or false
-                                    otherwise.</p></i>
-                                </div>
+                        
+            <!-------   PROMPT  ------------>
 
-                        <div class="p-4 green border marcellus-regular">
-                            <p><b>My solution:</b> The goal here is to iterate through the original counts of candies to
-                                find the maximum. In the process, one may add the extraCandies to each kid's total and
-                                create a second array/list of these updated values. Finally, iterate through the new
-                                list (original count + extra candies) and compare each to the maximum. Create a third
-                                and final list to store the boolean values and if the count+extra list values are
-                                greater than or equal to the max stored in step 1, that value will be True in the final
-                                list, False otherwise.</p>
-                        </div>
+
+                        <i>
+                            <p>
+                                Given an array <code>arr</code> of integers, check if there exist two indices <code>i</code> and <code>j</code> such that :
+
+                                <ul>
+                                    <li><p><code>i</code> != <code>j</code></p></li>
+                                    <li><p></code>0 <= <code>i</code>, <code>j</code> < <code>arr.length</code></p></li>
+                                    <li><p><code>arr[i]</code> == 2 * <code>arr[j]</code></p></li>
+                                
+                            </ul>
+                        </i>
                     </div>
 
+            <!-------   SOLUTION EXPLANATION  ------------>
 
-                    <div class="row purple">
-                        <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
-                            <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
-                            </p>
-                        </div>
+                    <div class="p-4 green border marcellus-regular">
+                        <p><b>My solution:</b> This one is not overly difficult. Nested for loops
+                        will get you to the solution. The outer loop iterates through the array, the inner loop does likewise,
+                        checking each subsequent element to see if it's double the value of the first pointer.  Don't forget
+                        to take into account the stipulation that the indices must be different.  There is one case where
+                        multiplying a value by 2 gives the same value, namely 0.</p>
                     </div>
-
                 </div>
+
+
+                <div class="row purple">
+                    <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                        <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                        </p>
+                    </div>
+                </div>
+
             </div>
             <script src="../main.js"></script>
 </body>

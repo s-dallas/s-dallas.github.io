@@ -406,6 +406,9 @@ font-style: normal;
 }
 
 /* Syntax highlighting */
+
+
+
 .code .keyword {
   color: #569cd6; /* Keywords like 'def', 'class', 'return' */
 }
@@ -438,7 +441,14 @@ font-style: normal;
   color: #9a6e3a; /* Operator color */
 }
 
-
+.code .keyword { color: #0088dd; } /* Slightly more vibrant blue for Python keywords */
+.code .variable { color: #00fffb; } /* Keep the same vibrant blue for variables */
+.code .comment { color: #00aa00; } /* Slightly more vibrant green for comments */
+.code .function { color: #87cc8d; } /* Slightly more vibrant red for function names */
+.code .operator { color: #00e1ff; } /* Keep the same vibrant magenta for operators */
+.code .number { color: #00cca7; } /* Slightly more vibrant purple for numbers */
+.code .string { color: #ff7700; } /* Slightly more vibrant orange for strings */
+.code .punctuation { color: #ffffff; } /* Keep the same vibrant white for punctuation *
 
 .label-container {
   display: inline-block;

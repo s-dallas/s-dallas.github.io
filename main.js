@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollSpeed = 50;
     let scrollInterval;
     let maxSpeed = 3000;
-    let completed = [977,1431,1295,1089,88,27,26,1346,941,1299];
+    let completed = [977,1431,1295,1089,88,27,26,1346,941,1299,26.2];
     completed.sort(function(a, b) {
       return a - b;
     });
@@ -196,6 +196,44 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Usage example
     let codeSegments = {
+        26.2: `
+<span class="keyword">class</span> <span class="function">Solution</span>(<span class="keyword">object</span>):
+    <span class="keyword">def</span> <span class="function">removeDuplicates</span>(<span class="keyword">self</span>, <span class="variable">nums</span>):
+        <span class="comment">"""
+        :type nums: List[int]
+        :rtype: int
+        """</span>
+        <span class="variable">last</span> = <span class="variable">nums</span>[<span class="number">0</span>]
+        <span class="variable">i</span> = <span class="number">1</span>
+        <span class="variable">size</span> = <span class="number">1</span>
+        
+        <span class="comment"># edge cases</span>
+        <span class="keyword">if</span> (<span class="punctuation">(</span><span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">==</span> <span class="number">1</span><span class="punctuation">)</span>:
+            <span class="keyword">return</span> <span class="number">1</span>
+        <span class="keyword">if</span> (<span class="punctuation">(</span><span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">==</span> <span class="number">2</span><span class="punctuation">)</span>:
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">nums</span>[<span class="number">0</span>] <span class="operator">==</span> <span class="variable">nums</span>[<span class="number">1</span>]<span class="punctuation">)</span>:
+                <span class="keyword">return</span> <span class="number">1</span><span class="punctuation">;</span>
+            <span class="keyword">else</span>:
+                <span class="keyword">return</span> <span class="number">2</span><span class="punctuation">;</span>
+        
+        <span class="keyword">for</span> <span class="variable">s</span> <span class="keyword">in</span> <span class="keyword">range</span> <span class="punctuation">(</span><span class="number">1</span>, <span class="keyword">len</span>(<span class="variable">nums</span>)):   
+            
+            <span class="comment"># duplicates - increment i</span>
+            <span class="keyword">while</span> (<span class="punctuation">(</span><span class="variable">i</span> <span class="operator"><</span> <span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">and</span> <span class="variable">nums</span>[<span class="variable">i</span>] <span class="operator">==</span> <span class="variable">last</span><span class="punctuation">)</span>:
+                <span class="variable">i</span> <span class="operator">+=</span> <span class="number">1</span>
+                <span class="keyword">continue</span>
+                
+            <span class="comment"># end of array, no new uniques</span>
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">i</span> <span class="operator">&gt;=</span> <span class="function">len</span>(<span class="variable">nums</span>)<span class="punctuation">)</span>:
+                <span class="keyword">return</span> <span class="variable">size</span>
+            
+            <span class="variable">nums</span>[<span class="variable">s</span>] = <span class="variable">nums</span>[<span class="variable">i</span>]
+            <span class="variable">last</span> = <span class="variable">nums</span>[<span class="variable">s</span>]
+            <span class="variable">size</span> <span class="operator">+=</span> <span class="number">1</span>
+            <span class="variable">s</span> <span class="operator">+=</span> <span class="number">1</span>
+            <span class="variable">i</span> <span class="operator">+=</span> <span class="number">1</span>
+                    
+        <span class="keyword">return</span> <span class="variable">size</span>`,
         88: `
 <span class="token keyword">class</span> Solution(<span class="token keyword">object</span>):
     <span class="token keyword">def</span> merge(self, nums1, m, nums2, n):

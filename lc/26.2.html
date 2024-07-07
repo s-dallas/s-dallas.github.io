@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dallas Scott</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&display=swap"
+        rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/qhr3xul.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+    <link href="../main.css" rel="stylesheet">
+</head>
+
+<body class="purple">
+    <div class="purple">
+
+        <div class="container-fluid">
+            <div class="mt-3 ml-2 row mb-4 text-center">
+                <div
+                    class="flex-column d-flex align-items-center justify-content-end major-mono-display-regular mr-4 heading label-container-dark">
+                    <a class="black" href="../">
+                        Dallas Scott</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="row small">
+                        <div class="col"><a href="../writings.html"><img src="../static/pen_dark.png" class="icon"></a>
+                            <br><a href="../writings.html">Writings</a>
+                        </div>
+                        <div class="col"><a href="../drawings.html"><img src="../static/art_dark.png" class="icon"></a>
+                            <br><a href="../drawings.html">Art</a>
+                        </div>
+                        <div class="col"><a href="../projects.html"><img src="../static/portfolio_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../projects.html">Projects</a>
+                        </div>
+                        <div class="col"><a href="../lc/"><img src="../static/code_dark.png" class="icon"></a>
+                            <br><a href="../lc/">Code</a>
+                        </div>
+                        <div class="col"><a href="../exercises.html"><img src="../static/binary_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../exercises.html">Exercises</a>
+                        </div>
+                        <div class="col"><a href="../sandbox2.html"><img src="../static/circle_dark.png"
+                                    class="icon"></a>
+                            <br><a href="../sandbox2.html">Animation</a>
+                        </div>
+                        <div class="col"><a href="../sandbox.html"><img src="../static/cube_dark.png" class="icon"></a>
+                            <br><a href="../sandbox.html">Renders</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr2">
+            <input type="hidden" id="target-number" value="26.2">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="../static/arrow.png" alt="Left" id="goLeft" class="p-0 m-0 custom-button left">
+                        <div class="m-0 d-flex align-items-center scroll-container" id="scroll-container"></div>
+                        <img src="../static/arrowr.png" alt="Right" id="goRight" class="p-0 m-0 custom-button right">
+                    </div>
+                </div>
+            </div>       
+
+            <div class="row text-center">
+                <div class="col-12 mb-3 mt-4 major-mono-display-regular heading"><b>Leetcode</b></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-0 mt-1 syne-mono-regular small">July 6, 2024</div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mb-5 mt-2 syne-mono-regular subheading"><b>26.2 - Remove Duplicates from Sorted
+                        Array (Efficient)</b></div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    <pre class="d-flex pt-0  code black border">
+                        <code class="typewriter " id="typing-text" >
+                            <div id="imgCont" class="image-container d-flex align-items-top justify-content-center major-mono-display-regular">
+                                <img src="../static/piano.png" height="85%" width="85%" alt="Solution Locked">
+                                <button id="unlock-code" class="transparent-button heading"><span>Unlock Solution</span></button>                           
+                            </div>
+
+                        <span id="cursor"></span>                    
+                                </code>
+                                </pre>
+                    <div class="mb-5 text-center"><img src="stats/26.2r.png" class="border" width="85%"></div>
+                    <div class="text-center"><img src="stats/26.2m.png" class="border" width="85%"></div>
+                </div>
+                <div class="col-6">
+                    <div class="border p-4 mb-3 inconsolata-400">
+                        <i>
+                            <p>
+                                Given an integer array <code>nums</code> sorted in non-decreasing order, remove the
+                                duplicates in-place such that each unique element appears only once. The relative order
+                                of the elements should be kept the same. Then return the number of unique elements in
+                                <code>nums</code>.
+                            </p>
+
+                            <p>Consider the number of unique elements of <code>nums</code> to be <code>k</code>, to get
+                                accepted, you need to do the following things:</p>
+
+                            <ul>
+                                <li>
+                                    <p>Change the array <code>nums</code> such that the first <code>k</code> elements of
+                                        <code>nums</code> contain the unique elements in the order they were present in
+                                        <code>nums</code> initially. The remaining elements of <code>nums</code> are not
+                                        important as well as the size of <code>nums</code>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Return <code>k</code>.</p>
+                                </li>
+                            </ul>
+                        </i>
+                    </div>
+
+                    <div class="p-4 green border marcellus-regular">
+                        <p><b>My solution:</b> This is an alternate solution to <a href="26.html">problem 26</a> which does not use
+                        additional memory and which runs in linear time. The goal is to remove all duplicate entries in an 
+                        array in-place without using nested loops (i.e., O(N) runtime).</p>
+
+                        <p>Rather than use a separate array to store seen values as we did in the previous solution,
+                            we're just going to store the last seen number in an int variable. Once again, we will be using two
+                            pointers, one to iterate through the array, the other to keep track of where to swap values.
+                        </p>
+
+                        <p>We can start with edge cases, as they are the easiest to consider.  Arrays of length 1 will always
+                            return size 1.  Arrays of length 2 can return either length 1 or 2 depending on if it is 2 duplicate
+                            or unique numbers. 
+                        </p>
+
+                        <p>Then we go into our main iteration loop. Both pointers start at the second item in
+                            the array. The pointer <b>i</b> advances so long as it sees repeat values, stopping when
+                        it reaches a unique value. The unique value swaps places with the pointer <b>s</b>, and then
+                    both <b>s</b> and <b>i</b> are incremented by 1, as well as the <b>size</b> variable (which begins at
+                  1 to take into account the first element of the array.</p>
+
+                        <p>With that basic idea in mind, there are really only 2 cases to consider in the loop. Either 
+                            the array is filled with unique values, in which case <b>i</b> simply advances to the end of the array,
+                            or there is a duplicate that <b>i</b> stops at.  In the former case, we simply return the current
+                            size because there are no longer any elements to check.  In the latter, we swap the value in <b>i</b>
+                            into the position of <b>s</b>, store the new duplicate value in <b>last</b>, increment both pointers, increment the size by 1, and continue into the 
+                            next iteration of the loop.
+                        </p>
+
+                        <p>Since we are only making one pass through the array (swapping when necessary and incrementing the
+                            size counter), this runs in linear time.  Since we are not using any other data structures, its memory
+                            complexity is O(1), as required by these new, alterative requirements for the problem.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <div class="row purple">
+                    <div class="col-12 purple pb-0 mt-5 mb-0 text-center marcellus-regular subheading">
+                        <p>©2024 Dallas Scott &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="contact.html">Contact</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <script src="../main.js"></script>
+</body>
+
+</html>

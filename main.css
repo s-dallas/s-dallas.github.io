@@ -448,7 +448,7 @@ font-style: normal;
 .code .operator { color: #00e1ff; } /* Keep the same vibrant magenta for operators */
 .code .number { color: #00cca7; } /* Slightly more vibrant purple for numbers */
 .code .string { color: #ff7700; } /* Slightly more vibrant orange for strings */
-.code .punctuation { color: #ffffff; } /* Keep the same vibrant white for punctuation *
+.code .punctuation { color: #ffffff; } /* Keep the same vibrant white for punctuation */
 
 .label-container {
   display: inline-block;

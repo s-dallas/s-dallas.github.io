@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollSpeed = 50;
     let scrollInterval;
     let maxSpeed = 3000;
-    let completed = [977,1431,1295,1089,88,27,26,1346,941,1299,26.2];
+    let completed = [977,1431,1295,1089,88,27,26,1346,941,1299,26.2,283,905];
     completed.sort(function(a, b) {
       return a - b;
     });
@@ -196,6 +196,86 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Usage example
     let codeSegments = {
+        905: `
+<span class="keyword">class</span> <span class="function">Solution</span>(<span class="keyword">object</span>):
+    <span class="function">def</span> <span class="function">sortArrayByParity</span>(<span class="keyword">self</span>, <span class="variable">nums</span>):
+        <span class="comment">"""
+        :type nums: List[int]
+        :rtype: List[int]
+        """</span>
+        <span class="variable">i</span> = <span class="number">0</span>
+        <span class="variable">j</span> = <span class="keyword">len</span>(<span class="variable">nums</span>)<span class="operator">-</span><span class="number">1</span>
+        
+        <span class="keyword">if</span> (<span class="punctuation">(</span><span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">==</span> <span class="number">1</span><span class="punctuation">)</span>:
+            <span class="keyword">return</span> <span class="variable">nums</span>
+        <span class="keyword">if</span> (<span class="punctuation">(</span><span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">==</span> <span class="number">2</span><span class="punctuation">)</span>:
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">nums</span>[<span class="number">0</span>] <span class="operator">%</span> <span class="number">2</span> <span class="operator">!=</span> <span class="number">0</span><span class="punctuation">)</span>:
+                <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">nums</span>[<span class="number">1</span>] <span class="operator">%</span> <span class="number">2</span> <span class="operator">!=</span> <span class="number">0</span><span class="punctuation">)</span>:
+                    <span class="keyword">return</span> <span class="variable">nums</span>
+                <span class="keyword">else</span>:
+                    <span class="variable">temp</span> = <span class="variable">nums</span>[<span class="number">0</span>]
+                    <span class="variable">nums</span>[<span class="number">0</span>] = <span class="variable">nums</span>[<span class="number">1</span>]
+                    <span class="variable">nums</span>[<span class="number">1</span>] = <span class="variable">temp</span>
+                    <span class="keyword">return</span> <span class="variable">nums</span>
+            <span class="keyword">else</span>:
+                <span class="keyword">return</span> <span class="variable">nums</span>
+        
+        <span class="keyword">while</span> (<span class="punctuation">(</span><span class="variable">i</span> <span class="operator">&lt;</span> <span class="variable">j</span><span class="punctuation">)</span>:
+            
+            <span class="comment"># find even number near end</span>
+            <span class="keyword">while</span> (<span class="punctuation">(</span><span class="variable">j</span> <span class="operator">&gt;=</span> <span class="number">0</span> <span class="operator">and</span> <span class="variable">nums</span>[<span class="variable">j</span>] <span class="operator">%</span> <span class="number">2</span> <span class="operator">!=</span> <span class="number">0</span><span class="punctuation">)</span>:
+                <span class="variable">j</span> <span class="operator">-=</span> <span class="number">1</span>
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">j</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">)</span>:
+                <span class="keyword">return</span> <span class="variable">nums</span>
+            
+            <span class="comment"># find odd number near start</span>
+            <span class="keyword">while</span> (<span class="punctuation">(</span><span class="variable">i</span> <span class="operator">&lt;</span> <span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">and</span> <span class="variable">nums</span>[<span class="variable">i</span>] <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span><span class="punctuation">)</span>:
+                <span class="variable">i</span> <span class="operator">+=</span> <span class="number">1</span>
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">i</span> <span class="operator">&gt;=</span> <span class="function">len</span>(<span class="variable">nums</span>)<span class="punctuation">)</span>:
+                <span class="keyword">return</span> <span class="variable">nums</span>
+            
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">i</span> <span class="operator">&lt;</span> <span class="variable">j</span><span class="punctuation">)</span>:
+                <span class="variable">temp</span> = <span class="variable">nums</span>[<span class="variable">i</span>]
+                <span class="variable">nums</span>[<span class="variable">i</span>] = <span class="variable">nums</span>[<span class="variable">j</span>]
+                <span class="variable">nums</span>[<span class="variable">j</span>] = <span class="variable">temp</span>
+                <span class="variable">i</span> <span class="operator">+=</span> <span class="number">1</span>
+                <span class="variable">j</span> <span class="operator">-=</span> <span class="number">1</span>
+            
+        <span class="keyword">return</span> <span class="variable">nums</span>
+        `,
+        283: `
+<span class="keyword">class</span> <span class="function">Solution</span>(<span class="keyword">object</span>):
+    <span class="function">def</span> <span class="function">moveZeroes</span>(<span class="keyword">self</span>, <span class="variable">nums</span>):
+        <span class="comment">"""
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """</span>
+        <span class="variable">j</span> = <span class="number">0</span>
+        
+        <span class="keyword">if</span> (<span class="punctuation">(</span><span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">==</span> <span class="number">1</span><span class="punctuation">)</span>:
+            <span class="keyword">return</span>
+        <span class="keyword">if</span> (<span class="punctuation">(</span><span class="function">len</span>(<span class="variable">nums</span>) <span class="operator">==</span> <span class="number">2</span><span class="punctuation">)</span>:
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">nums</span>[<span class="number">0</span>] <span class="operator">==</span> <span class="number">0</span> <span class="operator">and</span> <span class="variable">nums</span>[<span class="number">1</span>] <span class="operator">!=</span> <span class="number">0</span><span class="punctuation">)</span>:
+                <span class="variable">nums</span>[<span class="number">0</span>] <span class="operator">=</span> <span class="variable">nums</span>[<span class="number">1</span>]
+                <span class="variable">nums</span>[<span class="number">1</span>] <span class="operator">=</span> <span class="number">0</span>
+                <span class="keyword">return</span>
+            <span class="keyword">else</span>:
+                <span class="keyword">return</span>
+                
+        <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="keyword">range</span> <span class="punctuation">(</span><span class="number">0</span>, <span class="keyword">len</span>(<span class="variable">nums</span>)):
+            <span class="keyword">while</span> (<span class="punctuation">(</span><span class="variable">nums</span>[<span class="variable">j</span>] <span class="operator">==</span> <span class="number">0</span><span class="punctuation">)</span>:
+                <span class="variable">j</span> <span class="operator">+=</span> <span class="number">1</span>
+                <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">j</span> <span class="operator">&gt;=</span> <span class="keyword">len</span>(<span class="variable">nums</span>)<span class="punctuation">)</span>:
+                    <span class="keyword">break</span>
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">j</span> <span class="operator">&gt;=</span> <span class="keyword">len</span>(<span class="variable">nums</span>)<span class="punctuation">)</span>:
+                <span class="keyword">return</span>                    
+            <span class="variable">temp</span> = <span class="variable">nums</span>[<span class="variable">i</span>]
+            <span class="variable">nums</span>[<span class="variable">i</span>] = <span class="variable">nums</span>[<span class="variable">j</span>]
+            <span class="variable">nums</span>[<span class="variable">j</span>] = <span class="variable">temp</span>
+            <span class="variable">j</span> <span class="operator">+=</span> <span class="number">1</span>
+            <span class="keyword">if</span> (<span class="punctuation">(</span><span class="variable">j</span> <span class="operator">&gt;=</span> <span class="keyword">len</span>(<span class="variable">nums</span>)<span class="punctuation">)</span>:
+                <span class="keyword">break</span>        
+        `,
         26.2: `
 <span class="keyword">class</span> <span class="function">Solution</span>(<span class="keyword">object</span>):
     <span class="keyword">def</span> <span class="function">removeDuplicates</span>(<span class="keyword">self</span>, <span class="variable">nums</span>):

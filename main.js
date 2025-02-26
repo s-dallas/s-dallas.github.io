@@ -96,105 +96,105 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollSpeed = 50;
     let scrollInterval;
     let maxSpeed = 3000;
-    let completed = [977,1431,1295,1089,88,27,26,1346,941,1299,26.2];
-    completed.sort(function(a, b) {
-      return a - b;
+    let completed = [977, 1431, 1295, 1089, 88, 27, 26, 1346, 941, 1299, 26.2];
+    completed.sort(function (a, b) {
+        return a - b;
     });
-    
+
     let targetItem = document.querySelector(`.scroll-item-curr[data-number="${targetNumber}"]`);
 
     for (let i = 0; i < completed.length; i++) {
         let li = document.createElement('a');
         li.href = completed[i] + '.html';
-        let ex = document.createElement('div');   
-        let tx = document.createElement('div');   
+        let ex = document.createElement('div');
+        let tx = document.createElement('div');
         ex.className = 'scroll-item-c';
-        tx.classList.add('d-flex'); 
+        tx.classList.add('d-flex');
         tx.classList.add('justify-content-center');
         tx.classList.add('align-items-baseline');
         tx.classList.add('syne-mono-regular');
-        tx.classList.add('mt-3');     
-        tx.textContent = completed[i];   
-        ex.setAttribute('data-number', completed[i]); 
+        tx.classList.add('mt-3');
+        tx.textContent = completed[i];
+        ex.setAttribute('data-number', completed[i]);
 
         let check = document.createElement('div');
-        check.className = 'check';          
+        check.className = 'check';
         let checkIcon = document.createElement('div');
-        checkIcon.className = 'check-icon';               
-        check.appendChild(checkIcon);       
+        checkIcon.className = 'check-icon';
+        check.appendChild(checkIcon);
         ex.appendChild(check)
         ex.appendChild(tx);
         li.appendChild(ex);
-        scrollContainer.appendChild(li);        
+        scrollContainer.appendChild(li);
 
 
         if (completed[i] == targetNumber) {
             ex.classList.remove('scroll-item-c');
             ex.classList.add('scroll-item-curr')
-        }  
-    
-    }
-     
-
-        const container = document.getElementById('scroll-container');
-        const currentItem = container.getElementsByClassName('scroll-item-curr');
-
-        
-        const containerWidth = container.offsetWidth;
-        const itemWidth = currentItem.offsetWidth;
-        
-        const scrollPosition = currentItem.offsetLeft - (containerWidth / 2) + (itemWidth / 2);
-        
-        container.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-        });
-
-
-
-
-        /* TYPING EFFECT */
-
-        function typeWriterEffect(elementId, htmlText, speed) {
-            let element = document.getElementById(elementId);
-            if (!element) return;
-        
-            let cursor = document.getElementById('cursor'); // Get the cursor element
-            if (!cursor) return;
-        
-            cursor.style.display = 'inline-block'; // Display cursor
-        
-            let htmlIndex = 0;
-            let textBuffer = '';
-        
-            // Function to update text and cursor
-            function updateText() {
-                if (htmlIndex < htmlText.length) {
-                    if (htmlText[htmlIndex] === '<') {
-                        // Append the whole tag (including < and >) to maintain HTML structure
-                        let tag = '';
-                        while (htmlText[htmlIndex] !== '>') {
-                            tag += htmlText[htmlIndex];
-                            htmlIndex++;
-                        }
-                        tag += htmlText[htmlIndex]; // Append the closing '>'
-                        textBuffer += tag;
-                    } else {
-                        textBuffer += htmlText[htmlIndex];
-                    }
-                    element.innerHTML = textBuffer + '<span id="cursor">&#x2588;</span>'; // Include cursor in innerHTML
-                    htmlIndex++;
-                } else {
-                    clearInterval(typingInterval);
-                    cursor.style.display = 'none'; // Hide cursor when typing ends 
-                }
-            }
-        
-            // Call updateText function every `speed` milliseconds
-            let typingInterval = setInterval(updateText, speed);
         }
-        
-        // Usage example
+
+    }
+
+
+    const container = document.getElementById('scroll-container');
+    const currentItem = container.getElementsByClassName('scroll-item-curr');
+
+
+    const containerWidth = container.offsetWidth;
+    const itemWidth = currentItem.offsetWidth;
+
+    const scrollPosition = currentItem.offsetLeft - (containerWidth / 2) + (itemWidth / 2);
+
+    container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+
+
+
+
+    /* TYPING EFFECT */
+
+    function typeWriterEffect(elementId, htmlText, speed) {
+        let element = document.getElementById(elementId);
+        if (!element) return;
+
+        let cursor = document.getElementById('cursor'); // Get the cursor element
+        if (!cursor) return;
+
+        cursor.style.display = 'inline-block'; // Display cursor
+
+        let htmlIndex = 0;
+        let textBuffer = '';
+
+        // Function to update text and cursor
+        function updateText() {
+            if (htmlIndex < htmlText.length) {
+                if (htmlText[htmlIndex] === '<') {
+                    // Append the whole tag (including < and >) to maintain HTML structure
+                    let tag = '';
+                    while (htmlText[htmlIndex] !== '>') {
+                        tag += htmlText[htmlIndex];
+                        htmlIndex++;
+                    }
+                    tag += htmlText[htmlIndex]; // Append the closing '>'
+                    textBuffer += tag;
+                } else {
+                    textBuffer += htmlText[htmlIndex];
+                }
+                element.innerHTML = textBuffer + '<span id="cursor">&#x2588;</span>';
+                htmlIndex++;
+            } else {
+                clearInterval(typingInterval);
+                cursor.style.display = 'none'; // Hide cursor when typing ends 
+            }
+        }
+
+        // Call updateText function every `speed` milliseconds
+        let typingInterval = setInterval(updateText, speed);
+    }
+
+    // LC Solutions Data
     let codeSegments = {
         26.2: `
 <span class="keyword">class</span> <span class="function">Solution</span>(<span class="keyword">object</span>):
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
         <span class="keyword">return</span> arr
     `,
-    1295: `
+        1295: `
 <span class="keyword">class</span> Solution(<span class="keyword">object</span>):
     <span class="keyword">def</span> findNumbers(self, nums):
         """
@@ -478,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
             greatest</span>.append(<span class="keyword">False</span>)
     <span class="keyword">return</span> greatest
     `,
-    26: `
+        26: `
 <span class="keyword">class</span> Solution<span class="operator">(</span><span class="keyword">object</span><span class="operator">):</span>
     <span class="keyword">def</span> removeDuplicates<span class="operator">(</span>self, nums<span class="operator">):</span>
         <span class="string">"""</span>
@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dupFound <span class="operator">=</span> <span class="keyword">False</span>  <span class="comment"># reset dupe marker</span>
         <span class="keyword">return</span> <span class="keyword">len</span>(seen)
     `,
-    27: `
+        27: `
 <span class="keyword">class</span> Solution<span class="operator">(</span><span class="keyword">object</span><span class="operator">):</span>
     <span class="function">def</span> removeElement<span class="operator">(</span>self, nums, val<span class="operator">):</span>
         <span class="comment">"""
@@ -547,26 +547,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 count += <span class="number">1</span>
         <span class="keyword">return</span> count
             `,
-}
-        
-        let typingSpeed = 30; 
-        
-        document.getElementById('unlock-code').addEventListener('click', function() {
-            var container = document.querySelector('.image-container');
+    }
 
-            container.classList.add('fade-out'); 
+    let typingSpeed = 30;
 
-            setTimeout(function() {
-                container.style.display = 'none';
-    
+    document.getElementById('unlock-code').addEventListener('click', function () {
+        var container = document.querySelector('.image-container');
 
-                typeWriterEffect('typing-text', codeSegments[targetNumber], typingSpeed);
-            }, 700); 
-        
-        });
-     
-    
-     function scrollLeft() {
+        container.classList.add('fade-out');
+
+        setTimeout(function () {
+            container.style.display = 'none';
+
+
+            typeWriterEffect('typing-text', codeSegments[targetNumber], typingSpeed);
+        }, 700);
+
+    });
+
+
+    function scrollLeft() {
         clearInterval(scrollInterval);
         scrollSpeed = 1;
         scrollInterval = setInterval(() => {
@@ -600,23 +600,23 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('stopScroll triggered');
         clearInterval(scrollInterval);
     }
-     
-     function increaseSpeed() {
-         scrollSpeed += 1;
-         if (scrollSpeed > maxSpeed) {
-             scrollSpeed = maxSpeed;
-         }
-     }
-     
-     
-     document.getElementById('goLeft').addEventListener('mousedown', scrollLeft);
-     document.getElementById('goRight').addEventListener('mousedown', scrollRight);
-     document.addEventListener('mouseup', stopScroll);
-     document.getElementById('goLeft').addEventListener('mouseleave', stopScroll);
-     document.getElementById('goRight').addEventListener('mouseleave', stopScroll);
+
+    function increaseSpeed() {
+        scrollSpeed += 1;
+        if (scrollSpeed > maxSpeed) {
+            scrollSpeed = maxSpeed;
+        }
+    }
+
+
+    document.getElementById('goLeft').addEventListener('mousedown', scrollLeft);
+    document.getElementById('goRight').addEventListener('mousedown', scrollRight);
+    document.addEventListener('mouseup', stopScroll);
+    document.getElementById('goLeft').addEventListener('mouseleave', stopScroll);
+    document.getElementById('goRight').addEventListener('mouseleave', stopScroll);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let targetNumber = document.getElementById('target-number').value;
 });
 

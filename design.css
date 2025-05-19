@@ -10,6 +10,12 @@ p::after {
     margin-bottom: 2em;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9
+}
+
 .poem {
     text-justify: left;
 }

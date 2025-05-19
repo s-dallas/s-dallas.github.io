@@ -259,7 +259,71 @@ public class Solution {
         </div>
     </div>
 
+            <div class="col-12 taviraj-medium text-left">
+                <p class="bg-light pl-3"><a id="typewriter" class="typewrite typewrite-sm typewrite-md typewrite-lg"
+                        href="https://neetcode.io/problems/top-k-elements-in-list">Top K Frequent Elements</a></p>
+                <pre class="pre-scrollable h5">
+                    <code>
+                <a href="https://neetcode.io/problems/top-k-elements-in-list">
+public class Solution {
+    public int[] TopKFrequent(int[] nums, int k) {
+        int max = -1000;
+        int min = 1000;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] >= max)
+                max = nums[i];
+            if (nums[i] < min)
+                min = nums[i];
+        }
 
+        if (max == min)
+        {
+            int[] ans = new int[1];
+            ans[0] = min;
+            return ans;
+        }
+
+        Console.WriteLine("min: " + min + ", max: " + max);
+
+        int range = min;
+
+
+        int[] freq = new int[max - range + 1];
+        int[] keys = new int[max - range + 1];
+
+        for (int i = 0; i < keys.Length; i++)
+        {
+            keys[i] = min++;
+            Console.WriteLine(keys[i]);
+        }
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            freq[nums[i] - range]++;
+        }
+
+        Array.Sort(freq, keys);
+        Array.Reverse(freq);
+        Array.Reverse(keys);
+        for (int i = 0; i < freq.Length; i++)
+        {
+            Console.WriteLine("key: " + keys[i] + ", freq: " + freq[i]);
+        }
+        int[] kmost = new int[k];
+        for (int i = 0; i < k; i++)
+            kmost[i] = keys[i];
+        
+        return kmost;
+    }
+}
+                     
+            </a>
+        </code>
+            </pre>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -21,7 +21,20 @@
   background-color: #41EAD4;
   color: #000;
 }
-
+    @font-face {
+      font-family: 'Missiva';
+      src: url('fonts/Missiva.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .title {
+      font-family: 'Missiva', serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 2.5rem;
+      color: #000;
+      text-decoration: none; 
+    }
   .gray {
     background-color: #F4F5F5;
     color: #000;

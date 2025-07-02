@@ -40,6 +40,28 @@
     color: #000;
 }
 
+.responsive-video {
+    width: 560px;
+    height: 315px;
+    max-width: 100%;     
+  }
+
+
+  @media (max-width: 1024px) {
+    .responsive-video {
+      width: 400px;
+      height: 225px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .responsive-video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+    }
+  }
+
 .scroll-container {
     display: flex;
     overflow-x: auto;

@@ -258,15 +258,15 @@
 */
 
 public class Solution {
-  List<int> values = new List<int>();
+  List&lt;int&gt; values = new List&lt;int&gt;();
   int goodNodes = 0;
   bool badNode = false;
 
   public int GoodNodes(TreeNode root) {
     if (root == null)
       return goodNodes;
-    for (int i = 0; i < values.Count; i++)
-      if (root.val < values[i])
+    for (int i = 0; i &lt; values.Count; i++)
+      if (root.val &lt; values[i])
         badNode = true;
     if (!badNode)
       goodNodes++;

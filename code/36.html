@@ -265,35 +265,35 @@ public class Solution {
     else if (list1 == null && list2 == null)
       return null;
 
-    List<ListNode> mergedList = new List<ListNode>();
+    List&lt;ListNode&gt; mergedList = new List&lt;ListNode&gt;();
 
     /* compare values for merging */
     while (list1 != null && list2 != null)
     {
-      if (list1.val <= list2.val)
+      if (list1.val &lt;= list2.val)
       {
         mergedList.Add(list1);
-        if (list1.next != null && list1.next.val <= list2.val)
+        if (list1.next != null && list1.next.val &lt;= list2.val)
         {
           mergedList.Add(list1.next);
           list1 = list1.next;
         }
-        else if (list2.next != null && list2.val < list1.next.val)
+        else if (list2.next != null && list2.val &lt; list1.next.val)
         {
           mergedList.Add(list2);
           list2 = list2.next;
         }
         list1 = list1.next;
       }
-      else if (list2.val < list1.val)
+      else if (list2.val &lt; list1.val)
       {
         mergedList.Add(list2);
-        if (list2.next != null && list2.next.val <= list1.val)
+        if (list2.next != null && list2.next.val &lt;= list1.val)
         {
           mergedList.Add(list2.next);
           list2 = list2.next;
         }
-        else if (list1.next != null && list1.val < list1.next.val)
+        else if (list1.next != null && list1.val &lt; list1.next.val)
         {
           mergedList.Add(list1);
           list1 = list1.next;
@@ -321,7 +321,7 @@ public class Solution {
     }
 
     /* set the next links in the final merged list */
-    for (int i = 0; i < mergedList.Count - 1; i++)
+    for (int i = 0; i &lt; mergedList.Count - 1; i++)
       mergedList[i].next = mergedList[i+1];
     
     mergedList[mergedList.Count - 1].next = null;

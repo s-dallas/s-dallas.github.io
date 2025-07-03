@@ -245,16 +245,16 @@
 					<pre><code>
 public class Solution {
   public bool IsValid(string s) {
-    List<char> stack = new List<char>();
-    for (int i = 0; i < s.Length; i++)
+    List&lt;char&gt; stack = new List&lt;char&gt;();
+    for (int i = 0; i &lt; s.Length; i++)
     {
       if (s[i] == '(' || s[i] == '[' || s[i] == '{')
         stack.Insert(0, s[i]);
-      else if (s[i] == ')' && (stack.Count < 1 || stack[0] != '('))
+      else if (s[i] == ')' && (stack.Count &lt; 1 || stack[0] != '('))
         return false;
-      else if (s[i] == ']' && (stack.Count < 1 || stack[0] != '['))
+      else if (s[i] == ']' && (stack.Count &lt; 1 || stack[0] != '['))
         return false;
-      else if (s[i] == '}' && (stack.Count < 1 || stack[0] != '{'))
+      else if (s[i] == '}' && (stack.Count &lt; 1 || stack[0] != '{'))
         return false;                
       else if (s[i] == ')' && stack[0] == '(')
         stack.RemoveAt(0);
@@ -263,7 +263,7 @@ public class Solution {
       else if (s[i] == '}' && stack[0] == '{')
         stack.RemoveAt(0);
     }
-    if (stack.Count > 0)
+    if (stack.Count &gt; 0)
       return false;
     return true;        
   }

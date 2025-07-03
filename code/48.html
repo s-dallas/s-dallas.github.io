@@ -265,14 +265,14 @@ public class Solution {
 
     if (root == null)
     {
-      if (curDiam > diameter)
+      if (curDiam &gt; diameter)
         diameter = curDiam;
       return diameter;
     }
     curDiam++;
     if (root.left == null && root.right == null)
     {
-      if (curDiam > diameter)
+      if (curDiam &gt; diameter)
         diameter = curDiam;
       curDiam = 0;
     }

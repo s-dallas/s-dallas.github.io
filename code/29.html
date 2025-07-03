@@ -268,10 +268,10 @@ public class Solution {
     if (row[s+ mp] == t)
       return mp + mp;
 
-    if (row[s + mp] < t)
+    if (row[s + mp] &lt; t)
       return binarySearch(row, mp + s, row.Length, t);
     
-    if (row[s + mp] > t)
+    if (row[s + mp] &gt; t)
       return binarySearch(row, 0, mp, t);
     
     return -1;

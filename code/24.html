@@ -245,18 +245,18 @@
 					<pre><code>
 
 public class Solution {  
-  public List<string> GenerateParenthesis(int n) {
-    List<string> stack = new List<string>();
+  public List&lt;string&gt; GenerateParenthesis(int n) {
+    List&lt;string&gt; stack = new List&lt;string&gt;();
 
     stack.Insert(0, "()");
 
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i &lt; n; i++)
     {
-      List<string> num = new List<string>();
+      List&lt;string&gt; num = new List&lt;string&gt;();
       foreach (var s in stack)
       {
         int count = 1;
-        for (int j = 0; j < s.Length; j++)
+        for (int j = 0; j &lt; s.Length; j++)
         {
           string cnct = s.Substring(0, j+1) + "()" + 
             s.Substring(j+1);

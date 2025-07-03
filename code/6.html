@@ -245,9 +245,9 @@
 					<pre><code>
 public class Solution {
 
-  private List<string> orig = new List<string>();
+  private List&lt;string&gt; orig = new List&lt;string&gt;();
 
-  public string Encode(IList<string> strs) {
+  public string Encode(IList&lt;string&gt; strs) {
     string encoded = "";
     foreach (var s in strs)
     {
@@ -257,7 +257,7 @@ public class Solution {
     return encoded;
   }
 
-  public List<string> Decode(string s) {
+  public List&lt;string&gt; Decode(string s) {
     return orig;
   }
 }

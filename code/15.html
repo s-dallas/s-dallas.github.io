@@ -252,11 +252,11 @@ public class Solution {
     int i = 0;
     int j = i + window_size;
 
-    while (window_size < prices.Length)
+    while (window_size &lt; prices.Length)
     {
-      while (j < prices.Length)
+      while (j &lt; prices.Length)
       {
-        if ((prices[j] - prices[i]) > max_profit)
+        if ((prices[j] - prices[i]) &gt; max_profit)
           max_profit = prices[j] - prices[i];
         j++;
         i++;
@@ -274,11 +274,11 @@ public class Solution {
   public int[] TopKFrequent(int[] nums, int k) {
     int max = -1000;
     int min = 1000;
-    for (int i = 0; i < nums.Length; i++)
+    for (int i = 0; i &lt; nums.Length; i++)
     {
-      if (nums[i] >= max)
+      if (nums[i] &gt;= max)
         max = nums[i];
-      if (nums[i] < min)
+      if (nums[i] &lt; min)
         min = nums[i];
     }
 
@@ -297,13 +297,13 @@ public class Solution {
     int[] freq = new int[max - range + 1];
     int[] keys = new int[max - range + 1];
 
-    for (int i = 0; i < keys.Length; i++)
+    for (int i = 0; i &lt; keys.Length; i++)
     {
       keys[i] = min++;
       Console.WriteLine(keys[i]);
     }
 
-    for (int i = 0; i < nums.Length; i++)
+    for (int i = 0; i &lt; nums.Length; i++)
     {
       freq[nums[i] - range]++;
     }
@@ -312,7 +312,7 @@ public class Solution {
     Array.Reverse(freq);
     Array.Reverse(keys);
     int[] kmost = new int[k];
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i &lt; k; i++)
       kmost[i] = keys[i];
     
     return kmost;

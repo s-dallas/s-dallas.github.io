@@ -254,9 +254,9 @@ public class Solution {
     int j = i + window_size;
     bool permutationFound = false;
 
-    while (window_size < max_window_size && !permutationFound)
+    while (window_size &lt; max_window_size && !permutationFound)
     {
-      while (j <= s2.Length && !permutationFound)
+      while (j &lt;= s2.Length && !permutationFound)
       {
         permutationFound = checkPermutation(s1, s2, i, j-1);
         i++;
@@ -276,7 +276,7 @@ public class Solution {
 
     char[] s1Chars = new char[s1.Length];
 
-    for (int i = 0; i < s2Window.Length; i++)
+    for (int i = 0; i &lt; s2Window.Length; i++)
     {
       s2Window[i] = s2[s++];
       s1Chars[i] = s1[i];
@@ -284,7 +284,7 @@ public class Solution {
     Array.Sort(s2Window);
     Array.Sort(s1Chars);
 
-    for (int i = 0; i < s2Window.Length; i++)
+    for (int i = 0; i &lt; s2Window.Length; i++)
       if (s2Window[i] != s1Chars[i])
         return false;
 

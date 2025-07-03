@@ -244,14 +244,14 @@
 				<div class="col-md-8">
 					<pre><code>
 public class Solution {
-  public List<List<string>> GroupAnagrams(string[] strs) {
-    List<List<string>> anagramGroups = new List<List<string>>();
-    for (int i = 0; i < strs.Length; i++) {
-      List<string> otherWords = new List<string>();
+  public List&lt;List&lt;string&gt;&gt; GroupAnagrams(string[] strs) {
+    List&lt;List&lt;string&gt;&gt; anagramGroups = new List&lt;List&lt;string&gt;&gt;();
+    for (int i = 0; i &lt; strs.Length; i++) {
+      List&lt;string&gt; otherWords = new List&lt;string&gt;();
       otherWords.AddRange(strs);
       otherWords.RemoveRange(0, i + 1);
 
-      List<string> anagrams = new List<string>();
+      List&lt;string&gt; anagrams = new List&lt;string&gt;();
 
       /* if word not already in anagram groups, get its anagrams */
       if (!checkGroupsForExisting(strs[i], anagramGroups)) {
@@ -263,8 +263,8 @@ public class Solution {
   }
 
   /* get all anagrams in list for given word */
-  private List<string> GetAnagrams(string word, List<string> otherWords) {
-    List<string> anagrams = new List<string>();
+  private List&lt;string&gt; GetAnagrams(string word, List&lt;string&gt; otherWords) {
+    List&lt;string&gt; anagrams = new List&lt;string&gt;();
 
     /* last word in list - single: add to anagrams and return */
     if (otherWords.Count == 0) {
@@ -275,7 +275,7 @@ public class Solution {
     /* check if original word has already been added to anagrams */
     bool dupAlreadyAdded = false;
 
-    for (int i = 0; i < otherWords.Count; i++) {
+    for (int i = 0; i &lt; otherWords.Count; i++) {
       /* skip if not same length */
       if (word.Length != otherWords[i].Length)
         continue;
@@ -294,7 +294,7 @@ public class Solution {
       char[] word_letters = new char[word.Length];
       char[] othWord_letters = new char[otherWords[i].Length];
 
-      for (int j = 0; j < word.Length; j++) {
+      for (int j = 0; j &lt; word.Length; j++) {
         word_letters[j] = word[j];
         othWord_letters[j] = otherWords[i][j];
       }
@@ -305,7 +305,7 @@ public class Solution {
 
       bool wordsMatch = true;
 
-      for (int j = 0; j < word.Length; j++) {
+      for (int j = 0; j &lt; word.Length; j++) {
         if (word_letters[j] != othWord_letters[j]) {
           wordsMatch = false;
           break;
@@ -331,9 +331,9 @@ public class Solution {
   }
 
   /* check if a word is already in anagram groups to exclude it */
-  bool checkGroupsForExisting(string word, List<List<string>> groups) {
-    for (int i = 0; i < groups.Count; i++) {
-      for (int j = 0; j < groups[i].Count; j++) {
+  bool checkGroupsForExisting(string word, List&lt;List&lt;string&gt;&gt; groups) {
+    for (int i = 0; i &lt; groups.Count; i++) {
+      for (int j = 0; j &lt; groups[i].Count; j++) {
         if (groups[i][j].Equals(word))
           return true;
       }
@@ -349,7 +349,7 @@ public class Solution {
 				<a href="3.html" class="btn btn-code">Prev Soln</a>
 			</div>
 			<div class="col-md-4 body-text">
-				2
+				4
 			</div>
 			<div class="col-md-4">
 				<a href="5.html" class="btn btn-code">Next Soln</a>

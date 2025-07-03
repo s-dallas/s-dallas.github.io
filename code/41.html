@@ -257,9 +257,9 @@
 
 public class Solution {
   public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
-    List<ListNode> stack1 = new List<ListNode>();
-    List<ListNode> stack2 = new List<ListNode>();
-    List<ListNode> sumStack = new List<ListNode>();
+    List&lt;ListNode&gt; stack1 = new List&lt;ListNode&gt;();
+    List&lt;ListNode&gt; stack2 = new List&lt;ListNode&gt;();
+    List&lt;ListNode&gt; sumStack = new List&lt;ListNode&gt;();
 
     ListNode h1 = l1;
     ListNode h2 = l2;
@@ -275,15 +275,15 @@ public class Solution {
       h2 = h2.next;
     }
 
-    List<ListNode> sumList = new List<ListNode>();
+    List&lt;ListNode&gt; sumList = new List&lt;ListNode&gt;();
 
 
     int carry = 0;
 
-    while (stack1.Count > 0 && stack2.Count > 0)
+    while (stack1.Count &gt; 0 && stack2.Count &gt; 0)
     {
       int sum = stack1[0].val + stack2[0].val + carry;
-      if (sum > 9) {
+      if (sum &gt; 9) {
         carry = 1;
         sum -= 10;
       } else {
@@ -296,10 +296,10 @@ public class Solution {
       stack2.RemoveAt(0);
     }
 
-    while (stack1.Count > 0)
+    while (stack1.Count &gt; 0)
     {
       int sum = stack1[0].val + carry;
-      if (sum > 9) {
+      if (sum &gt; 9) {
         carry = 1;
         sum -= 10;
       } else {
@@ -309,10 +309,10 @@ public class Solution {
       sumStack.Add(digit);
       stack1.RemoveAt(0);
     }
-    while (stack2.Count > 0)
+    while (stack2.Count &gt; 0)
     {
       int sum = stack2[0].val + carry;
-      if (sum > 9) {
+      if (sum &gt; 9) {
         carry = 1;
         sum -= 10;
       } else {
@@ -329,7 +329,7 @@ public class Solution {
       carry = 0;
     }
     sumStack.Reverse();
-    while (sumStack.Count > 0)
+    while (sumStack.Count &gt; 0)
     {
       if (sumList.Count == 0)
         sumStack[0].next = null;

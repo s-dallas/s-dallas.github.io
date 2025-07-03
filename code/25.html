@@ -246,16 +246,16 @@
 public class Solution {
   public int[] DailyTemperatures(int[] temperatures) {
 
-    List<int> stack1 = new List<int>();
-    List<int> stack2 = new List<int>();
+    List&lt;int&gt; stack1 = new List&lt;int&gt;();
+    List&lt;int&gt; stack2 = new List&lt;int&gt;();
 
     int[] result = new int[temperatures.Length];
 
-    for (int i = temperatures.Length-1; i >= 0; i--)
+    for (int i = temperatures.Length-1; i &gt;= 0; i--)
       stack1.Insert(0, temperatures[i]);
 
     int r = 0;
-    while(stack1.Count > 0)
+    while(stack1.Count &gt; 0)
     {
       int j = 0;
 
@@ -263,7 +263,7 @@ public class Solution {
       stack2.Insert(0, stack1[0]);
       stack1.RemoveAt(0);
 
-      while (stack1.Count > 0 && stack1[0] <= stack2[curr])
+      while (stack1.Count &gt; 0 && stack1[0] &lt;= stack2[curr])
       {
         stack2.Insert(0, stack1[0]);
         stack1.RemoveAt(0);       
@@ -271,13 +271,13 @@ public class Solution {
       }
 
       /* last item - no future days, set to 0 */
-      if (stack1.Count < 1 && stack2.Count == 1)
+      if (stack1.Count &lt; 1 && stack2.Count == 1)
       {
         result[r] = 0;
       }
 
-      /* no more numbers on stack 1 > current temp, result for this one is 0 */
-      else if (stack1.Count < 1 && stack2[0] <= stack2[curr])
+      /* no more numbers on stack 1 &gt; current temp, result for this one is 0 */
+      else if (stack1.Count &lt; 1 && stack2[0] &lt;= stack2[curr])
       {
         result[r] = 0;
       }

@@ -247,7 +247,7 @@ public class Solution {
   public int CharacterReplacement(string s, int k) {
     char[] sArray = new char[s.Length];
     char[] sArraySorted = new char[s.Length];
-    for (int i = 0; i < s.Length; i++)
+    for (int i = 0; i &lt; s.Length; i++)
     {
       sArray[i] = s[i];
       sArraySorted[i] = s[i];
@@ -264,7 +264,7 @@ public class Solution {
     int ind = 0;
 
 
-    for (int i = 1; i < sArraySorted.Length; i++)
+    for (int i = 1; i &lt; sArraySorted.Length; i++)
     {
       Console.Write(sArraySorted[i-1]);
       if (sArraySorted[i] == sArraySorted[i-1])
@@ -291,27 +291,27 @@ public class Solution {
     int c = 0;
 
     /* sort chars by frequency, get top 6 most frequent */
-    for (int i = 0; i < freqs.Length; i++)
+    for (int i = 0; i &lt; freqs.Length; i++)
     {
-      if (c < 7 && i < (freqs.Length - 1) && freqs[i] > max - 8)
+      if (c &lt; 7 && i &lt; (freqs.Length - 1) && freqs[i] &gt; max - 8)
         c++;
       else
         break;
     }
 
     char[] lettersToTest = new char[c];
-    for (int i = 0; i < c; i++)
+    for (int i = 0; i &lt; c; i++)
       lettersToTest[i] = letters[i];
 
     int total_length = 0;
     int max_window_size = s.Length;
 
     /* go through sliding windows for all 6 most frequent letters */
-    for (int m = 0; m < lettersToTest.Length; m++)
+    for (int m = 0; m &lt; lettersToTest.Length; m++)
     {
       int window_size = 1;
 
-      while (window_size < max_window_size)
+      while (window_size &lt; max_window_size)
       {
         int i = 0;            
         int j = i + window_size;
@@ -319,18 +319,18 @@ public class Solution {
         int repl = k;
         int start = 0;
 
-        while (j < s.Length)
+        while (j &lt; s.Length)
         {
           int length = 0;
           repl = k;
 
-          while (i <= j)
+          while (i &lt;= j)
           {
             /* if letter not in frequent letters or is but not currently being 
             checked, can replace it if sufficient k */
-            if ((!Array.Exists(lettersToTest, element => element == s[i]) || 
-              (Array.Exists(lettersToTest, element => element == s[i]) && 
-              s[i] != lettersToTest[m])) && repl > 0)
+            if ((!Array.Exists(lettersToTest, element =&gt; element == s[i]) || 
+              (Array.Exists(lettersToTest, element =&gt; element == s[i]) && 
+              s[i] != lettersToTest[m])) && repl &gt; 0)
             {
               repl--;
               length++;
@@ -343,14 +343,14 @@ public class Solution {
             }
             else
             {                       
-              if (length > total_length)
+              if (length &gt; total_length)
                 total_length = length;
               length = 0;
               i++;
             }
           }
 
-          if (length > total_length)
+          if (length &gt; total_length)
             total_length = length;
 
           i = start++;

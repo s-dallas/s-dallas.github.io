@@ -250,7 +250,7 @@ public class Solution {
         int[] numsSmaller;
 
         /* insert smaller array into larger */
-        if (nums1.Length < nums2.Length)
+        if (nums1.Length &lt; nums2.Length)
         {
             numsLarger = nums2;
             numsSmaller = nums1;
@@ -261,15 +261,15 @@ public class Solution {
             numsSmaller = nums2;
         }
 
-        List<int> combined = new List<int>(numsLarger);        
+        List&lt;int&gt; combined = new List&lt;int&gt;(numsLarger);        
 
-        for (int i = 0; i < numsSmaller.Length; i++)
+        for (int i = 0; i &lt; numsSmaller.Length; i++)
         {
             insertAt(numsLarger, 0, numsLarger.Length-1, 
                      numsSmaller[i]);
-            if (index >= combined.Count)
+            if (index &gt;= combined.Count)
                 combined.Add(numsSmaller[i]);
-            else if (index < 0)
+            else if (index &lt; 0)
                 combined.Insert(0, numsSmaller[i]);
             else
                 combined.Insert(index, numsSmaller[i]);
@@ -290,23 +290,23 @@ public class Solution {
     void insertAt(int[] nums, int start, int end, int target)
     {
         /* surpassed array - target must be larger than all */
-        if (start > nums.Length-1)
+        if (start &gt; nums.Length-1)
             { index = nums.Length; return; }
 
         /* same start/end: place before or after */
-        if (start == end && nums[start] < target)
+        if (start == end && nums[start] &lt; target)
             { index = start + 1; return; }
-        if (start == end && nums[start] > target)
+        if (start == end && nums[start] &gt; target)
             { index = start - 1; return; }
 
         /* start/end adjacent */
         if (start == end - 1) 
         { 
             /* target bigger than both */
-            if (nums[end] < target)
+            if (nums[end] &lt; target)
                 index = end+1;
             /* target in between */
-            else if (nums[start] < target)
+            else if (nums[start] &lt; target)
                 index = start + 1;
             /* target smaller than start */
             else
@@ -321,7 +321,7 @@ public class Solution {
             { index = mp; return; }
 
         /* recursive binary search */
-        if (nums[mp] > target)
+        if (nums[mp] &gt; target)
         {
             insertAt(nums, start, mp-1, target);
             if (index != -2) return;

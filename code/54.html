@@ -258,13 +258,13 @@
 */
 
 public class Solution {
-  List<TreeNode> lvl = new List<TreeNode>();
-  List<TreeNode> lvl2 = new List<TreeNode>(); 
-  List<List<TreeNode>> lot = new List<List<TreeNode>>();
-  List<List<int>> lotV = new List<List<int>>();  
-  List<int> result = new List<int>();
+  List&lt;TreeNode&gt; lvl = new List&lt;TreeNode&gt;();
+  List&lt;TreeNode&gt; lvl2 = new List&lt;TreeNode&gt;(); 
+  List&lt;List&lt;TreeNode&gt;&gt; lot = new List&lt;List&lt;TreeNode&gt;&gt;();
+  List&lt;List&lt;int&gt;&gt; lotV = new List&lt;List&lt;int&gt;&gt;();  
+  List&lt;int&gt; result = new List&lt;int&gt;();
 
-  public List<int> RightSideView(TreeNode root) {
+  public List&lt;int&gt; RightSideView(TreeNode root) {
 
     if (root == null)
       return result;
@@ -273,9 +273,9 @@ public class Solution {
       lot.Add(lvl);
     }
     int j = 0;
-    while (j < lot.Count)
+    while (j &lt; lot.Count)
     {
-      List<int> lvl2V = new List<int>();               
+      List&lt;int&gt; lvl2V = new List&lt;int&gt;();               
       foreach (var v in lvl)
       {
         lvl2.Add(v);
@@ -284,7 +284,7 @@ public class Solution {
       lotV.Add(lvl2V);
 
       lvl.Clear();
-      while(lvl2.Count > 0)
+      while(lvl2.Count &gt; 0)
       {
         if (lvl2[0].left != null)
           lvl.Add(lvl2[0].left);
@@ -292,12 +292,12 @@ public class Solution {
           lvl.Add(lvl2[0].right);
         lvl2.RemoveAt(0);
       }
-      if (lvl.Count > 0)
+      if (lvl.Count &gt; 0)
         lot.Add(lvl);
       lvl2.Clear();
       j++;
     }
-    for (int i = 0; i < lotV.Count; i++)
+    for (int i = 0; i &lt; lotV.Count; i++)
       result.Add(lotV[i][lotV[i].Count-1]);
     return result;
   }

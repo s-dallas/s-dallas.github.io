@@ -260,28 +260,28 @@
 public class Solution {
   public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     traverse(root);
-	for (int i = 0; i < dpn.Count; i++)
+	for (int i = 0; i &lt; dpn.Count; i++)
 	  if (dpn[i].Contains(p.val) && dpn[i].Contains(q.val))
 		return nodes[i];
       return root;
     }
 
-    List<List<int>> dpn = new List<List<int>>();
-    List<TreeNode> nodes = new List<TreeNode>();
-    List<int> empty = new List<int>();
+    List&lt;List&lt;int&gt;&gt; dpn = new List&lt;List&lt;int&gt;&gt;();
+    List&lt;TreeNode&gt; nodes = new List&lt;TreeNode&gt;();
+    List&lt;int&gt; empty = new List&lt;int&gt;();
 
-  List<int> traverse(TreeNode root)
+  List&lt;int&gt; traverse(TreeNode root)
   {
     if (root == null) return empty;
-    List<int> left = traverse(root.left);
-    List<int> right = traverse(root.right);
-    List<int> descendants = new List<int>();
+    List&lt;int&gt; left = traverse(root.left);
+    List&lt;int&gt; right = traverse(root.right);
+    List&lt;int&gt; descendants = new List&lt;int&gt;();
     descendants.Add(root.val);
     foreach (var l in left)
       descendants.Add(l);
     foreach (var r in right)
       descendants.Add(r);
-    List<int> descCopy = new List<int>(descendants);
+    List&lt;int&gt; descCopy = new List&lt;int&gt;(descendants);
     dpn.Add(descCopy);
     nodes.Add(root);
     return descendants;

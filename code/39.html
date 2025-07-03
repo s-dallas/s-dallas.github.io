@@ -260,7 +260,7 @@ public class Solution {
     if (head.next == null)
       return null;
 
-    List<ListNode> stack = new List<ListNode>();
+    List&lt;ListNode&gt; stack = new List&lt;ListNode&gt;();
 
     ListNode origHead = head;
     while (head.next != null)
@@ -278,7 +278,7 @@ public class Solution {
 
     int count = 1;
 
-    while (count < n - 1)
+    while (count &lt; n - 1)
     {
       head = stack[0];
       stack.RemoveAt(0);
@@ -287,7 +287,7 @@ public class Solution {
 
     stack[0].next = null;
     stack.RemoveAt(0);
-    if (stack.Count > 0)
+    if (stack.Count &gt; 0)
       stack[0].next = head;
     else
       origHead = head;

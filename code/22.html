@@ -246,10 +246,10 @@
 
 public class MinStack {
 
-  List<int> stack;
+  List&lt;int&gt; stack;
 
   public MinStack() {
-    stack = new List<int>();
+    stack = new List&lt;int&gt;();
   }
   
   public void Push(int val) {
@@ -257,12 +257,12 @@ public class MinStack {
   }
   
   public void Pop() {
-    if (stack.Count > 0)
+    if (stack.Count &gt; 0)
       stack.RemoveAt(0);        
   }
   
   public int Top() {
-    if (stack.Count > 0)
+    if (stack.Count &gt; 0)
       return stack[0];
     return -1;    
   }

@@ -245,9 +245,9 @@
 					<pre><code>
 
 public class Solution {
-  public List<List<int>> ThreeSum(int[] nums) {
+  public List&lt;List&lt;int&gt;&gt; ThreeSum(int[] nums) {
 
-    List<List<int>> result = new List<List<int>>();
+    List&lt;List&lt;int&gt;&gt; result = new List&lt;List&lt;int&gt;&gt;();
 
     Array.Sort(nums);
 
@@ -257,22 +257,22 @@ public class Solution {
     int k = i + 1;
 
     /* proceed from left to right */
-    while (i < nums.Length - 1)
+    while (i &lt; nums.Length - 1)
     {
       /* for each i, check for triplet in remaining array */
-      while (i < j)
+      while (i &lt; j)
       {   
         /* if sum of first two is neg, skip over remaining neg */
-        if (nums[i] + nums[j] < 0)
-          while (nums[k] < 0)
+        if (nums[i] + nums[j] &lt; 0)
+          while (nums[k] &lt; 0)
             k++;
         /* while iterator less than right marker, check for 3sum */
-        while (k < j)
+        while (k &lt; j)
         {
           if (nums[i] + nums[j] + nums[k] == 0)
           {
             bool tripletAlreadyExists = false;
-            List<int> t = new List<int>();
+            List&lt;int&gt; t = new List&lt;int&gt;();
             t.Add(nums[i]);
             t.Add(nums[j]);
             t.Add(nums[k]);
@@ -283,7 +283,7 @@ public class Solution {
             {
               triplet.Sort();
               int count = 0;
-              for (int a = 0; a < 3; a++)
+              for (int a = 0; a &lt; 3; a++)
               {
                 if (triplet[a] == t[a])
                   count++;

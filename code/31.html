@@ -247,24 +247,24 @@ public class Solution {
   public int FindMin(int[] nums) {
     if (nums.Length == 1)
       return nums[0];
-    if (nums.Length == 2 && nums[0] < nums[1])
+    if (nums.Length == 2 && nums[0] &lt; nums[1])
       return nums[0];
-    else if (nums.Length == 2 && nums[1] < nums[0]) return nums[1];
+    else if (nums.Length == 2 && nums[1] &lt; nums[0]) return nums[1];
     return binarySearch(nums, 0, nums.Length-1);
   }
 
   int binarySearch(int[] nums, int s, int e)
   {
     int mp = s + (e - s)/2;
-    if (nums[0] < nums[mp] && nums[mp] < nums[e])
+    if (nums[0] &lt; nums[mp] && nums[mp] &lt; nums[e])
       return nums[0];
-    if (nums[0] > nums[mp] && nums[mp] < nums[e] && nums[mp-1] > nums[mp])
+    if (nums[0] &gt; nums[mp] && nums[mp] &lt; nums[e] && nums[mp-1] &gt; nums[mp])
       return nums[mp];
-    if (nums[0] < nums[mp] && nums[mp] > nums[e] && nums[mp+1] < nums[mp] )
+    if (nums[0] &lt; nums[mp] && nums[mp] &gt; nums[e] && nums[mp+1] &lt; nums[mp] )
       return nums[mp+1];
-    if (nums[0] > nums[mp] && nums[mp] < nums[e])
+    if (nums[0] &gt; nums[mp] && nums[mp] &lt; nums[e])
       return binarySearch(nums, 0, mp);
-    if (nums[0] < nums[mp] && nums[mp] > nums[e])
+    if (nums[0] &lt; nums[mp] && nums[mp] &gt; nums[e])
       return binarySearch(nums, mp, nums.Length-1);
     return -1;
   }

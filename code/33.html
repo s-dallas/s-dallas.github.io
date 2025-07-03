@@ -246,8 +246,8 @@
 
 public class TimeMap {
 
-  List<string> keys = new List<string>();
-  List<List<(int, string)>> vals = new List<List<(int, string)>>();
+  List&lt;string&gt; keys = new List&lt;string&gt;();
+  List&lt;List&lt;(int, string)&gt;&gt; vals = new List&lt;List&lt;(int, string)&gt;&gt;();
 
   public TimeMap() {
   }
@@ -256,7 +256,7 @@ public class TimeMap {
     if (!keys.Contains(key))
     {
       keys.Add(key);
-      List<(int, string)> val = new List<(int, string)>();
+      List&lt;(int, string)&gt; val = new List&lt;(int, string)&gt;();
       val.Add((timestamp, value));
       vals.Add(val);
     }
@@ -271,23 +271,23 @@ public class TimeMap {
     int ind = keys.IndexOf(key);
     if (ind == -1) return ""; /* key doesn't exist */
 
-    if (vals[ind][vals[ind].Count-1].Item1 <= timestamp)
+    if (vals[ind][vals[ind].Count-1].Item1 &lt;= timestamp)
       return vals[ind][vals[ind].Count-1].Item2;
 
     return binarySearch(vals[ind], 0, vals[ind].Count, timestamp);
   }
 
-  string binarySearch(List<(int, string)> vals, int start, int end, int target)
+  string binarySearch(List&lt;(int, string)&gt; vals, int start, int end, int target)
   {
     int mp = start + (end - start)/2;
     if (vals[mp].Item1 == target) return vals[mp].Item2;
 
-    if (mp == 0 && vals[mp].Item1 > target) return "";
+    if (mp == 0 && vals[mp].Item1 &gt; target) return "";
     
-    if (vals[mp].Item1 > target && vals[mp-1].Item1 < target)
+    if (vals[mp].Item1 &gt; target && vals[mp-1].Item1 &lt; target)
       return vals[mp-1].Item2;
 
-    if (vals[mp].Item1 > target)
+    if (vals[mp].Item1 &gt; target)
       return binarySearch(vals, start, mp-1, target);
     else
       return binarySearch(vals, mp+1, end, target);

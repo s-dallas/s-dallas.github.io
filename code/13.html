@@ -252,18 +252,18 @@ public class Solution {
     int max = 0;
 
     /* start at both ends */
-    while (i < j)
+    while (i &lt; j)
     {
       /* start fixed, end shifts left, check for new max */
       while (j != i)
       {
         int min = 1000;
-        if (heights[i] < heights[j])
+        if (heights[i] &lt; heights[j])
           min = heights[i];
         else
           min = heights[j];
 
-        if (min * (j-i) > max) {
+        if (min * (j-i) &gt; max) {
           max = min * (j-i);
         }
         j--;

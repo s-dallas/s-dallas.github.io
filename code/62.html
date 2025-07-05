@@ -14,7 +14,7 @@
 
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Dallas Scott - Code - Group Anagrams</title>
+	<title>Dallas Scott - Code - Last Stone Weight</title>
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -237,12 +237,55 @@
 
 		<h1 class="body-header mb-4"><a href="https://github.com/ds4015/neetcode" class="body-header">CODE</a></h1>
 		<h3 class="code-subheader mb-4"><a class="code-subheader"
-				href="https://neetcode.io/problems/anagram-groups?list=neetcode150">GROUP ANAGRAMS</a></h3>
-		<h5 class="text-center body-text mb-4">Arrays & Hashing</h5>
+				href="https://neetcode.io/problems/last-stone-weight?list=neetcode150">LAST STONE WEIGHT</a></h3>
+		<h5 class="text-center body-text mb-4">Heap/Priority Queue</h5>
 		<div class="container code-box mb-4">
 			<div class="row justify-content-md-evenly">
 				<div class="col-md-8">
-					<pre><code></code></pre>
+					<pre><code>
+public class Solution {
+  public int LastStoneWeight(int[] stones) {
+    int marker = 0;
+    Array.Sort(stones);
+    Array.Reverse(stones);
+
+    List&lt;int&gt; pQueue = new List&lt;int&gt;();
+
+    for (int i = 0; i &lt; stones.Length; i++)
+      pQueue.Add(stones[i]);
+
+    while (pQueue.Count - marker &gt; 1)
+    {
+      int x = pQueue[marker++];
+      int y = pQueue[marker++];
+      if (y &lt; x)
+      {
+        int newWeight = x - y;
+        if (marker == pQueue.Count)
+          pQueue.Add(newWeight);
+        else
+        {
+          int range = pQueue.Count + 1;
+          for (int i = marker; i &lt; range; i++)
+          {
+            if (i == pQueue.Count)
+              pQueue.Add(newWeight);
+            else
+            if (pQueue[i] &lt;= newWeight)
+            {
+              pQueue.Insert(i, newWeight);
+              break;
+            }
+          }
+        }
+      }
+    }
+    if (marker &gt;= pQueue.Count)
+      return 0;
+    return pQueue[marker];
+  }
+}						
+					</code></pre>
 				</div>
 			</div>
 		</div>

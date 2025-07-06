@@ -12,243 +12,328 @@
         gtag('config', 'G-0C8H42DVD9');
     </script>
 
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Dallas Scott - Code - Trapping Rain Water</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dallas Scott - Code - Trapping Rain Water</title>
 
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-	<style>
-		/* Custom Fonts */
-		@font-face {
-			font-family: 'Missiva';
-			src: url('../fonts/Missiva.ttf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-		}
+    <style>
+        /* Custom Fonts */
+        @font-face {
+            font-family: 'Missiva';
+            src: url('../fonts/Missiva.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-		@font-face {
-			font-family: 'VenetiaMonitor';
-			src: url('../fonts/vmonitor.ttf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-		}
+        @font-face {
+            font-family: 'VenetiaMonitor';
+            src: url('../fonts/vmonitor.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-		@font-face {
-			font-family: 'Roughwork';
-			src: url('../fonts/Roughwork-Demo-Regular.ttf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-		}
+        @font-face {
+            font-family: 'Roughwork';
+            src: url('../fonts/Roughwork-Demo-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-		@font-face {
-			font-family: 'Vinti';
-			src: url('../fonts/VINTI___.TTF') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-		}
+        @font-face {
+            font-family: 'Vinti';
+            src: url('../fonts/VINTI___.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-		@font-face {
-			font-family: 'Mithi';
-			src: url('../fonts/AlmendraDisplay-Regular.ttf') format('trueType');
-			font-weight: normal;
-			font-style: normal;
-		}
+        @font-face {
+            font-family: 'Mithi';
+            src: url('../fonts/AlmendraDisplay-Regular.ttf') format('trueType');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-		body {
-			background-color: #f8f9fa;
-			padding-top: 40px;
-			font-family: 'Mithi', sans-serif;
-		}
+        body {
+            background-color: #f8f9fa;
+            padding-top: 40px;
+            font-family: 'Mithi', sans-serif;
+        }
 
-		a {
-			font-size: clamp(1rem, 2.5vw, 1.5rem);
-			color: #333;
-		}
+        a {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: #333;
+        }
 
-		a:hover {
-			text-decoration: none;
-		}
+        a:hover {
+            text-decoration: none;
+        }
 
-		.title {
-			text-decoration: none;
-			font-family: 'Missiva', serif;
-			font-size: clamp(2rem, 4vw, 3rem);
-			color: #333;
-		}
+        .title {
+            text-decoration: none;
+            font-family: 'Missiva', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #333;
+        }
 
-		.page-border {
-			margin-left: 50px;
-			margin-right: 50px;
-			border: 1px solid black;
-			padding: 20px;
-		}
+        .page-border {
+            margin-left: 50px;
+            margin-right: 50px;
+            border: 1px solid black;
+            padding: 20px;
+        }
 
-		.header-link {
-			font-family: 'Missiva', sans-serif;
-			font-size: clamp(1.2rem, 3vw, 2rem);
-			color: #333;
-			opacity: 0.8;
-			text-decoration: none;
-		}
+        .header-link {
+            font-family: 'Missiva', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #333;
+            opacity: 0.8;
+            text-decoration: none;
+        }
 
-		.table-header {
-			background-color: #1d3557;
-			color: #fff;
-			font-size: clamp(1.2rem, 3vw, 1.5rem);
-			font-weight: bold;
-		}
+        .table-header {
+            background-color: #1d3557;
+            color: #fff;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: bold;
+        }
 
-		.table-1 {
-			font-size: clamp(1.2rem, 3vw, 1.5rem);
-			color: #333;
-			background-color: #90e0ef;
-		}
+        .table-1 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #333;
+            background-color: #90e0ef;
+        }
 
-		.table-2 {
-			font-size: clamp(1.2rem, 3vw, 1.5rem);
-			color: #333;
-			background-color: #caf0f8;
-		}
+        .table-2 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #333;
+            background-color: #caf0f8;
+        }
 
-		.body-header {
-			text-decoration: none;
-			font-family: 'Vinti', serif;
-			font-size: clamp(2.5rem, 6vw, 4.5rem);
-			text-align: center;
-			color: #222;
-			opacity: 0.7;
-			padding: 50px;
-		}
+        .body-header {
+            text-decoration: none;
+            font-family: 'Vinti', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            text-align: center;
+            color: #222;
+            opacity: 0.7;
+            padding: 50px;
+        }
 
-		.code-subheader {
-			text-decoration: none;
-			font-family: 'Roughwork', serif;
-			font-size: clamp(2rem, 5vw, 3rem);
-			color: #333;
-			text-align: center;
-			margin-top: 20px;
-		}
+        .code-subheader {
+            text-decoration: none;
+            font-family: 'Roughwork', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-		.body-text {
-			font-family: 'Mithi', cursive;
-			font-size: clamp(1.5rem, 5vw, 2.5rem);
-			color: #555;
-		}
+        .body-text {
+            font-family: 'Mithi', cursive;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: #555;
+        }
 
-		.code-box {
-			background-color: #edede9;
-			font-family: 'VenetiaMonitor', serif;
-			font-size: 1.5rem;
-			padding: 20px;
-			border-radius: 10px;
-			border: 2px solid #ccc;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			width: 80%;
-			overflow-x: auto;
-			overflow-y: hidden;
-		}
-
-
-		.code-box pre {
-			white-space: pre;
-			overflow-x: auto;
-			overflow-y: hidden;
-			margin: 0;
-			display: block;
-		}
-
-		.code-box pre code {
-			white-space: pre;
-			display: block;
-			overflow-x: auto;
-			font-family: 'VenetiaMonitor', serif;
-		}
+        .code-box {
+            background-color: #edede9;
+            font-family: 'VenetiaMonitor', serif;
+            font-size: 1.5rem;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
 
 
-		@media (max-width: 1024px) {
+        .code-box pre {
+            white-space: pre;
+            overflow-x: auto;
+            overflow-y: hidden;
+            margin: 0;
+            display: block;
+        }
 
-			.code-box,
-			.code-box pre,
-			.code-box pre code {
-				font-size: 0.8rem;
-			}
-		}
-
-		@media (max-width: 600px) {
-
-			.code-box,
-			.code-box pre,
-			.code-box pre code {
-				font-size: 0.5rem;
-			}
-		}
+        .code-box pre code {
+            white-space: pre;
+            display: block;
+            overflow-x: auto;
+            font-family: 'VenetiaMonitor', serif;
+        }
 
 
-		.btn-custom {
-			background-color: #0069d9;
-			color: white;
-		}
+        @media (max-width: 1024px) {
 
-		.btn-code {
-			background-color: #faedcd;
-			border: 2px solid #ccd5ae;
-			font-size: 1.5rem;
-		}
+            .code-box,
+            .code-box pre,
+            .code-box pre code {
+                font-size: 0.8rem;
+            }
+        }
 
-		.btn-code:hover {
-			background-color: #ccd5ae;
-			color: #333;
-		}
+        @media (max-width: 600px) {
 
-		.btn-custom:hover {
-			background-color: #0056b3;
-			color: orange;
-		}
+            .code-box,
+            .code-box pre,
+            .code-box pre code {
+                font-size: 0.5rem;
+            }
+        }
 
-		@media (max-width: 768px) {
-			.title {
-				text-align: center;
-				font-size: 2.2rem;
-				margin-bottom: 20px;
-			}
-		}
-	</style>
+
+        .btn-custom {
+            background-color: #0069d9;
+            color: white;
+        }
+
+        .btn-code {
+            background-color: #faedcd;
+            border: 2px solid #ccd5ae;
+            font-size: 1.5rem;
+        }
+
+        .btn-code:hover {
+            background-color: #ccd5ae;
+            color: #333;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: orange;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                text-align: center;
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-	<div class="page-border">
-		<div class="container">
-			<div class="row align-items-center mb-4">
-				<div class="col-12 col-md-4 text-center text-md-start title">
-					<a class="title" href="../index.html">Dallas Scott</a>
-				</div>
-				<div class="col-12 col-md-8 mt-3 mt-md-0">
-					<div class="d-flex flex-column flex-md-row justify-content-md-evenly align-items-center">
-						<a href="../projects.html" class="header-link">Projects</a>
-						<a href="../writings.html" class="header-link">Writing</a>
-						<a href="../code/index.html" class="header-link">Code</a>
-						<a href="../index.html" class="header-link">Misc</a>
-					</div>
-				</div>
-			</div>
-		</div>
+    <div class="page-border">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-12 col-md-4 text-center text-md-start title">
+                    <a class="title" href="../index.html">Dallas Scott</a>
+                </div>
+                <div class="col-12 col-md-8 mt-3 mt-md-0">
+                    <div class="d-flex flex-column flex-md-row justify-content-md-evenly align-items-center">
+                        <a href="../projects.html" class="header-link">Projects</a>
+                        <a href="../writings.html" class="header-link">Writing</a>
+                        <a href="../code/index.html" class="header-link">Code</a>
+                        <a href="../index.html" class="header-link">Misc</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<h1 class="body-header mb-4"><a href="https://github.com/ds4015/neetcode" class="body-header">CODE</a></h1>
-		<h3 class="code-subheader mb-4"><a class="code-subheader"
-				href="https://neetcode.io/problems/trapping-rain-water?list=neetcode150">TRAPPING RAIN WATER</a></h3>
-		<h5 class="text-center body-text mb-4">Two Pointers</h5>
-		<div class="container code-box mb-4">
-			<div class="row justify-content-md-evenly">
-				<div class="col-md-8">
-					<pre><code>
-To Be Solved
-					</code></pre>
-				</div>
-			</div>
-		</div>
-		<div class="row code-buttons text-center mb-4">
+        <h1 class="body-header mb-4"><a href="https://github.com/ds4015/neetcode" class="body-header">CODE</a></h1>
+        <h3 class="code-subheader mb-4"><a class="code-subheader"
+                href="https://neetcode.io/problems/trapping-rain-water?list=neetcode150">TRAPPING RAIN WATER</a></h3>
+        <h5 class="text-center body-text mb-4">Two Pointers</h5>
+        <div class="container code-box mb-4">
+            <div class="row justify-content-md-evenly">
+                <div class="col-md-8">
+                    <pre><code>
+public class Solution {
+  public int Trap(int[] height) {
+    if (height.Length == 1) return 0;
+
+    /* break sequence up into 2 types of intervals */
+    List&lt;List&lt;int&gt;&gt; fwdIntervals = new List&lt;List&lt;int&gt;&gt;();
+    List&lt;List&lt;int&gt;&gt; bkwdIntervals = new List&lt;List&lt;int&gt;&gt;();
+
+    int start = 0, end = height.Length-1;
+
+    /* ignore edge runoff */
+    while (height[start] &lt;= height[start+1])
+      start++;
+    while (height[end] &lt; height[end-1])
+      end--;
+        
+    int i = start;
+
+    while (i &lt; end)
+    {
+      List&lt;int&gt; interval = new List&lt;int&gt;();
+      interval.Add(height[i]);
+      int j = i+1;
+
+      if (height[i] == height[j]) {i++; continue;}
+
+      /* forward interval: lg-&gt;small-&gt;lg */
+      else if (height[i] &gt; height[j])
+      {
+        while (j &lt;= end && height[i] &gt; height[j])
+        {
+          interval.Add(height[j]);
+          j++;
+        }
+        /* passed the end w/o finding lg - runoff!
+            clear the interval and move on */
+        if (j &gt; end || (j &lt; end && height[j] == height[j+1])) 
+        { 
+          i++; 
+          interval.Clear(); 
+        }
+        /* otherwise add the interval to list of forwards */
+        else
+        { 
+            interval.Add(height[j]); 
+            fwdIntervals.Add(interval); 
+          i = j;
+        }
+      }
+      /* backward interval: sm (after lg) -&gt;lg */
+      else
+       {
+        while (j &lt;= end && height[i] &lt; height[j])
+        {
+          interval.Add(height[j]);
+          j++;
+        }
+        bkwdIntervals.Add(interval); i = j-1;
+      }
+    }
+
+    int water = 0;
+    /* forward interval water: # of midsection bars times
+        left border height minus sum of midsection bars */
+    foreach(var f in fwdIntervals)
+    {
+      int midSum = 0;
+      for (int k = 1; k &lt; f.Count-1; k++)
+      midSum += f[k];
+      int amount = (f.Count-2) * f[0] - midSum;
+      water += amount;
+    }
+    /* backward interval water: sum of right border minus
+        current height for all bars up to left border */
+    foreach (var b in bkwdIntervals)
+    {
+      int e = b.Count-1;
+      int amount = 0;
+      for (int k = 0; k &lt; e; k++)
+        amount += (b[e] - b[k]);
+      water += amount;
+    }
+    /* total water: forward + backward water */
+    return water;
+  }
+}
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="row code-buttons text-center mb-4">
   <div class="col-md-4">
     <a href="13.html" class="btn btn-code">Prev Soln</a>
   </div>
@@ -260,12 +345,12 @@ To Be Solved
   </div>
 </div>
 
-		<div class="row text-center mb-4 mt-5">
-			<div class="col-md-12 mt-5">
-				© 2025 Dallas Scott
-			</div>
-		</div>
-	</div>
+        <div class="row text-center mb-4 mt-5">
+            <div class="col-md-12 mt-5">
+                © 2025 Dallas Scott
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

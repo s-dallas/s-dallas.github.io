@@ -14,7 +14,7 @@
 
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Dallas Scott - Code - Group Anagrams</title>
+	<title>Dallas Scott - Code - Permutations</title>
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -237,12 +237,45 @@
 
 		<h1 class="body-header mb-4"><a href="https://github.com/ds4015/neetcode" class="body-header">CODE</a></h1>
 		<h3 class="code-subheader mb-4"><a class="code-subheader"
-				href="https://neetcode.io/problems/anagram-groups?list=neetcode150">GROUP ANAGRAMS</a></h3>
-		<h5 class="text-center body-text mb-4">Arrays & Hashing</h5>
+				href="https://neetcode.io/problems/permutations?list=neetcode150">PEMUTATIONS</a></h3>
+		<h5 class="text-center body-text mb-4">Backtracking</h5>
 		<div class="container code-box mb-4">
 			<div class="row justify-content-md-evenly">
 				<div class="col-md-8">
-					<pre><code></code></pre>
+					<pre><code>
+public class Solution {
+  List&lt;List&lt;int&gt;&gt; result = new List&lt;List&lt;int&gt;&gt;();
+  public List&lt;List&lt;int&gt;&gt; Permute(int[] nums) {
+    List&lt;int&gt; numsList = new List&lt;int&gt;();
+    foreach (var n in nums)
+      numsList.Add(n);
+
+    permute(numsList);
+    return result;        
+  }
+
+  List&lt;int&gt; perm = new List&lt;int&gt;();
+  void permute(List&lt;int&gt; nums)
+  {
+    int r = nums.Count;
+    for (int i = 0; i &lt; r; i++)
+    {
+      int num = nums[i];
+      perm.Add(num);
+      nums.RemoveAt(i);
+
+      if (nums.Count == 0)
+      {
+        List&lt;int&gt; permCopy = new List&lt;int&gt;(perm);
+        result.Add(permCopy);
+      }
+      permute(nums);
+      perm.Remove(num);
+      nums.Insert(i, num);
+    }
+  }
+}						
+					</code></pre>
 				</div>
 			</div>
 		</div>

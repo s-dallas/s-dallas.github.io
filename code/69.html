@@ -14,7 +14,7 @@
 
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Dallas Scott - Code - Group Anagrams</title>
+	<title>Dallas Scott - Code - Combination Sum</title>
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -237,12 +237,114 @@
 
 		<h1 class="body-header mb-4"><a href="https://github.com/ds4015/neetcode" class="body-header">CODE</a></h1>
 		<h3 class="code-subheader mb-4"><a class="code-subheader"
-				href="https://neetcode.io/problems/anagram-groups?list=neetcode150">GROUP ANAGRAMS</a></h3>
-		<h5 class="text-center body-text mb-4">Arrays & Hashing</h5>
+				href="https://neetcode.io/problems/combination-target-sum?list=neetcode150">COMBINATION SUM</a></h3>
+		<h5 class="text-center body-text mb-4">Backtracking</h5>
 		<div class="container code-box mb-4">
 			<div class="row justify-content-md-evenly">
 				<div class="col-md-8">
-					<pre><code></code></pre>
+					<pre><code>
+public class Solution {
+  List&lt;List&lt;int&gt;&gt; result = new List&lt;List&lt;int&gt;&gt;();
+  public List&lt;List&lt;int&gt;&gt; CombinationSum(int[] nums, int target) {
+    Array.Sort(nums);
+    findTarget(nums, target, 0);
+    return result;        
+  }
+
+  List&lt;int&gt; soln = new List&lt;int&gt;();
+  int currentIndex = 0;
+  bool end = false;
+  void findTarget(int[] nums, int target, int index)
+  {
+    /* base cases */
+    if (currentIndex &gt; nums.Length - 1)
+      return;
+    if (index &gt; nums.Length - 1 && soln.Count &gt; 0 &&
+      soln[0] == nums[index-1])
+    {
+      end = true;
+      return;
+    }
+
+    /* reached the end, remove 1 and get appropriate index */
+    if (index &gt; nums.Length - 1)
+    {
+      if (soln.Count &gt; 0)
+      {
+        for (int i = 0; i &lt; nums.Length; i++)
+          if (nums[i] == soln[soln.Count-1])
+            index = i + 1;
+        soln.RemoveAt(soln.Count-1);
+      }
+      else
+        index = currentIndex++;
+      findTarget(nums, target, index);
+      if (end) return;
+    }
+
+    soln.Add(nums[index]);
+
+    /* solution found */
+    if (getSum(soln) == target)
+    {
+      List&lt;int&gt; solnCopy = new List&lt;int&gt;(soln);
+      result.Add(solnCopy);
+      
+      /* if starts with last num in nums, we're done */
+      if (soln[0] == nums[nums.Length-1])
+        return;
+      
+      /* remove 2, get appropriate next index */
+      for (int i = 0; i &lt; 2; i++)
+      {
+        if (soln.Count &gt; 0)
+        {
+          if (i == 1)
+            for (int j = 0; j &lt; nums.Length; j++)
+              if (nums[j] == soln[soln.Count-1])
+                index = j + 1;            
+          soln.RemoveAt(soln.Count-1);
+        }
+      }
+      if (soln.Count == 0)
+        index = ++currentIndex;    
+      findTarget(nums, target, index);
+      if (end) return;            
+    }
+
+    /* too big -&gt; backtrack */
+    else if (getSum(soln) &gt; target)
+    {
+      for (int i = 0; i &lt; 2; i++)
+      {
+        if (soln.Count &gt; 0)
+        {
+          if (i == 1)
+            for (int j = 0; j &lt; nums.Length; j++)
+              if (nums[j] == soln[soln.Count-1])
+                index = j + 1;
+          soln.RemoveAt(soln.Count-1);
+        }
+      }
+      if (soln.Count == 0)
+        index = ++currentIndex;
+      findTarget(nums, target, index);
+      if (end) return;
+    }
+    /* not there yet - add next */
+    else
+      findTarget(nums, target, index);
+  }
+
+  int getSum(List&lt;int&gt; soln)
+  {
+    int sum = 0;
+    foreach (var v in soln)
+      sum += v;
+    return sum;
+  }
+}						
+					</code></pre>
 				</div>
 			</div>
 		</div>

@@ -249,7 +249,7 @@ public class Solution {
 
     /* find transition point for original array start index */
     for (int i = 0; i &lt; nums.Length - 1; i++)
-      if (nums[i] > nums[i+1])
+      if (nums[i] &gt; nums[i+1])
         origStart = i+1;
         
     int midpoint = nums.Length / 2;
@@ -270,7 +270,7 @@ public class Solution {
     int mp = s + ((e - s) / 2);
 
     /* base cases */
-    if (s > nums.Length-1 || (e &lt;= s && nums[s] != t)) 
+    if (s &gt; nums.Length-1 || (e &lt;= s && nums[s] != t)) 
       return;
 
     if (nums[mp] == t)
@@ -292,7 +292,7 @@ public class Solution {
     /* otherwise, it's a normal recursive binary search */
     else
     {
-      if (nums[mp] > t)
+      if (nums[mp] &gt; t)
         binarySearch(nums, s, mp, t, 0);
       else
         binarySearch(nums, s + 1, nums.Length, t, 0);

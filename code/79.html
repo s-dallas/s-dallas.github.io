@@ -14,7 +14,7 @@
 
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Dallas Scott - Code - Group Anagrams</title>
+	<title>Dallas Scott - Code - Word Search II</title>
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -237,12 +237,84 @@
 
 		<h1 class="body-header mb-4"><a href="https://github.com/ds4015/neetcode" class="body-header">CODE</a></h1>
 		<h3 class="code-subheader mb-4"><a class="code-subheader"
-				href="https://neetcode.io/problems/anagram-groups?list=neetcode150">GROUP ANAGRAMS</a></h3>
-		<h5 class="text-center body-text mb-4">Arrays & Hashing</h5>
+				href="https://neetcode.io/problems/search-for-word-ii?list=neetcode150">WORD SEARCH II</a></h3>
+		<h5 class="text-center body-text mb-4">Tries</h5>
 		<div class="container code-box mb-4">
 			<div class="row justify-content-md-evenly">
 				<div class="col-md-8">
-					<pre><code></code></pre>
+					<pre><code>
+
+public class Solution {
+  List&lt;string&gt; foundWords = new List&lt;string&gt;();
+  List&lt;List&lt;int&gt;&gt; processed = new List&lt;List&lt;int&gt;&gt;();   
+  bool wordFound = false;
+  public List&lt;string&gt; FindWords(char[][] board, string[] words) {
+    foreach (var w in words)
+    {
+      wordFound = false;
+      for (int i = 0; i &lt; board.Length; i++)
+      {
+        for (int j = 0; j &lt; board[0].Length; j++)
+        {
+          if (board[i][j] == w[0])
+          {
+            processed.Clear();
+            bool found = search(board, i, j, w, 0);
+            if (found)
+            {
+              foundWords.Add(w);
+              break;
+            }
+          }
+        }
+        if (wordFound)
+          break;
+      }
+    }
+    return foundWords;        
+  }
+
+
+  bool search(char[][] board, int row, int col, string word, int ind)
+  {
+    if (ind &lt; word.Length)
+      Console.WriteLine(word + ": " + word[ind]);
+    if (ind == word.Length)
+    {
+      wordFound = true;
+      return wordFound;
+    }
+    List&lt;int&gt; c = new List&lt;int&gt;();
+    c.Add(row); c.Add(col);
+    processed.Add(c);
+
+    if (board[row][col] == word[ind++])
+    {
+      if (row &lt; board.Length-1 && !alreadyChecked(row+1, col) && !wordFound)
+        search(board, row+1, col, word, ind);
+      if (col &gt; 0 && !alreadyChecked(row, col-1) && !wordFound)
+        search(board, row, col-1, word, ind);
+      if (col &lt; board[0].Length-1 && !alreadyChecked(row, col+1) && !wordFound)
+        search(board, row, col+1, word, ind);
+      if (row &gt; 0 && !alreadyChecked(row-1, col) && !wordFound)
+        search(board, row-1, col, word, ind);
+      
+      if (ind == word.Length)
+        wordFound = true;
+    }
+    processed.Remove(c);
+    return wordFound;
+  }
+
+  bool alreadyChecked(int row, int col)
+  {
+    foreach (var l in processed)
+      if (l[0] == row && l[1] == col)
+        return true;
+    return false;
+  }
+}						
+					</code></pre>
 				</div>
 			</div>
 		</div>

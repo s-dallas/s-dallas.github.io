@@ -121,9 +121,7 @@
     transform: translate(-50%, -50%);
     z-index: 999;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-    width: min(90vmin, 800px);
     max-height: 90vh;
-    background: transparent;
     overflow: hidden;
 }
 

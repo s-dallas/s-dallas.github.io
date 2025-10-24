@@ -1,0 +1,5 @@
+(library
+ (libraries patchwork core expect_test_helpers_core)
+ (name test_patchwork)
+ (inline_tests)
+ (preprocess (pps ppx_jane)))

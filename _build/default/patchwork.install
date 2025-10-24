@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/patchwork/META"
+  "_build/install/default/lib/patchwork/dune-package"
+  "_build/install/default/lib/patchwork/opam"
+]
+bin: [
+  "_build/install/default/bin/patchwork"
+]

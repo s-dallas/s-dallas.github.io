@@ -138,7 +138,7 @@ body {
     visibility: hidden;
     opacity: 0;
     overflow: visible;
-    z-index: 9999;
+    z-index: 999;
 }
 
 .button-up.visible {
@@ -163,7 +163,7 @@ body {
     animation:
         rise 1s ease-out,
         arc1 0.7s linear forwards 1s;
-    z-index: 99;
+    z-index: 9999;
 }
 
 .button-up-p2.visible {
@@ -172,7 +172,7 @@ body {
     animation:
         rise 1s ease-out,
         arc2 0.7s linear forwards 1s;
-    z-index: 99;
+    z-index: 9999;
 }
 
 @keyframes rise {

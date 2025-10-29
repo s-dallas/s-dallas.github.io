@@ -34,6 +34,7 @@
                 Name:
                 <input type="text" width="40%" id="player_name" />
             </div>
+            <div id="name_error"></div>
             <button class="advance" id="start_game">Play</button>
         </div>
 
@@ -107,22 +108,32 @@
             </div>
         </div>
         <div class="blur" id="blur"></div>
+
         <div class="container" id="container">
             <div class="header">
                 <img src="svgs/logo.svg" width="100%" height="100%" />
             </div>
             <div class="mb">
+                <div id="player_name_turn_greeting"></div>
                 <div class="qb" id="player_1_quilt_board">
-                    <img
-                        src="svgs/P1_quilt_board.svg"
-                        width="100%"
-                        height="100%"
-                    />
+                    <svg
+                        viewBox="0 0 2048 2048"
+                        style="width: 100%; height: 100%"
+                        id="p1_qb_svg"
+                    >
+                        <image
+                            href="svgs/P1_quilt_board.svg"
+                            x="0"
+                            y="0"
+                            width="100%"
+                            height="100%"
+                            preserveAspectRatio="xMidYMid meet"
+                        />
+                    </svg>
                 </div>
             </div>
             <div class="mb">
                 <div class="circle">
-                    <img src="svgs/Neutral.svg" width="3%" height="auto" />
                     <div class="patch-wrap" style="--i: 0">
                         <div
                             class="patch"
@@ -297,6 +308,14 @@
                                     object-fit: contain;
                                 "
                             />
+                            <div id="neut10" class="neutralize">
+                                <img
+                                    id="neut_token"
+                                    src="svgs/Neutral.svg"
+                                    width="3%"
+                                    height="auto"
+                                />
+                            </div>
                         </div>
                     </div>
                     <div class="patch-wrap" style="--i: 11">
@@ -685,12 +704,22 @@
             </div>
             <div class="mb_overlay" id="overlay"></div>
             <div class="mb">
+                <div id="ai_name_turn_greeting"></div>
                 <div class="qb" id="player_2_quilt_board">
-                    <img
-                        src="svgs/P2_quilt_board.svg"
-                        width="100%"
-                        height="100%"
-                    />
+                    <svg
+                        viewBox="0 0 2048 2048"
+                        style="width: 100%; height: 100%"
+                        id="p2_qb_svg"
+                    >
+                        <image
+                            href="svgs/P2_quilt_board.svg"
+                            x="0"
+                            y="0"
+                            width="100%"
+                            height="100%"
+                            preserveAspectRatio="xMidYMid meet"
+                        />
+                    </svg>
                 </div>
             </div>
             <div class="metrics">

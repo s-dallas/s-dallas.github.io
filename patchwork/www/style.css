@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-rows: 10vh 80vh 10vh;
     height: 100vh;
@@ -179,7 +179,7 @@ body {
     opacity: 0;
     top: 100vh;
     left: 50vw;
-    font-size: 48px;
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
     font-family: Georgia, "Times New Roman", Times, serif;
     position: absolute;
 }
@@ -364,6 +364,11 @@ body {
     }
 }
 
+.preload {
+    visibility: hidden;
+    opacity: 0;
+}
+
 .grid-cell-patch-overlay {
     --cols: 1;
     --rows: 1;
@@ -378,6 +383,7 @@ body {
         calc(var(--cursor-max) * var(--cols, 1))
     );
     height: auto;
+    pointer-events: none;
     object-fit: contain;
 }
 
@@ -557,13 +563,44 @@ body.overlay-active::before {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    font-size: 48px;
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
     font-family: Georgia, "Times New Roman", Times, serif;
     text-align: center;
 }
 
 svg image {
     transition: all 0.4s ease;
+}
+
+#loading-message {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff; /* or black if your site is dark */
+    color: #333;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+#loading-message.hide {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 .red-tint {
@@ -576,7 +613,7 @@ svg image {
 }
 
 .intro input {
-    font-size: 48px;
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
     font-family: Georgia, "Times New Roman", Times, serif;
     background-color: #eee;
     border: 2px dashed #000;

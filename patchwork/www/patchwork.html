@@ -5,10 +5,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Patchwork</title>
-        <script defer type="text/javascript" src="main.bc.js"></script>
+        <script
+            defer
+            type="text/javascript"
+            src="../_build/default/bin/main.bc.js"
+        ></script>
     </head>
 
     <body>
+        <div id="loading-message">Loading…</div>
         <div class="button-up" id="button_up">
             <div id="button_up_p1" class="button-up-p1">
                 <span id="p1_bn"></span
@@ -753,5 +758,6 @@
                 document.body.classList.toggle("overlay-active", zoomed);
             });
         </script>
+        <div class="preload" id="preload_images"></div>
     </body>
 </html>

@@ -52,7 +52,7 @@ body {
     transition: transform 0.1s ease-out;
     will-change: transform;
     transform: translate(calc(var(--x, 0px)), calc(var(--y, 0px)))
-        translate(-20%, -20%);
+        translate(var(--ox, 0px), var(--oy, 0px)) rotate(var(--rot, 0deg));
 }
 
 .header {
@@ -145,8 +145,11 @@ body {
 #ai_name_turn_greeting {
     position: absolute;
     top: 10vh;
+    background-color: lightgray;
     display: flex;
     align-items: center;
+    padding: 2vh;
+    border-radius: 15%;
     gap: 2px;
     height: 4vh;
 }
@@ -401,6 +404,25 @@ body {
     opacity: 0;
 }
 
+#results {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    text-align: center;
+}
+
 body.overlay-active::before {
     content: "";
     position: fixed;
@@ -578,7 +600,7 @@ svg image {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff; /* or black if your site is dark */
+    background: #fff;
     color: #333;
     z-index: 9999;
     transition: opacity 0.4s ease;

@@ -60,7 +60,6 @@ objLoader.load("uvsphere_3.obj", (obj) => {
     }
   });
 
-  // make it big so it surrounds the scene
   obj.scale.set(300, 300, 300);
   scene.add(obj);
 });

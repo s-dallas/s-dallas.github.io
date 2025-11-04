@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Patchwork</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kranky&display=swap"
+            rel="stylesheet"
+        />
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <canvas id="three-js-canvas"></canvas>
+            <div class="player_details ui-font">
+                <div class="player_box">Player 1</div>
+                <div class="player_box">Player 2</div>
+            </div>
+        </div>
+        <script type="module" src="main.js" defer></script>
+    </body>
+</html>

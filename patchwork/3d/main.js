@@ -25,8 +25,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0, 0);
 controls.update();
 const composer = new EffectComposer(renderer);
-camera.position.z = 1;
-camera.rotation.x = -0.785;
+camera.position.z = 2;
 
 /* responsive canvas */
 

@@ -20,12 +20,17 @@
         </script>
     </head>
     <body>
-        <div class="container">
+        <div class="container ui-font">
             <canvas id="three-js-canvas"></canvas>
-            <div class="player_details ui-font">
-                <div class="player_box">Player 1</div>
-                <div class="player_box">Player 2</div>
-            </div>
+            <span id="player-box-1" class="player-box-1">
+                Player 1
+                <span id="p1-buttons" class="p1-buttons">x 5</span>
+            </span>
+
+            <span id="player-box-2" class="player-box-2">
+                Player 2
+                <span id="p2-buttons" class="p2-buttons">x 5</span>
+            </span>
         </div>
         <script type="module" src="main.js" defer></script>
     </body>

@@ -5,6 +5,8 @@
 import * as THREE from "three";
 import { EffectComposer, OrbitControls } from "three/examples/jsm/Addons.js";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 
 /* setup  */
@@ -24,11 +26,22 @@ document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0, 0);
 controls.update();
-const composer = new EffectComposer(renderer);
-camera.position.z = 2;
+
+camera.position.z = 2.3;
+const cam_offset = -2.3;
+scene.add(camera);
+const p1_buttons = document.getElementById("p1-buttons");
+const p2_buttons = document.getElementById("p2-buttons");
+const player_name = document.getElementById("player-box-1");
+const ai_name = document.getElementById("player-box-2");
+
+const ui_elements = [];
+let ui_element_percentages = [];
+let clickables = [];
+let patch_clickables = [];
+let draggable = [];
 
 /* responsive canvas */
-
 window.addEventListener("resize", onWindowResize);
 
 function onWindowResize() {
@@ -40,9 +53,11 @@ function onWindowResize() {
   camera.updateProjectionMatrix();
 
   renderer.setSize(width, height);
+  vw_to_local();
 }
 
 /* skybox */
+let skydome;
 const colorTex = texLoader.load("-Color.png", (tex) => {
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.magFilter = THREE.LinearFilter;
@@ -60,8 +75,67 @@ objLoader.load("uvsphere_3.obj", (obj) => {
   });
 
   obj.scale.set(300, 300, 300);
+  skydome = obj;
   scene.add(obj);
 });
+
+/* UI button currency icons */
+const b1 = make_button(0.05, 0.15);
+b1.rotation.y += 0.18;
+b1.rotation.z += 0.09;
+const b2 = make_button(0.9, 0.15);
+b2.rotation.y -= 0.18;
+b2.rotation.z -= 0.09;
+
+function make_button(x_pct, y_pct) {
+  const b_geom = new THREE.TorusGeometry(0.07, 0.01, 8, 24);
+  const c_geom = new THREE.CircleGeometry(0.08, 32);
+  const h_geom = new THREE.CircleGeometry(0.01, 32);
+  const b_mat = new THREE.MeshToonMaterial({
+    color: 0x4169e1,
+    side: THREE.DoubleSide,
+  });
+  const h_mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  const button_mesh = new THREE.Mesh(b_geom, b_mat);
+  const button_interior = new THREE.Mesh(c_geom, b_mat);
+  const button = new THREE.Group();
+  button_interior.position.z = 0;
+  const h_mesh = new THREE.Mesh(h_geom, h_mat);
+  const h_mesh2 = new THREE.Mesh(h_geom, h_mat);
+  const h_mesh3 = new THREE.Mesh(h_geom, h_mat);
+  const h_mesh4 = new THREE.Mesh(h_geom, h_mat);
+
+  h_mesh.position.x = -0.015;
+  h_mesh.position.y = 0.015;
+  h_mesh.position.z = 0.012;
+  h_mesh2.position.x = 0.02;
+  h_mesh2.position.y = 0.015;
+  h_mesh2.position.z = 0.012;
+  h_mesh3.position.x = -0.015;
+  h_mesh3.position.y = -0.015;
+  h_mesh3.position.z = 0.012;
+  h_mesh4.position.x = 0.02;
+  h_mesh4.position.y = -0.015;
+  h_mesh4.position.z = 0.012;
+  const button_edges = new THREE.EdgesGeometry(b_geom);
+  const button_outline = new THREE.LineSegments(
+    button_edges,
+    new THREE.LineBasicMaterial({ color: 0x000000 }),
+  );
+  button.add(h_mesh);
+  button.add(h_mesh2);
+  button.add(h_mesh3);
+  button.add(h_mesh4);
+  button.add(button_mesh);
+  button.add(button_interior);
+
+  ui_elements.push(button);
+  ui_element_percentages.push(x_pct);
+  ui_element_percentages.push(y_pct);
+  camera.add(button);
+  vw_to_local();
+  return button;
+}
 
 /* main board */
 const geometry = new THREE.BoxGeometry(1.1, 1.1, 0.01);
@@ -462,12 +536,14 @@ const p1_tt_mat = new THREE.MeshToonMaterial({ color: 0x32cd32 });
 const p2_tt_mat = new THREE.MeshToonMaterial({ color: 0xccff00 });
 const p1_tt = new THREE.Mesh(time_token_geometry_1, p1_tt_mat);
 const p2_tt = new THREE.Mesh(time_token_geometry_2, p2_tt_mat);
-p1_tt.position.set(-0.455, 0.455 - 0.13 * 5, 0.02);
-p1_tt.rotation.set(-1.57079, 0, 0);
+p1_tt.position.set(-0.455, 0.455 - 0.13 * 5, 0.025);
+p1_tt.rotation.z = Math.PI / 4;
+p1_tt.rotation.x = Math.PI / 3.5;
 p2_tt.position.set(0, 0, 0);
 p2_tt.rotation.set(-1.57079, 0, 0);
 board.add(p1_tt);
 board.add(p2_tt);
+draggable.push(p1_tt);
 const tt1_edges = new THREE.EdgesGeometry(time_token_geometry_1);
 const tt1_outline = new THREE.LineSegments(
   tt1_edges,
@@ -478,7 +554,7 @@ const tt2_outline = new THREE.LineSegments(
   tt2_edges,
   new THREE.LineBasicMaterial({ color: 0x000000 }),
 );
-p1_tt.add(tt1_outline);
+//p1_tt.add(tt1_outline);
 p2_tt.add(tt2_outline);
 
 /* patches - test only, dims to be passed in from ocaml */
@@ -580,6 +656,7 @@ const patch_rows = [
   2, 3, 3, 5, 5, 5, 2, 2, 3, 2, 2, 4, 3, 3, 4, 3, 3, 2, 4, 3, 2, 4, 3, 3, 3, 3,
   4, 5, 4, 2, 3, 5, 3,
 ];
+
 const patches = new THREE.Group();
 create_patches();
 scene.add(patches);
@@ -631,10 +708,17 @@ function create_patches() {
           default:
             "Invalid direction";
         }
+        if (
+          direction === "SU" ||
+          direction === "SD" ||
+          direction === "SL" ||
+          direction === "SR"
+        )
+          continue;
         const x_offset = left_offset + right_offset;
         const y_offset = up_offset + down_offset;
         patch_cell.position.set(x_offset, y_offset, 0);
-
+        patch_clickables.push(patch_cell);
         patch.add(patch_cell);
         patch.position.set(0, 0, 0);
         patch.rotation.z = Math.PI;
@@ -663,9 +747,251 @@ function create_patches() {
   }
 }
 
+/* drag tokens */
+let dragging = null;
+let dragOffset = new THREE.Vector3();
+const worldPos = new THREE.Vector3();
+let dragZ = 0;
+let intersectionPlane = new THREE.Plane();
+intersectionPlane.set(new THREE.Vector3(0, 0, 1), 0);
+let intersectionPoint = new THREE.Vector3();
+const normal = new THREE.Vector3();
+normal.copy(camera.position).normalize();
+
+/* outlines + highlights */
+let object_outlined = null;
+let current_highlight = null;
+
+/* raycasting + listeners */
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+renderer.domElement.addEventListener("pointerdown", (event) => {
+  const rect = renderer.domElement.getBoundingClientRect();
+
+  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const hits = raycaster.intersectObjects(clickables, true);
+  const patch_hits = raycaster.intersectObjects(patch_clickables, true);
+  const drag_hits = raycaster.intersectObjects(draggable, true);
+
+  if (object_outlined) {
+    scene.remove(object_outlined);
+    object_outlined.geometry.dispose();
+    object_outlined.material.dispose();
+    object_outlined = null;
+  }
+
+  /* outlines */
+  if (hits.length > 0) {
+    const chosen = hits[0].object;
+    console.log(chosen);
+    object_outlined = outline_object(chosen);
+    object_outlined.position.x += chosen.parent.position.x;
+    scene.add(object_outlined);
+  }
+
+  /* patch select overlay */
+  if (patch_hits.length > 0) {
+    const chosen = patch_hits[0].object;
+    console.log(chosen);
+    highlight_patch(chosen.parent);
+  }
+
+  /* drag time token */
+  if (drag_hits.length > 0) {
+    const hit = drag_hits[0];
+    dragging = hit.object;
+    dragging.scale.multiplyScalar(1.5);
+    dragZ = dragging.position.z;
+    toggle_orbit_controls("off");
+    dragging.getWorldPosition(worldPos);
+
+    dragOffset.copy(hit.point).sub(worldPos);
+  }
+});
+
+renderer.domElement.addEventListener("pointerup", () => {
+  dragging.scale.multiplyScalar(1 / 1.5);
+  dragging = null;
+  toggle_orbit_controls("on");
+});
+
+renderer.domElement.addEventListener("pointermove", (event) => {
+  if (!dragging) return;
+
+  const rect = renderer.domElement.getBoundingClientRect();
+
+  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+
+  if (raycaster.ray.intersectPlane(intersectionPlane, intersectionPoint)) {
+    intersectionPoint.sub(dragOffset);
+    const parent = dragging.parent;
+    if (parent) {
+      parent.worldToLocal(intersectionPoint);
+      intersectionPoint.z = dragZ;
+      dragging.position.copy(intersectionPoint);
+    } else {
+      intersectionPoint.z = dragZ;
+      dragging.position.copy(intersectionPoint);
+    }
+  }
+});
+
+/* quilt boards */
+const p1_quilt_board = create_quilt_board(new THREE.Color(0x0000ff));
+p1_quilt_board.position.x = -2.2;
+scene.add(p1_quilt_board);
+const p2_quilt_board = create_quilt_board(new THREE.Color(0xff0000));
+p2_quilt_board.position.x = 2.2;
+scene.add(p2_quilt_board);
+//toggle_element(board, "off");
+//toggle_element(patches, "off");
+//toggle_element(table, "off");
+
+function create_quilt_board(color) {
+  const qb = new THREE.Group();
+  const q_board_geo = new THREE.PlaneGeometry(1.15, 1.15);
+  const q_board_m = new THREE.MeshBasicMaterial({
+    color: color,
+    side: THREE.DoubleSide,
+  });
+  const q_board = new THREE.Mesh(q_board_geo, q_board_m);
+  qb.add(q_board);
+
+  let row_offset = 0;
+  for (let i = 0; i < 10; i++) {
+    let col_offset = 0;
+    for (let j = 0; j < 10; j++) {
+      const qb_cell_geo = new THREE.BoxGeometry(0.09, 0.09, 0.01);
+      const qb_cell_m = new THREE.MeshBasicMaterial({ color: 0xc0c0c0 });
+      const qb_cell = new THREE.Mesh(qb_cell_geo, qb_cell_m);
+      qb_cell.position.set(-0.5 + col_offset, 0.5 + row_offset, 0.01);
+      qb.add(qb_cell);
+      clickables.push(qb_cell);
+      col_offset += 0.11;
+    }
+    row_offset -= 0.11;
+  }
+  return qb;
+}
+
+/* toggle off when dragging game piece */
+function toggle_orbit_controls(on_off) {
+  if (on_off === "off") {
+    controls.enablePan = false;
+    controls.enableRotate = false;
+    controls.enableZoom = false;
+  } else {
+    controls.enablePan = true;
+    controls.enableRotate = true;
+    controls.enableZoom = true;
+  }
+}
+
+/* ui element overlay positioning helper */
+function vw_to_local() {
+  let j = 0;
+  const fovRad = THREE.MathUtils.degToRad(camera.fov);
+  const halfHeight = Math.tan(fovRad / 2) * -cam_offset;
+  const halfWidth = halfHeight * camera.aspect;
+
+  const p2_buttons_bbox = p2_buttons.getBoundingClientRect();
+  const p1_buttons_bbox = p1_buttons.getBoundingClientRect();
+  const player_name_bbox = player_name.getBoundingClientRect();
+  const ai_name_bbox = ai_name.getBoundingClientRect();
+  const screen_w = renderer.domElement.clientWidth;
+  const screen_h = renderer.domElement.clientHeight;
+  const p1b_pct = p1_buttons_bbox.width / screen_w;
+  const player_box = player_name_bbox.height / screen_h;
+  const p2b_pct = p1_buttons_bbox.width / screen_w;
+  const ai_box = ai_name_bbox.height / screen_h;
+
+  for (let i = 0; i < ui_elements.length; i++) {
+    const obj = ui_elements[i];
+    const btn_rect = i === 0 ? p1_buttons_bbox : p2_buttons_bbox;
+    const name_rect = i === 0 ? player_name_bbox : ai_name_bbox;
+
+    const vw = btn_rect.left / screen_w - 0.03;
+    const vh = name_rect.bottom / screen_h + 0.03;
+
+    const xCam = -halfWidth + vw * (halfWidth * 2);
+    const yCam = halfHeight - vh * (halfHeight * 2);
+    console.log("x: ", xCam, "y: ", yCam);
+
+    obj.position.set(xCam, yCam, cam_offset);
+
+    const screenPos = new THREE.Vector3();
+    screenPos.copy(obj.position);
+    screenPos.project(camera);
+    const btext_w = xCam;
+    const btext_h = yCam;
+    j = j + 1;
+  }
+}
+
+/* disable object group */
+function toggle_element(obj, on_off) {
+  let vis = true;
+  if (on_off === "off") vis = false;
+  obj.traverse(function (child) {
+    if (child instanceof THREE.Mesh) {
+      child.visible = vis;
+    }
+  });
+}
+
+/* get outline */
+function outline_object(obj) {
+  const outline = obj.clone();
+  outline.material = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+    side: THREE.BackSide,
+  });
+  outline.position.copy(obj.position);
+
+  outline.scale.multiplyScalar(1.2);
+  return outline;
+}
+
+/* get highlight */
+function highlight_patch(p) {
+  if (current_highlight) scene.remove(current_highlight);
+  const patch_color = p.children[0].material.color.getHex();
+  console.log(patch_color);
+  const complement = 0xffffff ^ patch_color;
+  const color = new THREE.Color(complement);
+  color.offsetHSL(0, 0, 0.2);
+  const highlight = new THREE.Group();
+  for (let i = 0; i < p.children.length; i++) {
+    const hl = p.children[i].clone();
+    hl.material = new THREE.MeshBasicMaterial({
+      color: color,
+      opacity: 0.8,
+      transparent: true,
+    });
+    console.log(hl);
+    highlight.add(hl);
+  }
+  highlight.position.copy(p.position);
+  highlight.position.z += 0.01;
+  highlight.rotation.copy(p.rotation);
+  current_highlight = highlight;
+  scene.add(highlight);
+}
+
+let t = 0;
 function animate() {
-  /*scene.rotation.x += 0.01;
-  scene.rotation.y += 0.01;*/
+  t += 0.05;
+  const pulse = 1 + Math.sin(t) * 0.05;
+  b1.scale.set(pulse, pulse, pulse);
+  b2.scale.set(pulse, pulse, pulse);
+  if (skydome) skydome.rotation.y += 0.001;
   renderer.render(scene, camera);
 }
 renderer.setAnimationLoop(animate);

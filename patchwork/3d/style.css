@@ -34,17 +34,35 @@
     pointer-events: none;
 }
 
-.player-box {
+.player-box-1 {
+    position: relative;
+    top: 2%;
+    left: 2%;
     pointer-events: auto;
-    background: rgba(0, 0, 0, 0.55);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.75rem;
-    backdrop-filter: blur(6px);
-    min-width: 45vw;
-    text-align: center;
+    z-index: 100;
+}
+
+.player-box-2 {
+    position: relative;
+    top: 2%;
+    left: 73%;
+    z-index: 100;
+    pointer-events: auto;
 }
 
 .player_details .player-box:last-child {
     margin-left: auto;
+}
+
+.p1-buttons {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    pointer-events: none;
+}
+.p2-buttons {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    pointer-events: none;
 }

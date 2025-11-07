@@ -814,7 +814,7 @@ renderer.domElement.addEventListener("pointerdown", (event) => {
 });
 
 renderer.domElement.addEventListener("pointerup", () => {
-  dragging.scale.multiplyScalar(1 / 1.5);
+  if (dragging != null) dragging.scale.multiplyScalar(1 / 1.5);
   dragging = null;
   toggle_orbit_controls("on");
 });
